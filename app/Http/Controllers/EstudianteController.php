@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Estudiante;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class EstudianteController
@@ -14,8 +15,9 @@ class EstudianteController extends Controller
 {
     public function index()
     {
-        $datos['estudiantes'] = Estudiante::paginate(15);
-        return view('estudiante.index', $datos);
+        //$datos['estudiantes'] = Estudiante::paginate(15);
+        //return view('estudiante.index', $datos);
+        return view('estudiante.index');
     }
 
     public function create()
@@ -40,10 +42,14 @@ class EstudianteController extends Controller
         //
     }
  
-    public function edit($id)
+    public function edit($idestudiante)
     {
         //
-        $estudiante = Estudiante::findOrFail($id);
+        // $estudiante = Estudiante::find($idestudiante);
+        $estudiante = DB::table('estudiantes')
+            ->select('estudiantes.*')
+            ->where('idestudiante',$idestudiante)
+            ->first();
 
         return view('estudiante.edit', compact('estudiante'));
     }

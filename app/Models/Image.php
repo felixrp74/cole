@@ -1,18 +1,37 @@
 <?php
 
+/**
+ * Created by Reliese Model.
+ */
+
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Image
+ * 
+ * @property int $id
+ * @property string $url
+ * @property int $imageable_id
+ * @property string $imageable_type
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ *
+ * @package App\Models
+ */
 class Image extends Model
 {
-    use HasFactory;
+	protected $table = 'images';
 
-    protected $fillable = ['url'] ;  
- 
-    // realcion polimorfica
-    public function imageable(){
-        return $this->morphTo();
-    }   
+	protected $casts = [
+		'imageable_id' => 'int'
+	];
+
+	protected $fillable = [
+		'url',
+		'imageable_id',
+		'imageable_type'
+	];
 }
