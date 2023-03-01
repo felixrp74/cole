@@ -24,7 +24,7 @@ class DocenteController extends Controller
         return view('docente.index', compact('docentes'))
             ->with('i', (request()->input('page', 1) - 1) * $docentes->perPage());
         */
-        $datos['docentes'] = Docente::paginate(15);
+        $datos['docentes'] = Docente::paginate(100);
         return view('docente.index', $datos);
     }
 

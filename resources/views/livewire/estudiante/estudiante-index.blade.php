@@ -5,7 +5,7 @@
             <strong>{{session('info')}}</strong>
         </div>
     @endif
-   
+    
     <div class="card">
         {{-- cabecera tabla --}}
         <div class="card-header">

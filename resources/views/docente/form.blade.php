@@ -1,4 +1,4 @@
-formulario 
+
 
 <label for="Nombre">Nombre</label>
 <input type="text" name="Nombre" value="{{ isset($docente->nombre)?$docente->nombre:'' }}" id="Nombre">
@@ -7,6 +7,6 @@ formulario
 <input type="text" name="Profesion" value="{{ isset($docente->profesion)?$docente->profesion:'' }}" id="Profesion">
 <br>
 <label for="Enviar">Enviar</label>
-<input type="submit" value="Guardar datos">
+<input class="btn btn-info" type="submit" value="Guardar datos">
 
-<a href="{{ url('/docente') }}">Regresar</a>
+<a class="btn btn-danger" href="{{ url('/docente') }}">Regresar</a>
