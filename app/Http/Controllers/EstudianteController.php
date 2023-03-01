@@ -15,9 +15,9 @@ class EstudianteController extends Controller
 {
     public function index()
     {
-        //$datos['estudiantes'] = Estudiante::paginate(15);
-        //return view('estudiante.index', $datos);
-        return view('estudiante.index');
+        $datos['estudiantes'] = Estudiante::paginate(15);
+        return view('estudiante.index', $datos);
+        //return view('estudiante.index');
     }
 
     public function create()
@@ -67,7 +67,13 @@ class EstudianteController extends Controller
 
         Estudiante::where('idestudiante','=',$id)->update($datosEstudiante);
 
-        $estudiante = Estudiante::findOrFail($id);
+        //$estudiante = Estudiante::findOrFail($id);
+
+        $estudiante = DB::table('estudiantes')
+            ->select('estudiantes.*')
+            ->where('idestudiante',$id)
+            ->first();
+
         return view('estudiante.edit', compact('estudiante'));
     }
 
