@@ -14,9 +14,8 @@ use App\Http\Controllers\VerAsignacionesController;
 
 
 Route::resource('estudiante', EstudianteController::class);
-Route::resource('docente', DocenteController::class);
-Route::resource('grado', GradoController::class);
-Route::resource('matricula', MatriculaController::class);
+Route::resource('docente', DocenteController::class); // INTERFAZ
+Route::resource('matricula', MatriculaController::class); // 
 Route::resource('reportenotas', ReporteEstudianteController::class);
 Route::resource('asignacion', AsignacionController::class);
 Route::resource('curso', CursoController::class);

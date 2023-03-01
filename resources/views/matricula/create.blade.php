@@ -1,3 +1,12 @@
+@extends('adminlte::page')
+
+@section('title', 'Dashboard')
+
+@section('content_header')
+    <h1>MATRICULAR A ESTUDIANTE</h1>
+@stop
+
+@section('content')
 Formulario de cracion de detalle_matricula
 
 <form action="{{ url('/matricula') }}" method="POST" enctype="multipart/form-data" >
@@ -19,6 +28,16 @@ Formulario de cracion de detalle_matricula
 <input type="text" name="Especialidad" id="Especialidad" value="AUTOMOTRIZ">
 <br>
 
-<input type="submit" value="Guardar datos">
+<input class="btn btn-info" type="submit" value="Guardar datos">
 
 </form>
+
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop
