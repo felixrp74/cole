@@ -13,14 +13,13 @@ use App\Http\Controllers\ColocacionNotasController;
 use App\Http\Controllers\VerAsignacionesController;
 
 
-Route::resource('estudiante', EstudianteController::class);
+Route::resource('estudiante', EstudianteController::class); //INTERFAZ
 Route::resource('docente', DocenteController::class); // INTERFAZ
-Route::resource('matricula', MatriculaController::class); // 
-Route::resource('reportenotas', ReporteEstudianteController::class);
-Route::resource('asignacion', AsignacionController::class);
-Route::resource('curso', CursoController::class);
+Route::resource('matricula', MatriculaController::class); // INTERFAZ
+Route::resource('reportenotas', ReporteEstudianteController::class); //INTERFAZ
+Route::resource('asignacion', AsignacionController::class);// INTERFAZ
+Route::resource('curso', CursoController::class);//INTERFAZ
 Route::resource('colocacionnotas', ColocacionNotasController::class);
-Route::resource('verasignaciones', VerAsignacionesController::class);
 
 
 Route::get('/',  [PostController::class, 'index'])->name('posts.index');

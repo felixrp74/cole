@@ -70,7 +70,7 @@ class CursoController extends Controller
             ->where('cursos.idcurso', $id)
             ->select('cursos.*','niveles.*')
             ->get()->first();
-        dump($datos);
+        // dump($datos);
         
         return view('curso.edit', compact('datos'));
         

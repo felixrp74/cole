@@ -8,12 +8,6 @@
 
 @section('content')
 
-    @if (session('info'))
-        <div class="alert alert-success">
-            <strong>{{session('info')}}</strong>
-        </div>
-    @endif
-    
     <div>
 
         @if (session('info'))

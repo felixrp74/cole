@@ -16,6 +16,6 @@
 <input type="text" name="Seccion" id="Seccion" value="{{ isset($datos->seccion)?$datos->seccion:'' }}" >
 <br>
 
-<input type="submit" value="Guardar datos">
+<input class="btn btn-info" type="submit" value="Guardar datos">
 
-<a href="{{ url('/curso') }}">Regresar</a>
+<a class="btn btn-danger" href="{{ url('/curso') }}">Regresar</a>

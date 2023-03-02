@@ -1,24 +1,54 @@
-Formulario de cracion de estudiante
+@extends('adminlte::page')
 
-<form action="{{ url('/curso') }}" method="POST" enctype="multipart/form-data" >
-@csrf
+@section('title', 'Dashboard')
 
-<label for="Curso">Curso</label>
-<input type="text" name="Curso" id="Curso" value="ARTE">
-<br>
+@section('content_header')
+    <h1>REGISTRAR CURSO</h1>
+@stop
 
-<label for="Especialidad">Especialidad</label>
-<input type="text" name="Especialidad" id="Especialidad" value="ESPECIALIDAD">
-<br>
+@section('content')
 
-<label for="Grado">Grado</label>
-<input type="text" name="Grado" id="Grado" value="1">
-<br>
+<div>
 
-<label for="Seccion">Seccion</label>
-<input type="text" name="Seccion" id="Seccion" value="D">
-<br>
+    @if (session('info'))
+        <div class="alert alert-success">
+            <strong>{{session('info')}}</strong>
+        </div>
+    @endif
+    Formulario de cracion de estudiante
 
-<input type="submit" value="Guardar datos">
+    <form action="{{ url('/curso') }}" method="POST" enctype="multipart/form-data" >
+    @csrf
 
-</form>
+    <label for="Curso">Curso</label>
+    <input type="text" name="Curso" id="Curso" value="ARTE">
+    <br>
+
+    <label for="Especialidad">Especialidad</label>
+    <input type="text" name="Especialidad" id="Especialidad" value="ESPECIALIDAD">
+    <br>
+
+    <label for="Grado">Grado</label>
+    <input type="text" name="Grado" id="Grado" value="1">
+    <br>
+
+    <label for="Seccion">Seccion</label>
+    <input type="text" name="Seccion" id="Seccion" value="D">
+    <br>
+
+    <input class="btn btn-info" type="submit" value="Guardar datos">
+
+    </form>
+
+     
+</div>
+
+@stop
+
+@section('css')
+<link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+<script> console.log('Hi!'); </script>
+@stop
