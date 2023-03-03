@@ -31,7 +31,12 @@ class MatriculaController extends Controller
 
     public function create()
     {
-        return view('matricula.create');
+    
+        // return view('matricula.create');
+
+   
+        
+        return view('matricula.prueba');
     }
 
     public function store(Request $request)
@@ -53,14 +58,11 @@ class MatriculaController extends Controller
 
         // Consultar la tabla 'cursos' where 'idniveles' "3" para extraer el array de cursos e insertarlo en 'detall_matricula'. 
         $cursos = DB::select('select * from cursos where niveles_idniveles = :id', ['id' => $nivel->idniveles]);
-        //dump($cursos[0]->idcurso);
-        
+        //dump($cursos[0]->idcurso);        
         
         DB::table('matriculas')->insert(
             ['estudiante_idestudiante' => $datosForm['IdEstudiante']]
         );
-        
-        
         
         $matricula = Matricula::where('estudiante_idestudiante', $datosForm['IdEstudiante'])->first();
         //dump($matricula->idmatricula);
@@ -78,7 +80,7 @@ class MatriculaController extends Controller
 
     }
  
-    public function show()
+    public function show($id)
     {
         //
     }

@@ -37,9 +37,15 @@ class EstudianteController extends Controller
         return redirect('/estudiante')->with('mensaje', 'Empleado agregado con exito');
     }
  
-    public function show(Estudiante $estudiante)
+    public function show($id)
     {
         //
+        $estudiante = DB::table('estudiantes')
+            ->select('estudiantes.*')
+            ->where('idestudiante',$id)
+            ->first();
+
+        return $estudiante;
     }
  
     public function edit($idestudiante)
