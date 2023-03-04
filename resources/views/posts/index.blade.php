@@ -2,22 +2,21 @@
     
     <div class="flex justify-center">
         <h1 class="text-center lg:text-2xl font-bold leading-normal text-gray-800 xs:text-xs">
-            UNIVERSIDAD NACIONAL DEL ALTIPLANO PUNO
+            {{-- COLEGIO INDUSTRIAL N° 32 --}}
         </h1>
     </div>
 
  
     <div class="flex justify-center">
         <h1 class="text-center lg:text-2xl font-bold leading-normal text-gray-800 xs:text-xs">
-            FACULTAD DE INGENIERIA MECANICA ELECTRICA, ELECTRONICA Y SISTEMAS
-          </h1>
+            COLEGIO INDUSTRIAL N° 32
+        </h1>
     </div>
 
  
     <div class="flex justify-center">
         <h1 class="text-center lg:text-2xl font-bold leading-normal text-gray-800 xs:text-xs">
-            RESPONSABILIDAD SOCIAL
-          </h1>
+        </h1>
     </div>
 
 
@@ -31,13 +30,13 @@
                 <!-- Article -->
                 <article class="overflow-hidden rounded-lg shadow-2xl bg-white">
                     <a class="flex justify-center" href="{{route('posts.category', $categories[0])}}">
-                        <img class="h-60 w-full object-scale-down md:w-48 mx-4 p-4" alt="Placeholder" class="block h-auto w-full" src="https://img.webme.com/pic/l/larios-unap/mecanica.png">
+                        <img class="h-60 w-full object-scale-down md:w-58 mx-4 p-4" alt="Placeholder" class="block h-auto w-full" src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/ESPECIALIDAD-COMPUTACION-22-1536x878.png">
                     </a>
 
                     <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2">ESCUELA PROFESIONAL DE INGENIERIA MECANICA ELECTRICA</div>
+                        <div class="font-bold text-xl mb-2">COMPUTACIÓN</div>
                         <p class="text-gray-700 text-base">
-                            La ingeniería mecanica y eléctrica es el campo de la ingeniería que se ocupa del estudio y la aplicación de la electricidad, electromagnetismo, y la electrónica.
+                            La Computación es la disciplina que se encarga del estudio de las computadoras, abarcando su diseño, desarrollo y procesamiento (hardware), mientas que la Informática recoge y ordena los datos convirtiéndolos en información sencilla (software).
                         </p>
                     </div>
 
@@ -75,13 +74,14 @@
                 <!-- Article -->
                 <article class="overflow-hidden rounded-lg shadow-2xl bg-white">
                     <a class="flex justify-center" href="{{route('posts.category', $categories[1])}}">
-                        <img class="h-60 w-full object-scale-down md:w-48 mx-4 p-4" alt="Placeholder" class="block h-auto w-full" src="https://portal.unap.edu.pe/sites/default/files/epie.jpg">
+                        <img class="h-60 w-full object-scale-down md:w-58 mx-4 p-4" alt="Placeholder" class="block h-auto w-full" src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/ESPECIALIDAD-ALIMENTARIA-22-1536x878.png">
                     </a>
 
                     <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2">ESCUELA PROFESIONAL DE INGENIERIA ELECTRONICA</div>
+                        <div class="font-bold text-xl mb-2">INDUSTRIA ALIMENTARIA</div>
                         <p class="text-gray-700 text-base">
-                            La ingeniería electrónica es una rama de la ingeniería que se encarga de resolver problemas de la ingeniería tales como el control de procesos industriales y de sistemas electrónicos de potencia.
+                            La industria de alimentos procesa la materia prima para obtener alimentos de consumo humano o animal. En este proceso se incluyen las fases de transporte, recepción, almacenamiento, procesamiento, conservación. Las materias primas utilizadas son de origen agropecuario principalmente.
+                            
                         </p>
                     </div>
 
@@ -119,14 +119,13 @@
                 <!-- Article -->
                 <article class="overflow-hidden rounded-lg shadow-2xl bg-white">
                     <a class="flex justify-center" href="{{route('posts.category', $categories[2])}}">
-                        <img class="h-60 w-full object-scale-down md:w-48 mx-4 p-4" alt="Placeholder" class="block h-auto w-full" src="https://pbs.twimg.com/profile_images/2137261758/episunap_400x400.png">
+                        <img class="h-60 w-full object-scale-down md:w-58 mx-4 p-4" alt="Placeholder" class="block h-auto w-full" src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/ESPECIALIDAD-ELECTRICIDAD-22-1536x878.png">
                     </a>
 
                     <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2">ESCUELA PROFESIONAL DE INGENIERIA SISTEMAS</div>
+                        <div class="font-bold text-xl mb-2">ELECTRICIDAD</div>
                         <p class="text-gray-700 text-base">
-                            Manual de NASA define la Ingeniería de Sistemas como la combinación de elementos que funcionan junto s para producir la capacidad de satisfacer una necesidad. Los elementos 
-                                    incluyen los equipos, software, plantas industriales, personal, procesos, y procedimientos requeridos para alcanzar dicho propósito.
+                            La electricidad es una forma de energía que se manifiesta con el movimiento de los electrones de la capa externa de los átomos que hay en la superficie de un material conductor. La electricidad es un fenómeno íntimamente ligado en la materia y a la vida.
                         </p>
                     </div>
 

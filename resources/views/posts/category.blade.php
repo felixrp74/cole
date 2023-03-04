@@ -53,7 +53,7 @@
                     
                     {{-- logo --}}
                     <a class="flex justify-center" href="#">
-                        <img class="h-60 w-full object-scale-down md:w-48 mx-4 p-4" src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Logo_UNAP.png" alt="Man looking at item at a store">
+                        <img class="h-60 w-full object-scale-down md:w-48 mx-4 p-4" src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/cropped-LOGO-I32-22.png" alt="Man looking at item at a store">
                     </a>
                     
                 </div>

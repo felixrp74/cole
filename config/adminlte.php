@@ -31,7 +31,7 @@ return [
     */
 
     'use_ico_only' => true,
-    'use_full_favicon' => false,
+    'use_full_favicon' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -46,8 +46,8 @@ return [
     */
 
     'logo' => '<b>Administrador</b>',
-    // 'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img' => 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Logo_UNAP.png',
+    // 'logo_img' => 'vendor/adminlte/dist/img/logocolegio.png',
+    'logo_img' => 'http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/cropped-LOGO-I32-22.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -287,7 +287,7 @@ return [
         [
             'text' => 'Colocar notas a los estudiantes',
             'route'  => 'colocacionnotas.index',
-            'icon' => 'fab fa-fw fa-buffer',
+            'icon' => 'fab fa-fw fa fa-tasks',
             // 'can' => 'admin.categories.index',
         ], 
         ['header' => 'ESTUDIANTE'],
@@ -295,7 +295,7 @@ return [
             'text' => 'Reporte de notas',
             // 'route'  => 'admin.categories.index',
             'route'  => 'reportenotas.index',
-            'icon' => 'fab fa-fw fa-buffer',
+            'icon' => 'fab fa-fw fa fa-sticky-note',
             // 'can' => 'admin.categories.index',
         ],
         // ['header' => 'PUBLICACION'],
@@ -328,41 +328,41 @@ return [
             'text' => 'Matricular estudiantes',
             // 'route'  => 'admin.categories.index',
             'route'  => 'matricula.create',
-            'icon' => 'fab fa-fw fa-buffer',
+            'icon' => 'fab fa-fw fa fa-user',
             // 'can' => 'admin.categories.index',
         ],
         [
             'text' => 'Matricula de estudiantes',
             // 'route'  => 'admin.categories.index',
             'route'  => 'matricula.index',
-            'icon' => 'fab fa-fw fa-buffer',
+            'icon' => 'fab fa-fw fa fa-users',
             // 'can' => 'admin.categories.index',
         ],
         ['header' => 'ADMINISTRADOR ESTUDIANTE'],
         [
             'text' => 'Registrar estudiantes',
             'route'  => 'estudiante.create',
-            'icon' => 'fab fa-fw fa-buffer',
+            'icon' => 'fab fa-fw fa fa-user-plus',
             // 'can' => 'admin.categories.index',
         ],
         [
             'text' => 'Registro de estudiantes',
             // 'route'  => 'admin.categories.index',
             'route'  => 'estudiante.index',
-            'icon' => 'fab fa-fw fa-buffer',
+            'icon' => 'fab fa-fw fa fa-users',
             // 'can' => 'admin.categories.index',
         ],
         ['header' => 'ADMINISTRADOR DOCENTE'],
         [
             'text' => 'Registrar docentes',
             'route'  => 'docentes.create',
-            'icon' => 'fab fa-fw fa-buffer',
+            'icon' => 'fab fa-fw fa fa-user-plus',
             // 'can' => 'admin.categories.index',
         ],  
         [
             'text' => 'Registro de docentes',
             'route'  => 'docentes.index',
-            'icon' => 'fab fa-fw fa-buffer',
+            'icon' => 'fab fa-fw fa fa-users',
             // 'can' => 'admin.categories.index',
         ], 
         // [
@@ -376,7 +376,7 @@ return [
             'text' => 'Usuarios',
             'route'  => 'admin.users.index',
             // 'icon' => 'fab fa-fw fa-buffer',
-            'icon' => 'fas fa-users fa-fw',
+            'icon' => 'fab fa-fw fas fa-users fa-fw',
             'can' => 'admin.users.index',
             
         ],

@@ -1,6 +1,6 @@
 <header>
-    <link rel="shortcut icon" type="image/png" href="{{ asset('https://upload.wikimedia.org/wikipedia/commons/c/cb/Logo_UNAP.png') }}">
-    <link rel="shortcut icon" sizes="192x192" href="{{ asset('https://upload.wikimedia.org/wikipedia/commons/c/cb/Logo_UNAP.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/cropped-LOGO-I32-22.png') }}">
+    <link rel="shortcut icon" sizes="192x192" href="{{ asset('http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/cropped-LOGO-I32-22.png') }}">
 </header>
 <nav class="bg-gray-800" x-data="{ open: false }">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -33,10 +33,10 @@
 
         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
  
-          {{-- logotipo --}}
+          {{-- logo --}}
           <a href="/" class="flex-shrink-0 flex items-center">
-            <img class="block lg:hidden h-8 w-auto" src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Logo_UNAP.png" alt="Workflow">
-            <img class="hidden lg:block h-8 w-auto" src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Logo_UNAP.png" alt="Workflow">
+            <img class="block lg:hidden h-8 w-auto" src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/cropped-LOGO-I32-22.png" alt="Workflow">
+            <img class="hidden lg:block h-8 w-auto" src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/cropped-LOGO-I32-22.png" alt="Workflow">
           </a>
 
           {{-- menu horizontal --}}
@@ -50,10 +50,10 @@
 
              
 
-              @foreach ($categories as $category)
+              {{-- @foreach ($categories as $category)
                 
                 <a href="{{route('posts.category', $category)}}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">{{$category->name}}</a>                  
-              @endforeach
+              @endforeach --}}
             </div>
           </div>
         </div>
@@ -133,9 +133,9 @@
         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a> --}}
 
-        @foreach ($categories as $category)
+        {{-- @foreach ($categories as $category)
           <a href="{{route('posts.category', $category)}}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{{$category->name}}</a>
-        @endforeach
+        @endforeach --}}
       </div>
     </div>
   </nav>
