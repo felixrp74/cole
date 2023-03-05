@@ -19,7 +19,7 @@ class UsersIndex extends Component
         $this->resetPage();
     }
 
-
+ 
     public function render()
     {
         $users = User::paginate();

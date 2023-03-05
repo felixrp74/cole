@@ -32,11 +32,7 @@ class MatriculaController extends Controller
     public function create()
     {
     
-        // return view('matricula.create');
-
-   
-        
-        return view('matricula.prueba');
+        return view('matricula.create');
     }
 
     public function store(Request $request)

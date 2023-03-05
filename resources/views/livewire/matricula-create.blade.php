@@ -1,5 +1,3 @@
-
-
 <div class="card">
 
     <form action="{{ url('/matricula') }}" method="POST" enctype="multipart/form-data" >
