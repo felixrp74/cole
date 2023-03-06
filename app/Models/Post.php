@@ -1,68 +1,40 @@
 <?php
 
-/**
- * Created by Reliese Model.
- */
-
 namespace App\Models;
 
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class Post
- * 
- * @property int $id
- * @property string $name
- * @property string $slug
- * @property string|null $extract
- * @property string|null $body
- * @property string $status
- * @property int $user_id
- * @property int $category_id
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * 
- * @property Category $category
- * @property User $user
- * @property Collection|Tag[] $tags
- *
- * @package App\Models
- */
+// use 
+
 class Post extends Model
 {
-	protected $table = 'posts';
+    use HasFactory;
 
-	protected $casts = [
-		'user_id' => 'int',
-		'category_id' => 'int'
-	];
+    // <$guarded>: asignacion masiva de campos que queremos evitar 
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 
-	protected $fillable = [
-		'name',
-		'slug',
-		'extract',
-		'body',
-		'status',
-		'user_id',
-		'category_id'
-	];
+    // relacion uno a muchos inversa
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 
-	public function category()
-	{
-		return $this->belongsTo(Category::class);
-	}
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 
-	public function user()
-	{
-		return $this->belongsTo(User::class);
-	}
+    // relacion muchos a muchos
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
+    }
 
-	public function tags()
-	{
-		return $this->belongsToMany(Tag::class)
-					->withPivot('id')
-					->withTimestamps();
-	}
+    // relacinon uno a uno polimorfica
+    public function image(){
+        return $this->morphOne(Image::class, 'imageable');
+    }
+    
+    // relacinon uno a uno polimorfica
+    public function file(){
+        return $this->morphOne(File::class, 'fileable');
+    }
 }
