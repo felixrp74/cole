@@ -57,7 +57,7 @@ class PostController extends Controller
 
 
         if($request->file('golosa')){
-
+ 
             $url = Storage::put('posts', $request->file('golosa'));
             $post->image()->create([
                 'url' => $url

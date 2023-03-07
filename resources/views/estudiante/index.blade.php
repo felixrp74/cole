@@ -35,15 +35,27 @@
                         <thead>
                             <tr>
                                 <td>#</td>
+                                <td>Dni</td>
                                 <td>Nombre</td>
+                                <td>Paterno</td>
+                                <td>Materno</td>
+                                <td>Genero</td>
+                                <td>Celular</td>
+                                <td>Email</td>
                                 <td colspan="2">Acciones</td>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach( $estudiantes as $estudiante )
                             <tr>
-                                <td>{{ $estudiante->idestudiante }}</td>
+                                <td>{{ $i++ }}</td>
+                                <td>{{ $estudiante->dni }}</td>
                                 <td>{{ $estudiante->nombre }}</td>
+                                <td>{{ $estudiante->apellido_paterno }}</td>
+                                <td>{{ $estudiante->apellido_materno }}</td>
+                                <td>{{ $estudiante->genero }}</td>
+                                <td>{{ $estudiante->celular }}</td>
+                                <td>{{ $estudiante->email }}</td>
                                 <td>
                                     <a class="btn btn-info" href="{{ url('/estudiante/'.$estudiante->idestudiante.'/edit') }}">Editar</a>
                                 </td>

@@ -43,4 +43,14 @@ class Estudiante extends Model
 	{
 		return $this->hasMany(Matricula::class, 'estudiante_idestudiante');
 	}
+
+	// relacinon uno a uno polimorfica
+	public function image(){
+		return $this->morphOne(Image::class, 'imageable');
+	}
+	
+	// relacinon uno a uno polimorfica
+	public function file(){
+		return $this->morphOne(File::class, 'fileable');
+	}
 }
