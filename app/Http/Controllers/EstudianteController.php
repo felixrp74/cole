@@ -15,9 +15,8 @@ class EstudianteController extends Controller
 {
     public function index()
     {
-        $datos['estudiantes'] = Estudiante::paginate(15);
+        $datos['estudiantes'] = Estudiante::all();
         return view('estudiante.index', $datos);
-        //return view('estudiante.index');
     }
 
     public function create()
@@ -29,9 +28,9 @@ class EstudianteController extends Controller
     {        
         $datosEstudiante = request()->except('_token');
 
-        /*if( $request->hasFile('Foto') ){
-            $datosEstudiante['Foto'] = $request->file('Foto')->store('uploads','public');
-        }*/
+        // if( $request->hasFile('Foto') ){
+        //     $datosEstudiante['Foto'] = $request->file('Foto')->store('uploads','public');
+        // }
 
         Estudiante::insert($datosEstudiante);
         return redirect('/estudiante')->with('mensaje', 'Empleado agregado con exito');
