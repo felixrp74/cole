@@ -55,8 +55,11 @@ class DocenteController extends Controller
             ->with('success', 'Docente created successfully.');
 
         */
-        $datosDocente = request()->except('_token');
 
+        
+        $datosDocente = request()->except('_token');
+        
+        // dump($datosDocente);
         /*if( $request->hasFile('Foto') ){
             $datosDocente['Foto'] = $request->file('Foto')->store('uploads','public');
         }*/

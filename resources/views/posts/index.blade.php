@@ -29,7 +29,7 @@
     
                 <!-- Article -->
                 <article class="overflow-hidden rounded-lg shadow-2xl bg-white">
-                    <a class="flex justify-center" href="{{route('posts.category', $categories[0])}}">
+                    <a class="flex justify-center" href="#">
                         <img class="h-60 w-full object-scale-down md:w-58 mx-4 p-4" alt="Placeholder" class="block h-auto w-full" src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/ESPECIALIDAD-COMPUTACION-22-1536x878.png">
                     </a>
 
@@ -73,7 +73,7 @@
                 
                 <!-- Article -->
                 <article class="overflow-hidden rounded-lg shadow-2xl bg-white">
-                    <a class="flex justify-center" href="{{route('posts.category', $categories[1])}}">
+                    <a class="flex justify-center" href="#">
                         <img class="h-60 w-full object-scale-down md:w-58 mx-4 p-4" alt="Placeholder" class="block h-auto w-full" src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/ESPECIALIDAD-ALIMENTARIA-22-1536x878.png">
                     </a>
 
@@ -118,7 +118,7 @@
                 
                 <!-- Article -->
                 <article class="overflow-hidden rounded-lg shadow-2xl bg-white">
-                    <a class="flex justify-center" href="{{route('posts.category', $categories[2])}}">
+                    <a class="flex justify-center" href="#">
                         <img class="h-60 w-full object-scale-down md:w-58 mx-4 p-4" alt="Placeholder" class="block h-auto w-full" src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/ESPECIALIDAD-ELECTRICIDAD-22-1536x878.png">
                     </a>
 

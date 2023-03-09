@@ -26,13 +26,37 @@
             <form action="{{ url('/docente') }}" method="POST" enctype="multipart/form-data" >
             @csrf
 
+            <label for="Dni">Dni</label>
+            <input type="text" name="dni" id="dni">
+            <br>
+
             <label for="Nombre">Nombre</label>
-            <input type="text" name="Nombre" id="Nombre">
+            <input type="text" name="nombre" id="nombre">
             <br>
 
             <label for="Profesion">Profesion</label>
-            <input type="text" name="Profesion" id="Profesion">
+            <input type="text" name="profesion" id="profesion">
             <br>
+
+            <label for="Apellido Paterno">Apellido Paterno</label>
+            <input type="text" name="apellido_paterno" id="apellido_paterno">
+            <br>
+
+            <label for="Apellido Materno">Apellido Materno</label>
+            <input type="text" name="apellido_materno" id="apellido_materno">
+            <br>
+
+            <label for="Celular">Celular</label>
+            <input type="text" name="celular" id="celular">
+            <br>
+
+            <label for="Email">Email</label>
+            <input type="text" name="email" id="email">
+            <br>
+
+            <label for="Password">Password</label>
+            <input type="text" name="password" id="password">
+            <br>            
 
             <input class="btn btn-info" type="submit" value="Guardar datos">
 

@@ -355,13 +355,13 @@ return [
         ['header' => 'ADMINISTRADOR DOCENTE'],
         [
             'text' => 'Registrar docentes',
-            'route'  => 'docentes.create',
+            'route'  => 'docente.create',
             'icon' => 'fab fa-fw fa fa-user-plus',
             // 'can' => 'admin.categories.index',
         ],  
         [
             'text' => 'Registro de docentes',
-            'route'  => 'docentes.index',
+            'route'  => 'docente.index',
             'icon' => 'fab fa-fw fa fa-users',
             // 'can' => 'admin.categories.index',
         ], 
