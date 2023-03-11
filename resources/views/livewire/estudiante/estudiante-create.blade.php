@@ -98,11 +98,9 @@
     <label for="celular_apoderado">Celular</label>
     <input type="text" name="celular_apoderado" id="celular_apoderado">
     <br>
-    <label for="estudiantes_idestudiante">estudiantes_idestudiante</label>
+    {{-- <label for="estudiantes_idestudiante">estudiantes_idestudiante</label>
     <input type="text" name="estudiantes_idestudiante" id="estudiantes_idestudiante">
-    <br>
-    
-
+    <br> --}}
     @endif
 
     <input class="btn btn-info" type="submit" value="Guardar datos">
