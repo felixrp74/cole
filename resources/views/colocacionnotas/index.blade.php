@@ -22,11 +22,7 @@
                 <strong>{{session('info')}}</strong>
             </div>
         @endif
-       
-    
-    
-       
-            
+              
             {{-- <div class="container">
                 <input wire:model = "search" class="form-control" placeholder="buscar por nombre" type="text">
     
@@ -61,8 +57,11 @@
                                     <td>Grado </td>
                                     <td>Seccion </td>
                                     <td>Curso </td>
-                                    <td>Especialidad </td>
+                                    {{-- <td>Especialidad </td> --}}
                                     <td>Nota 1</td>
+                                    <td>Nota 2</td>
+                                    <td>Nota 3</td>
+                                    <td>Promedio</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -74,11 +73,14 @@
                                     <td>{{ $colocacionnota->grado }}</td>
                                     <td>{{ $colocacionnota->seccion }}</td>
                                     <td>{{ $colocacionnota->descripcion }}</td>
-                                    <td>{{ $colocacionnota->especialidad }}</td>
-                                    <td><input type="number" name="{{ 'nota1'.$i }}" id="{{ 'nota1'.$i }}" value="{{ $colocacionnota->nota1 }}" max=20 min=0></td>
+                                    {{-- <td>{{ $colocacionnota->especialidad }}</td> --}}
+                                    <td><input style="width: 50px;" type="number" name="{{ 'nota1'.$i }}" id="{{ 'nota1'.$i }}" value="{{ $colocacionnota->nota1 }}" max=20 min=0></td>
+                                    <td><input style="width: 50px;" type="number" name="{{ 'nota2'.$i }}" id="{{ 'nota2'.$i }}" value="{{ $colocacionnota->nota2 }}" max=20 min=0></td>
+                                    <td><input style="width: 50px;" type="number" name="{{ 'nota3'.$i }}" id="{{ 'nota3'.$i }}" value="{{ $colocacionnota->nota3 }}" max=20 min=0></td>
+                                    <td><p   name="{{ 'promedio'.$i }}" id="{{ 'promedio'.$i }}"> {{ $colocacionnota->promedio }} </p></td>
                                     <input type="hidden" id="{{ 'estudiante'.$i }}" name="{{ 'estudiante'.$i }}" value="{{$colocacionnota->idestudiante}}">
                                     <input type="hidden" id="{{ 'curso'.$i }}" name="{{ 'curso'.$i }}" value="{{$colocacionnota->idcurso}}">
-                                    <input type="hidden" id="{{ 'nivel'.$i }}" name="{{ 'nivel'.$i }}" value="{{$colocacionnota->idniveles}}">
+                                    <input type="hidden" id="{{ 'nivel'.$i }}" name="{{ 'nivel'.$i }}" value="{{$colocacionnota->idnivel}}">
                                     <input type="hidden" id="{{ 'idmatricula'.$i }}" name="{{ 'idmatricula'.$i }}" value="{{$colocacionnota->idmatricula}}">
                                     <input type="hidden" id="{{ 'idcurso'.$i }}" name="{{ 'idcurso'.$i++ }}" value="{{$colocacionnota->idcurso}}">
                                     
@@ -87,8 +89,8 @@
                             </tbody>
                         </table>
                     </div>
-                    
-                </form>
+                </div>    
+            </form>
                 
                 <div class="card-footer">
                     

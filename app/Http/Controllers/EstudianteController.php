@@ -50,13 +50,10 @@ class EstudianteController extends Controller
             "email" => $datosEstudianteApoderado["email"],
             "password" => $datosEstudianteApoderado["password"]
         );
-
-
-        
-
+ 
 
         // dump($datosEstudiante);
-        //Estudiante::insert($datosEstudiante);
+        Estudiante::insert($datosEstudiante);
 
         $estudiante = Estudiante::orderBy('idestudiante', 'desc')->first();
         // echo ($estudiante["dni"]);
@@ -100,9 +97,9 @@ class EstudianteController extends Controller
         //
         // $estudiante = Estudiante::find($idestudiante);
         $estudiante = DB::table('estudiantes')
-            ->select('estudiantes.*')
-            ->where('idestudiante',$idestudiante)
-            ->first();
+        ->select('estudiantes.*')
+        ->where('idestudiante',$idestudiante)
+        ->first();
 
         $apoderado = DB::table('apoderados')
         ->select('apoderados.*')
@@ -163,9 +160,9 @@ class EstudianteController extends Controller
         //$estudiante = Estudiante::findOrFail($id);
 
         $estudiante = DB::table('estudiantes')
-            ->select('estudiantes.*')
-            ->where('idestudiante',$idestudiante)
-            ->first();
+        ->select('estudiantes.*')
+        ->where('idestudiante',$idestudiante)
+        ->first();
 
         $apoderado = DB::table('apoderados')
         ->select('apoderados.*')

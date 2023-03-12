@@ -26,7 +26,7 @@ class Colocacionnotas extends Component
         ->join('asignaciones', 'asignaciones.docentes_iddocente', '=', 'docentes.iddocente')
         ->join('detalle_asignaciones', 'detalle_asignaciones.asignaciones_idasignacion', '=', 'asignaciones.docentes_iddocente')
         ->join('cursos', 'cursos.idcurso', '=', 'detalle_asignaciones.cursos_idcurso')
-        ->join('niveles', 'niveles.idniveles', '=', 'cursos.niveles_idniveles')
+        ->join('niveles', 'niveles.idnivel', '=', 'cursos.niveles_idnivel')
         ->join('detalle_matriculas', 'detalle_matriculas.cursos_idcurso', '=', 'cursos.idcurso')
         ->join('matriculas', 'matriculas.idmatricula', '=', 'detalle_matriculas.matriculas_idmatricula')
         ->join('estudiantes', 'estudiantes.idestudiante', '=', 'matriculas.estudiante_idestudiante')

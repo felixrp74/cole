@@ -12,7 +12,7 @@ class MatriculaCreate extends Component
 
     public function render()
     {
-        $estudiante = Estudiante::where('idestudiante', '=', $this->search)
+        $estudiante = Estudiante::where('dni', '=', $this->search)
                 ->get()->first();
 
 

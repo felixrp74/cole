@@ -45,7 +45,7 @@ class MatriculaController extends Controller
         */       
 
         $datosForm = request()->except('_token');
-        //dump($datosForm);
+        // dump($datosForm);
 
         // HECHO. Consular la tabla 'niveles' where grado = 1 y seccion = C para extraer el valor de 'idniveles' "3".
         $nivel = Nivele::where('grado', $datosForm['Grado'])
@@ -55,6 +55,8 @@ class MatriculaController extends Controller
         // Consultar la tabla 'cursos' where 'idniveles' "3" para extraer el array de cursos e insertarlo en 'detall_matricula'. 
         $cursos = DB::select('select * from cursos where niveles_idniveles = :id', ['id' => $nivel->idniveles]);
         //dump($cursos[0]->idcurso);        
+
+        $estudiante = Estudiante::where('dni', '=', $datosForm['IdEstudiante']);
         
         DB::table('matriculas')->insert(
             ['estudiante_idestudiante' => $datosForm['IdEstudiante']]
