@@ -18,6 +18,15 @@
         </tr>
     </thead>
     <tbody>
+        <tr>
+            <td colspan="13">
+                @if(!empty($asignacioness))
+                    <h1>Aun no se tiene ningun estudiante matriculado.</h1>
+                @endif
+            </td>
+        </tr>
+        
+
         @foreach( $asignacioness as $asignacion )
         <tr>
             <td style="border: solid 1px;">{{ $asignacion->idasignacion }}</td>
@@ -28,7 +37,7 @@
             <td style="border: solid 1px;">{{ $asignacion->idcurso }}</td>
             <td style="border: solid 1px;">{{ $asignacion->descripcion }}</td>
             <td style="border: solid 1px;">{{ $asignacion->especialidad }}</td>
-            <td style="border: solid 1px;">{{ $asignacion->idniveles }}</td>
+            <td style="border: solid 1px;">{{ $asignacion->idnivel }}</td>
             <td style="border: solid 1px;">{{ $asignacion->grado }}</td>
             <td style="border: solid 1px;">{{ $asignacion->seccion }}</td>
             <td style="border: solid 1px;">{{ $asignacion->cursos_idcurso }}</td>

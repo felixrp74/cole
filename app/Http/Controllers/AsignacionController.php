@@ -24,7 +24,8 @@ class AsignacionController extends Controller
         $datos['asignacioness']  = DB::table('docentes')
             ->join('asignaciones', 'docentes.iddocente', '=', 'asignaciones.docentes_iddocente')
             ->select('asignaciones.idasignacion','docentes.*')
-            ->get();
+            
+            ->get(); 
             
         return view('asignacion.index', $datos);
 
@@ -40,15 +41,15 @@ class AsignacionController extends Controller
 
         //  DATA QUE VIENE DESDE 'asignacion.index' 
         $datosForm = request()->except('_token');
-        dump($datosForm);
+        // dump($datosForm);
 
         // HECHO. Consular la tabla 'niveles' where grado = 1 y seccion = C para extraer el valor de 'idniveles' "3".
         $nivel = Nivele::where('grado', $datosForm['Grado'])
             ->where('seccion', $datosForm['Seccion'])->first();
-        dump($nivel->idniveles);
+        // dump($nivel->idnivel);
 
-        $cursos = Curso::where('niveles_idniveles', '=', $nivel->idniveles)->where('descripcion', '=', $datosForm['Curso'])->first();
-        dump($cursos->idcurso);
+        $cursos = Curso::where('niveles_idniveles', '=', $nivel->idnivel)->where('descripcion', '=', $datosForm['Curso'])->first();
+        // dump($datosForm['Curso']);
         
         
         DB::table('asignaciones')->insert(
@@ -57,8 +58,8 @@ class AsignacionController extends Controller
         
                 
         $asignacion = Asignacione::where('docentes_iddocente', $datosForm['IdDocente'])->first();
-        dump($asignacion->idasignacion);
-        dump($asignacion->docentes_iddocente);
+        // dump($asignacion->idasignacion);
+        // dump($asignacion->docentes_iddocente);
 
         DB::table('detalle_asignaciones')->insert(
             [
@@ -76,7 +77,7 @@ class AsignacionController extends Controller
         ->join('asignaciones', 'asignaciones.docentes_iddocente', '=', 'docentes.iddocente')
         ->join('detalle_asignaciones', 'detalle_asignaciones.asignaciones_idasignacion', '=', 'asignaciones.docentes_iddocente')
         ->join('cursos', 'cursos.idcurso', '=', 'detalle_asignaciones.cursos_idcurso')
-        ->join('niveles', 'niveles.idniveles', '=', 'cursos.niveles_idniveles')
+        ->join('niveles', 'niveles.idnivel', '=', 'cursos.niveles_idniveles')
         ->join('detalle_matriculas', 'detalle_matriculas.cursos_idcurso', '=', 'cursos.idcurso')
         ->join('matriculas', 'matriculas.idmatricula', '=', 'detalle_matriculas.matriculas_idmatricula')
         ->join('estudiantes', 'estudiantes.idestudiante', '=', 'matriculas.estudiante_idestudiante')
@@ -84,8 +85,7 @@ class AsignacionController extends Controller
             ->select('asignaciones.idasignacion', 'docentes.nombre AS nombreDocente', 'estudiantes.*',
             'cursos.*', 'niveles.*', 'detalle_matriculas.*', 'matriculas.*')
             ->get();
-
-        //dump($datos);
+ 
             
         return view('asignacion.vercursos', $datos);
     }

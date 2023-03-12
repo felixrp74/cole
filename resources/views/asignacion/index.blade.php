@@ -34,7 +34,7 @@
                             <td style="border: solid 1px;"># Id Asignacion</td>
                             <td style="border: solid 1px;"># Id Docente</td>
                             <td style="border: solid 1px;">Nombre </td>
-                            <td style="border: solid 1px;">Profesion </td>
+                            <td style="border: solid 1px;">Profesion </td> 
                             <td colspan="2" style="border: solid 1px;">Acciones </td>
                             <td style="border: solid 1px;">Ver mas </td>
                         </tr>
@@ -45,7 +45,7 @@
                             <td style="border: solid 1px;">{{ $asignacion->idasignacion }}</td>
                             <td style="border: solid 1px;">{{ $asignacion->iddocente }}</td>
                             <td style="border: solid 1px;">{{ $asignacion->nombre }}</td>
-                            <td style="border: solid 1px;">{{ $asignacion->profesion }}</td>
+                            <td style="border: solid 1px;">{{ $asignacion->profesion }}</td> 
                             <td style="border: solid 1px;">
                                 <a class="btn btn-info" href="{{ url('/asignacion/'.$asignacion->idasignacion.'/edit') }}">Editar</a>
                                 

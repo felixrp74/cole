@@ -338,6 +338,21 @@ return [
             'icon' => 'fab fa-fw fa fa-users',
             // 'can' => 'admin.categories.index',
         ],
+        ['header' => 'ADMINISTRADOR ASIGNAR'],
+        [
+            'text' => 'Asignar docente',
+            // 'route'  => 'admin.categories.index',
+            'route'  => 'asignacion.create',
+            'icon' => 'fab fa-fw fa fa-user',
+            // 'can' => 'admin.categories.index',
+        ],
+        [
+            'text' => 'Asignacion de docentes',
+            // 'route'  => 'admin.categories.index',
+            'route'  => 'asignacion.index',
+            'icon' => 'fab fa-fw fa fa-users',
+            // 'can' => 'admin.categories.index',
+        ],
         ['header' => 'ADMINISTRADOR ESTUDIANTE'],
         [
             'text' => 'Registrar estudiantes',
