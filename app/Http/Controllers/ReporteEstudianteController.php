@@ -20,7 +20,7 @@ class ReporteEstudianteController extends Controller
         ->join('matriculas', 'estudiantes.idestudiante', '=', 'matriculas.estudiante_idestudiante')
         ->join('detalle_matriculas', 'matriculas.idmatricula', '=', 'detalle_matriculas.matriculas_idmatricula')
         ->join('cursos', 'cursos.idcurso', '=', 'detalle_matriculas.cursos_idcurso')
-            ->select('matriculas.idmatricula','estudiantes.*','detalle_matriculas.*','cursos.*')
+            ->select('matriculas.*','estudiantes.*','detalle_matriculas.*','cursos.*')
             ->where('estudiantes.idestudiante', '=', 3)
             ->get();
         

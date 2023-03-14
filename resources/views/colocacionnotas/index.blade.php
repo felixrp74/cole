@@ -42,42 +42,72 @@
                     {{-- cabecera tabla --}}
                     @if ($colocacionnotass->count())
                     <div class="card-header">
-                        <p><label for="Idestudiante">Id asignacion: </label> {{ $colocacionnotass[0]->idasignacion }}</p>
-                        <p><label for="Iddocente">Nombre de docente: </label> {{ $colocacionnotass[0]->nombreDocente }}</p> 
-                        <input class="btn btn-info" type="submit" value="Guardar datos">    
+                        {{-- <p><label for="Idestudiante">Id asignacion: </label> {{ $colocacionnotass[0]->idasignacion }}</p> --}}
+                        {{-- <p><label for="Iddocente">Nombre de docente: </label> {{ $colocacionnotass[0]->nombreDocente }}</p> 
+                        <input class="btn btn-info" type="submit" value="Guardar datos">     --}}
+
+                        <table class="table table-striped" style="border: solid 1px;">
+                            <thead>
+                                <tr>   
+                                    <td style="border: solid 1px;">Dato del docente  </td>
+                                    <td style="border: solid 1px;">Valor </td>  
+                                </tr>
+                            </thead>
+                            <tbody>
+                    
+                                
+                                <input type="hidden" value="{{ $i = 1 }}">
+                    
+                                 
+                                <tr>  
+                                    <td style="border: solid 1px;">Nombre de docente: </td>
+                                    <td style="border: solid 1px;">{{ $colocacionnotass[0]->nombreDocente }}</td> 
+                                </tr>
+                                <tr>  
+                                    <td style="border: solid 1px;">Materno: </td>
+                                    <td style="border: solid 1px;">{{ $colocacionnotass[0]->apellido_materno}}</td> 
+                                </tr>
+                                <tr>  
+                                    <td style="border: solid 1px;">Paterno: </td>
+                                    <td style="border: solid 1px;">{{ $colocacionnotass[0]->apellido_paterno }}</td> 
+                                </tr>
+                                <tr>  
+                                </tr> 
+                            </tbody>
+                        </table>
+                        
                     </div>
     
                     <div class="card-body">
                         <table class="table table-striped">
                             <thead>
                                 <tr>   
-                                    <td># </td>
-                                    <td>NombreDocente </td>
-                                    <td>Nombre </td>
-                                    <td>Grado </td>
-                                    <td>Seccion </td>
-                                    <td>Curso </td>
-                                    {{-- <td>Especialidad </td> --}}
-                                    <td>Nota 1</td>
-                                    <td>Nota 2</td>
-                                    <td>Nota 3</td>
-                                    <td>Promedio</td>
+                                    <td style="border: solid 1px;"># </td>
+                                    <td style="border: solid 1px;">NombreDocente </td>
+                                    <td style="border: solid 1px;">Nombre </td>
+                                    <td style="border: solid 1px;">Grado </td>
+                                    <td style="border: solid 1px;">Seccion </td>
+                                    <td style="border: solid 1px;">Curso </td>
+                                    <td style="border: solid 1px;">Nota 1</td>
+                                    <td style="border: solid 1px;">Nota 2</td>
+                                    <td style="border: solid 1px;">Nota 3</td>
+                                    <td style="border: solid 1px;">Promedio</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach( $colocacionnotass as $colocacionnota )
                                 <tr>  
-                                    <td>{{ $i }}</td>
-                                    <td>{{ $colocacionnota->nombreDocente }}</td>
-                                    <td>{{ $colocacionnota->nombre }}</td>
-                                    <td>{{ $colocacionnota->grado }}</td>
-                                    <td>{{ $colocacionnota->seccion }}</td>
-                                    <td>{{ $colocacionnota->descripcion }}</td>
+                                    <td style="border: solid 1px;">{{ $i }}</td>
+                                    <td style="border: solid 1px;">{{ $colocacionnota->nombreDocente }}</td>
+                                    <td style="border: solid 1px;">{{ $colocacionnota->nombre }}</td>
+                                    <td style="border: solid 1px;">{{ $colocacionnota->grado }}</td>
+                                    <td style="border: solid 1px;">{{ $colocacionnota->seccion }}</td>
+                                    <td style="border: solid 1px;">{{ $colocacionnota->descripcion }}</td>
                                     {{-- <td>{{ $colocacionnota->especialidad }}</td> --}}
-                                    <td><input style="width: 50px;" type="number" name="{{ 'nota1'.$i }}" id="{{ 'nota1'.$i }}" value="{{ $colocacionnota->nota1 }}" max=20 min=0></td>
-                                    <td><input style="width: 50px;" type="number" name="{{ 'nota2'.$i }}" id="{{ 'nota2'.$i }}" value="{{ $colocacionnota->nota2 }}" max=20 min=0></td>
-                                    <td><input style="width: 50px;" type="number" name="{{ 'nota3'.$i }}" id="{{ 'nota3'.$i }}" value="{{ $colocacionnota->nota3 }}" max=20 min=0></td>
-                                    <td><p   name="{{ 'promedio'.$i }}" id="{{ 'promedio'.$i }}"> {{ $colocacionnota->promedio }} </p></td>
+                                    <td style="border: solid 1px;"><input style="width: 50px;" type="number" name="{{ 'nota1'.$i }}" id="{{ 'nota1'.$i }}" value="{{ $colocacionnota->nota1 }}" max=20 min=0></td>
+                                    <td style="border: solid 1px;"><input style="width: 50px;" type="number" name="{{ 'nota2'.$i }}" id="{{ 'nota2'.$i }}" value="{{ $colocacionnota->nota2 }}" max=20 min=0></td>
+                                    <td style="border: solid 1px;"><input style="width: 50px;" type="number" name="{{ 'nota3'.$i }}" id="{{ 'nota3'.$i }}" value="{{ $colocacionnota->nota3 }}" max=20 min=0></td>
+                                    <td style="border: solid 1px;"><p   name="{{ 'promedio'.$i }}" id="{{ 'promedio'.$i }}"> {{ $colocacionnota->promedio }} </p></td>
                                     <input type="hidden" id="{{ 'estudiante'.$i }}" name="{{ 'estudiante'.$i }}" value="{{$colocacionnota->idestudiante}}">
                                     <input type="hidden" id="{{ 'curso'.$i }}" name="{{ 'curso'.$i }}" value="{{$colocacionnota->idcurso}}">
                                     <input type="hidden" id="{{ 'nivel'.$i }}" name="{{ 'nivel'.$i }}" value="{{$colocacionnota->idnivel}}">

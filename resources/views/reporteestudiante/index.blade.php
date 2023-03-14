@@ -50,10 +50,9 @@
                 <td style="border: solid 1px;">{{ $reportenotas[0]->celular}}</td>
             </tr>
             <tr>  
-                <td style="border: solid 1px;">Email: </td>
-                <td style="border: solid 1px;">{{ $reportenotas[0]->email}}</td>
-            
-                <td style="border: solid 1px;" colspan="2"> <input type="button" class="btn btn-info" value="EDITAR"> </td>
+                <td style="border: solid 1px;">Año académico: </td>
+                <td style="border: solid 1px;">{{ isset($reportenotas[0]->anio_academico) ? $reportenotas[0]->anio_academico : 'no tiene valor  ' }}</td>
+                
                 {{-- <td style="border: solid 1px;">{{ $reportenotas[0]->email}}</td> --}}
             </tr>
         </tbody>
@@ -73,16 +72,16 @@
                     <td style="border: solid 1px;"># </td>
                     <td style="border: solid 1px;">Curso </td>
                     {{-- <td style="border: solid 1px;">Especialidad </td> --}}
-                    <td style="border: solid 1px;">Nota 1</td>
-                    <td style="border: solid 1px;">Nota 2</td>
-                    <td style="border: solid 1px;">Nota 3</td>
+                    <td style="border: solid 1px;">Trimester I</td>
+                    <td style="border: solid 1px;">Trimester II</td>
+                    <td style="border: solid 1px;">Trimester III</td>
                     <td style="border: solid 1px;">Promedio</td>
                 </tr>
             </thead>
             <tbody>
 
                 
-                <input type="hidden" value="{{ $i = 1 }}">
+                <input type="hidden" value="{{ $i = 1}} {{ $promedio_final = 0.0}}">
 
                 @foreach( $reportenotas as $reporte )
                 <tr>  
@@ -93,16 +92,25 @@
                     <td style="border: solid 1px;">{{ $reporte->nota2 }}</td> 
                     <td style="border: solid 1px;">{{ $reporte->nota3 }}</td> 
                     <td style="border: solid 1px;">{{ $reporte->promedio }}</td> 
+
+                    <input type="hidden" value="{{ $promedio_final += $reporte->promedio}}">
                     
                 </tr>
                 @endforeach
+                <tr>  
+                    
+                    <input type="hidden" value="{{ $i-- }}">
+                    <td style="border: solid 1px;" colspan="5">Promedio final</td> 
+                    <td style="border: solid 1px;" colspan="1">{{ $promedio_final/$i }}</td> 
+
+                </tr>
             </tbody>
         
         </table>
     </div>
     
     <div class="card-footer">
-                    
+        <input type="button" class="btn btn-info" value="Imprimir">
     </div> 
     
 @else

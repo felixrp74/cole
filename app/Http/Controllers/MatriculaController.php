@@ -24,7 +24,7 @@ class MatriculaController extends Controller
             ->join('matriculas', 'estudiantes.idestudiante', '=', 'matriculas.estudiante_idestudiante')
             ->select('matriculas.idmatricula','estudiantes.*')
             ->get();
-            
+             
         return view('matricula.index', $datos);
 
     }
