@@ -81,6 +81,20 @@ class MatriculaController extends Controller
     public function show($id)
     {
         //
+        // dump('show');
+        $datos['reportenotas']  = DB::table('estudiantes')
+        ->join('matriculas', 'estudiantes.idestudiante', '=', 'matriculas.estudiante_idestudiante')
+        ->join('detalle_matriculas', 'matriculas.idmatricula', '=', 'detalle_matriculas.matriculas_idmatricula')
+        ->join('cursos', 'cursos.idcurso', '=', 'detalle_matriculas.cursos_idcurso')
+        ->join('niveles', 'niveles.idnivel', '=', 'cursos.niveles_idniveles')
+            ->select('matriculas.*','estudiantes.*','detalle_matriculas.*','cursos.*', 'niveles.*')
+            ->where('estudiantes.idestudiante', '=', $id)
+            ->get();
+        
+        //dump($datos);    
+
+        
+        return view('matricula.show', $datos);
     }
  
     public function edit($id)

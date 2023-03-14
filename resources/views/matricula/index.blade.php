@@ -24,7 +24,7 @@
                     <td style="border: solid 1px;">Nombre</td>
                     <td style="border: solid 1px;">Paterno</td>
                     <td style="border: solid 1px;">Materno </td>
-                    <td style="border: solid 1px;" colspan="2">Acciones </td>
+                    <td style="border: solid 1px;" colspan="3">Acciones </td>
                 </tr>
 
                 <input type="hidden" name="" value="{{ $i = 1 }}">
@@ -48,8 +48,7 @@
 
                     </td>
                     <td style="border: solid 1px;">
-                        <a class="btn btn-warning" href="{{ url('/matricula/'.$matricula->idmatricula.'/edit') }}">Ver mas</a>
-                        
+                        <a class="btn btn-warning" href="{{ url('/matricula/'.$matricula->idmatricula) }}">Ver mas</a>                       
 
                     </td>
                 </tr>
