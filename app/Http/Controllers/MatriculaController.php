@@ -48,30 +48,33 @@ class MatriculaController extends Controller
         // dump($datosForm);
 
         // HECHO. Consular la tabla 'niveles' where grado = 1 y seccion = C para extraer el valor de 'idniveles' "3".
-        $nivel = Nivele::where('grado', $datosForm['Grado'])
-            ->where('seccion', $datosForm['Seccion'])->first();
-        //dump($nivel->idniveles);
+        $nivel = Nivele::where('grado', $datosForm['grado'])
+            ->where('seccion', $datosForm['seccion'])->first();
+        // dump($nivel->idnivel);
 
-        // Consultar la tabla 'cursos' where 'idniveles' "3" para extraer el array de cursos e insertarlo en 'detall_matricula'. 
-        $cursos = DB::select('select * from cursos where niveles_idniveles = :id', ['id' => $nivel->idniveles]);
-        //dump($cursos[0]->idcurso);        
+        // // Consultar la tabla 'cursos' where 'idniveles' "3" para extraer el array de cursos e insertarlo en 'detall_matricula'. 
+        $cursos = DB::select('select * from cursos where niveles_idniveles = :id', ['id' => $nivel->idnivel]);
+        // dump($cursos);        
 
-        $estudiante = Estudiante::where('dni', '=', $datosForm['IdEstudiante']);
+        $estudiante = Estudiante::where('idestudiante', '=', $datosForm['idestudiante']);
         
         DB::table('matriculas')->insert(
-            ['estudiante_idestudiante' => $datosForm['IdEstudiante']]
+            ['estudiante_idestudiante' => $datosForm['idestudiante']]
         );
         
-        $matricula = Matricula::where('estudiante_idestudiante', $datosForm['IdEstudiante'])->first();
-        //dump($matricula->idmatricula);
-        //dump($matricula->estudiante_idestudiante);
-
+        $matricula = Matricula::where('estudiante_idestudiante', $datosForm['idestudiante'])->first();
+        // dump($matricula->idmatricula);
+        // dump($matricula->estudiante_idestudiante);
+        // dump($datosForm['idestudiante']);
+            
         foreach($cursos as $curso){
             DB::table('detalle_matriculas')->insert(
                 [
-                    'matriculas_idmatricula' => $matricula->idmatricula, 'cursos_idcurso' => $curso->idcurso
+                    'matriculas_idmatricula' => $matricula->idmatricula, 
+                    'cursos_idcurso' => $curso->idcurso
                 ]
             );
+
         }
         
         return redirect('/matricula')->with('mensaje', 'Matricula agregado con exito');
@@ -81,17 +84,17 @@ class MatriculaController extends Controller
     public function show($id)
     {
         //
-        // dump('show');
-        $datos['reportenotas']  = DB::table('estudiantes')
+        // dump($id);
+        $datos['reportematricula']  = DB::table('estudiantes')
         ->join('matriculas', 'estudiantes.idestudiante', '=', 'matriculas.estudiante_idestudiante')
         ->join('detalle_matriculas', 'matriculas.idmatricula', '=', 'detalle_matriculas.matriculas_idmatricula')
         ->join('cursos', 'cursos.idcurso', '=', 'detalle_matriculas.cursos_idcurso')
         ->join('niveles', 'niveles.idnivel', '=', 'cursos.niveles_idniveles')
             ->select('matriculas.*','estudiantes.*','detalle_matriculas.*','cursos.*', 'niveles.*')
-            ->where('estudiantes.idestudiante', '=', $id)
+            ->where('detalle_matriculas.matriculas_idmatricula', '=', $id)
             ->get();
         
-        //dump($datos);    
+        // dump($datos);    
 
         
         return view('matricula.show', $datos);
@@ -100,11 +103,52 @@ class MatriculaController extends Controller
     public function edit($id)
     {
         //
+        $datos['reportematricula']  = DB::table('estudiantes')
+        ->join('matriculas', 'estudiantes.idestudiante', '=', 'matriculas.estudiante_idestudiante')
+        ->join('detalle_matriculas', 'matriculas.idmatricula', '=', 'detalle_matriculas.matriculas_idmatricula')
+        ->join('cursos', 'cursos.idcurso', '=', 'detalle_matriculas.cursos_idcurso')
+        ->join('niveles', 'niveles.idnivel', '=', 'cursos.niveles_idniveles')
+            ->select('matriculas.*','estudiantes.*','detalle_matriculas.*','cursos.*', 'niveles.*')
+            ->where('detalle_matriculas.matriculas_idmatricula', '=', $id)
+            ->get();
+
+        // dump($datos);
+        return view('matricula.edit', $datos);
         
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+        $datosForm = request()->except('_token', '_method');
+        // dump($datosForm);
+
+        // HECHO. Consular la tabla 'niveles' where grado = 1 y seccion = C para extraer el valor de 'idniveles' "3".
+        $nivel = Nivele::where('grado', $datosForm['grado'])
+            ->where('seccion', $datosForm['seccion'])->first();
+        
+        $cursos = DB::select('select * from cursos where niveles_idniveles = :id', ['id' => $nivel->idnivel]);
+
+        // dump($cursos);
+        
+        // //buscar por id 
+        $estudiante = Estudiante::where('idestudiante', '=', $datosForm['idestudiante']);
+ 
+
+        DB::delete('delete from detalle_matriculas where matriculas_idmatricula = ?',[$datosForm['idmatricula']]);
+
+        foreach($cursos as $curso){
+            DB::table('detalle_matriculas')->insert(
+                [
+                    'matriculas_idmatricula' => $datosForm['idmatricula'], 
+                    'cursos_idcurso' => $curso->idcurso
+                ]
+            );
+
+        }
+             
+        
+        return $this->index();
+
         
     }
 

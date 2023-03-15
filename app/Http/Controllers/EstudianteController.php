@@ -175,8 +175,9 @@ class EstudianteController extends Controller
     public function destroy($id)
     {
         //
-        $estudiante = Estudiante::findOrFail($id);
-        $estudiante::destroy($id);
+        // $estudiante = Estudiante::findOrFail($id);
+        // $estudiante::destroy($id);
+        DB::table('estudiantes')->where('idestudiante', $id)->delete();
         /*if(Storage::delete('public/'.$estudiante->Foto)){
             estudiante::destroy($id);
         }*/

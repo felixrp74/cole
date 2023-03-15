@@ -6,15 +6,15 @@
         <form action="{{ url('/matricula') }}" method="POST" enctype="multipart/form-data" >
             @csrf
 
-            <label for="IdEstudiante">DNI</label>
+            <label for="dni">DNI</label>
             <input wire:model = "search" value="10293847"  placeholder="buscar por DNI" type="text">
             <br>
 
             @if ($estudiante)
-                <input type="hidden" name="IdEstudiante" id="IdEstudiante" value="{{$estudiante->idestudiante}}">
+                <input type="hidden" name="idestudiante" id="idestudiante" value="{{$estudiante->idestudiante}}">
                 
-                <label for="Nombre">Nombre</label>
-                <input type="text" name="Nombre" id="Nombre" value="{{$estudiante->nombre}}">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" value="{{$estudiante->nombre}}">
                 <br>
                 <label for="apellido_paterno">Paterno</label>
                 <input type="text" name="apellido_paterno" id="apellido_paterno" value="{{$estudiante->apellido_paterno}}">
@@ -26,9 +26,9 @@
                     <h4>No se tiene registro del estudiante en la BASE DATOS...</h4>
             @endif
 
-            <label for="Seccion">Seccion</label>
-            {{-- <input type="text" name="Seccion" id="Seccion" value="C"> --}}
-            <select name="Seccion" id="Seccion">
+            <label for="seccion">Seccion</label>
+            {{-- <input type="text" name="seccion" id="seccion" value="C"> --}}
+            <select name="seccion" id="seccion">
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
@@ -37,9 +37,9 @@
             </select>
             <br>
 
-            <label for="Grado">Grado</label>
-            {{-- <input type="text" name="Grado" id="Grado" value="1"> --}}
-            <select name="Grado" id="Grado">
+            <label for="grado">Grado</label>
+            {{-- <input type="text" name="grado" id="grado" value="1"> --}}
+            <select name="grado" id="grado">
                 <option value="1">PRIMERO</option>
                 <option value="2">SEGUNDO</option>
                 <option value="3">TERCERO</option>
@@ -59,9 +59,9 @@
             </select>
             <br>
 
-            <label for="Especialidad">Especialidad</label>
-            {{-- <input type="text" name="Especialidad" id="Especialidad" value="AUTOMOTRIZ"> --}}
-            <select name="Especialidad" id="Especialidad">
+            <label for="especialidad">Especialidad</label>
+            {{-- <input type="text" name="especialidad" id="especialidad" value="AUTOMOTRIZ"> --}}
+            <select name="especialidad" id="especialidad">
                 <option value="AIP - ROBÓTICA">AIP - ROBÓTICA</option>
                 <option value="COMPUTACIÓN">COMPUTACIÓN</option>
                 <option value="CONSTRUCCIÓN CIVIL">CONSTRUCCIÓN CIVIL</option>
