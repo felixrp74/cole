@@ -16,13 +16,13 @@
 
 @if ($reportenotas->count())
 <div class="card-header">
-    <table class="table table-striped" style="border: solid 1px;">
+    <table class="table table-striped" >
         <thead>
             <tr>   
-                <td style="border: solid 1px;">Dato </td>
-                <td style="border: solid 1px;">Valor </td> 
-                <td style="border: solid 1px;">Dato </td>
-                <td style="border: solid 1px;">Valor </td> 
+                <td >Dato </td>
+                <td >Valor </td> 
+                <td >Dato </td>
+                <td >Valor </td> 
             </tr>
         </thead>
         <tbody>
@@ -32,28 +32,28 @@
 
              
             <tr>  
-                <td style="border: solid 1px;">Id estudiante: </td>
-                <td style="border: solid 1px;">{{ $reportenotas[0]->idestudiante}}</td>
-                <td style="border: solid 1px;">DNI: </td>
-                <td style="border: solid 1px;">{{ $reportenotas[0]->dni }}</td>
+                <td >Id estudiante: </td>
+                <td >{{ $reportenotas[0]->idestudiante}}</td>
+                <td >DNI: </td>
+                <td >{{ $reportenotas[0]->dni }}</td>
             </tr>
             <tr>  
-                <td style="border: solid 1px;">Nombre: </td>
-                <td style="border: solid 1px;">{{ $reportenotas[0]->nombre }}</td>
-                <td style="border: solid 1px;">Paterno: </td>
-                <td style="border: solid 1px;">{{ $reportenotas[0]->apellido_paterno }}</td>
+                <td >Nombre: </td>
+                <td >{{ $reportenotas[0]->nombre }}</td>
+                <td >Paterno: </td>
+                <td >{{ $reportenotas[0]->apellido_paterno }}</td>
             </tr>
             <tr>  
-                <td style="border: solid 1px;">Materno: </td>
-                <td style="border: solid 1px;">{{ $reportenotas[0]->apellido_materno}}</td>
-                <td style="border: solid 1px;">Celular: </td>
-                <td style="border: solid 1px;">{{ $reportenotas[0]->celular}}</td>
+                <td >Materno: </td>
+                <td >{{ $reportenotas[0]->apellido_materno}}</td>
+                <td >Celular: </td>
+                <td >{{ $reportenotas[0]->celular}}</td>
             </tr>
             <tr>  
-                <td style="border: solid 1px;">Año académico: </td>
-                <td style="border: solid 1px;">{{ isset($reportenotas[0]->anio_academico) ? $reportenotas[0]->anio_academico : 'no tiene valor  ' }}</td>
+                <td >Año académico: </td>
+                <td >{{ isset($reportenotas[0]->anio_academico) ? $reportenotas[0]->anio_academico : 'no tiene valor  ' }}</td>
                 
-                {{-- <td style="border: solid 1px;">{{ $reportenotas[0]->email}}</td> --}}
+                {{-- <td >{{ $reportenotas[0]->email}}</td> --}}
             </tr>
         </tbody>
     </table>
@@ -66,16 +66,16 @@
 
     {{-- cuerpo tabla --}}
     <div class="card-body">
-        <table class="table table-striped" style="border: solid 1px;">
+        <table class="table table-striped" >
             <thead>
                 <tr>   
-                    <td style="border: solid 1px;"># </td>
-                    <td style="border: solid 1px;">Curso </td>
-                    {{-- <td style="border: solid 1px;">Especialidad </td> --}}
-                    <td style="border: solid 1px;">Trimester I</td>
-                    <td style="border: solid 1px;">Trimester II</td>
-                    <td style="border: solid 1px;">Trimester III</td>
-                    <td style="border: solid 1px;">Promedio</td>
+                    <td ># </td>
+                    <td >Curso </td>
+                    {{-- <td >Especialidad </td> --}}
+                    <td >Trimester I</td>
+                    <td >Trimester II</td>
+                    <td >Trimester III</td>
+                    <td >Promedio</td>
                 </tr>
             </thead>
             <tbody>
@@ -85,13 +85,13 @@
 
                 @foreach( $reportenotas as $reporte )
                 <tr>  
-                    <td style="border: solid 1px;">{{ $i++ }}</td>
-                    <td style="border: solid 1px;">{{ $reporte->descripcion }}</td>
-                    {{-- <td style="border: solid 1px;">{{ $reporte->especialidad }}</td> --}}
-                    <td style="border: solid 1px;">{{ $reporte->nota1 }}</td> 
-                    <td style="border: solid 1px;">{{ $reporte->nota2 }}</td> 
-                    <td style="border: solid 1px;">{{ $reporte->nota3 }}</td> 
-                    <td style="border: solid 1px;">{{ $reporte->promedio }}</td> 
+                    <td >{{ $i++ }}</td>
+                    <td >{{ $reporte->descripcion }}</td>
+                    {{-- <td >{{ $reporte->especialidad }}</td> --}}
+                    <td >{{ $reporte->nota1 }}</td> 
+                    <td >{{ $reporte->nota2 }}</td> 
+                    <td >{{ $reporte->nota3 }}</td> 
+                    <td >{{ $reporte->promedio }}</td> 
 
                     <input type="hidden" value="{{ $promedio_final += $reporte->promedio}}">
                     
@@ -100,8 +100,8 @@
                 <tr>  
                     
                     <input type="hidden" value="{{ $i-- }}">
-                    <td style="border: solid 1px;" colspan="5">Promedio final</td> 
-                    <td style="border: solid 1px;" colspan="1">{{ $promedio_final/$i }}</td> 
+                    <td  colspan="5">Promedio final</td> 
+                    <td  colspan="1">{{ $promedio_final/$i }}</td> 
 
                 </tr>
             </tbody>

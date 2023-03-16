@@ -46,11 +46,11 @@
                         {{-- <p><label for="Iddocente">Nombre de docente: </label> {{ $colocacionnotass[0]->nombreDocente }}</p> 
                         <input class="btn btn-info" type="submit" value="Guardar datos">     --}}
 
-                        <table class="table table-striped" style="border: solid 1px;">
+                        <table class="table table-striped">
                             <thead>
                                 <tr>   
-                                    <td style="border: solid 1px;">Dato del docente  </td>
-                                    <td style="border: solid 1px;">Valor </td>  
+                                    <td>Dato del docente  </td>
+                                    <td>Valor </td>  
                                 </tr>
                             </thead>
                             <tbody>
@@ -60,16 +60,16 @@
                     
                                  
                                 <tr>  
-                                    <td style="border: solid 1px;">Nombre de docente: </td>
-                                    <td style="border: solid 1px;">{{ $colocacionnotass[0]->nombreDocente }}</td> 
+                                    <td>Nombre de docente: </td>
+                                    <td>{{ $colocacionnotass[0]->nombreDocente }}</td> 
                                 </tr>
                                 <tr>  
-                                    <td style="border: solid 1px;">Materno: </td>
-                                    <td style="border: solid 1px;">{{ $colocacionnotass[0]->apellido_materno}}</td> 
+                                    <td>Materno: </td>
+                                    <td>{{ $colocacionnotass[0]->apellido_materno}}</td> 
                                 </tr>
                                 <tr>  
-                                    <td style="border: solid 1px;">Paterno: </td>
-                                    <td style="border: solid 1px;">{{ $colocacionnotass[0]->apellido_paterno }}</td> 
+                                    <td>Paterno: </td>
+                                    <td>{{ $colocacionnotass[0]->apellido_paterno }}</td> 
                                 </tr>
                                 <tr>  
                                 </tr> 

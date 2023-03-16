@@ -59,7 +59,10 @@ class MatriculaController extends Controller
         $estudiante = Estudiante::where('idestudiante', '=', $datosForm['idestudiante']);
         
         DB::table('matriculas')->insert(
-            ['estudiante_idestudiante' => $datosForm['idestudiante']]
+            [
+                'estudiante_idestudiante' => $datosForm['idestudiante'],
+                'anio_academico' => $datosForm['anio_academico']
+            ]
         );
         
         $matricula = Matricula::where('estudiante_idestudiante', $datosForm['idestudiante'])->first();
@@ -144,8 +147,7 @@ class MatriculaController extends Controller
                 ]
             );
 
-        }
-             
+        } 
         
         return $this->index();
 
@@ -153,8 +155,9 @@ class MatriculaController extends Controller
     }
 
     public function destroy($id)
-    {
-        
-
+    { 
+        DB::delete('delete from detalle_matriculas where matriculas_idmatricula = ?', [$id]);
+        DB::delete('delete from matriculas where idmatricula = ?', [$id]);
+        return $this->index();
     }
 }

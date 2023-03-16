@@ -58,7 +58,6 @@
                                 <td>{{ $estudiante->email }}</td>
                                 <td>
                                     <a class="btn btn-info" href="{{ url('/estudiante/'.$estudiante->idestudiante.'/edit') }}">Editar</a>
-                                    {{-- <input class="btn btn-info" type="button" wire:click="editEstudiante({{$estudiante->idestudiante}})" value="Editar"> --}}
                                 </td>
                                 <td>
                                     <form action="{{ url('/estudiante/'.$estudiante->idestudiante) }}" method="POST">
