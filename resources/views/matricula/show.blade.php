@@ -1,5 +1,4 @@
 @extends('adminlte::page')
-
 @section('title', 'Dashboard')
 
 @section('content_header')
@@ -8,109 +7,89 @@
     .printbutton {
         cursor: pointer;
     }
+
+    .centro {
+        text-align: center;
+    }
 </style>
 
 @stop
 
+
 @section('content') 
 
-
-@if ($reportematricula->count())
-<div id="imp1" class="d-flex justify-content-center">
-    <div class="card"> 
-        <div class="card-body">
-        <input type="button" class="btn btn-info" value="PRINT" id="printbutton" onclick="javascript:imprim1(imp1);">
-        </div>
-    </div>
-</div>
-@endif
-                
-                
-        {{-- cuerpo tabla --}}
-        <div class="card-body">
+ 
 
     @if ($reportematricula->count())
-
     <div id="imp1" class="d-flex justify-content-center">
-        <div class="d-flex justify-content-center">
-            <div class="card">
-                <div class="card-header"> 
-                    <h5 class="d-flex justify-content-center">FICHA DE MATRICULA</h5>
-                    <h5 class="d-flex justify-content-center">Institucion Educativa Secundaria</h5>
-                    <h5 class="d-flex justify-content-center">Industrial 32</h5>
-                    <h5 class="d-flex justify-content-center">N° de Matricula: {{ $reportematricula[0]->idmatricula  }}</h5> 
-                </div>
-                <div class="card-body"> 
-                    
-                    <p style="margin: 1px;"><label for="Nombre">Dni: </label> {{ $reportematricula[0]->dni}}</p>
-                    <p style="margin: 1px;"><label for="Nombre">Nombre: </label> {{ $reportematricula[0]->nombre}}</p>
-                    <p style="margin: 1px;"><label for="Nombre">Paterno: </label> {{ $reportematricula[0]->apellido_paterno}}</p>
-                    <p style="margin: 1px;"><label for="Nombre">Materno: </label> {{ $reportematricula[0]->apellido_materno}}</p>
-                    <p style="margin: 1px;"><label for="Nombre">Grado: </label> {{ $reportematricula[0]->grado}}</p>
-                    <p style="margin: 1px;"><label for="Nombre">Seccion: </label> {{ $reportematricula[0]->seccion}}</p>
-                </div>
-            
-            </div>
-        </div> 
-
-        <div class="d-flex justify-content-center">
-            <div class="card"> 
-                
-                
-                {{-- cuerpo tabla --}}
-                <div class="card-body">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>   
-                                <td>N° </td>
-                                <td>Curso </td>  
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            
-                            <input type="hidden" value="{{ $i = 1}} {{ $promedio_final = 0.0}}">
-
-                            @foreach( $reportematricula as $reporte )
-                            <tr>  
-                                <td>{{ $i++ }}</td>
-                                <td>{{ $reporte->descripcion }}</td> 
-        
-                                
-                            </tr>
-                            @endforeach 
-                        </tbody>
-                    
-                    </table>
-                </div>
-                
-            
-            @else
-                <div class="card-body">
-                    <h4>No se tiene registro en la BASE DATOS...</h4>
-                </div>
-            @endif
-            
+        <div class="card"> 
+            <div class="card-body">
+            <input type="button" class="btn btn-info" value="PRINT" id="printbutton" onclick="javascript:imprim1(imp1);">
             </div>
         </div>
     </div>
+    @endif
+
+    <h2 class="centro">INSTITUCION EDUCATIVA SECUNDARIA INDUSTRIAL 32</h2>
+    <br>
+    <h1 class="centro">FICHA DE MATRICULA</h1>
+    <br>
+    <h2 class="centro">{{ $reportematricula[0]->nombre}} {{ $reportematricula[0]->apellido_paterno }} {{ $reportematricula[0]->apellido_materno}}</h2>
+    <br>
+    <h3 class="centro"> Año académico {{ $reportematricula[0]->anio_academico }} </h3>
+    <br>
+
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-sm-6"><h3 style="text-align: start;"> N° Matricula / Dni: {{ $reportematricula[0]->dni }}</h3></div>
+        <div class="col-sm-6"><h3 style="text-align: end;"> Grado y Seccion: {{ $reportematricula[0]->grado }}° - {{ $reportematricula[0]->seccion }}</h3></div>
+        
+        
+    </div>
     
+    <br>
+    <br>
+    <h2 >Cursos</h2>
+    @foreach( $reportematricula as $reporte )
+        <ul>   
+            <li> <h4> {{ $reporte->descripcion }} </h4> </li>  
+        </ul>
+    @endforeach 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 @stop
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
+
 @section('js')
-    <script> 
-        document.querySelectorAll('#printbutton').forEach(function(element) {
-            element.addEventListener('click', function() {
-                // document.getElementById("printbutton");
-                document.getElementById('printbutton').type = 'hidden';
-                print();
-                document.getElementById('printbutton').type = 'button';
-            });
+<script> 
+    document.querySelectorAll('#printbutton').forEach(function(element) {
+        element.addEventListener('click', function() {
+            // document.getElementById("printbutton");
+            document.getElementById('printbutton').type = 'hidden';
+            print();
+            document.getElementById('printbutton').type = 'button';
         });
- 
-    </script>
+    });
+
+</script>
 @stop
+    
+ 
