@@ -30,6 +30,24 @@
     </div>
     @endif
 
+    @if ($reportematricula->count())
+
+    
+    <div class="row">
+        <div class="col-sm-6"> 
+            <h3 style="text-align: start;"><img style="width: auto; height: 95px;" src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/cropped-LOGO-I32-22.png" alt=""></h3>
+        </div>
+        <div class="col-sm-6"> 
+        
+        <h3 style="text-align: end;"><img style="width: auto; height: 95px;" src="https://seeklogo.com/images/M/ministerio_de_educacion_-_peru-logo-72FA497226-seeklogo.com.png" alt=""></h3></div>
+        </div>
+        
+        
+    </div>
+    
+    <br>
+    <br>
+
     <h2 class="centro">INSTITUCION EDUCATIVA SECUNDARIA INDUSTRIAL 32</h2>
     <br>
     <h1 class="centro">FICHA DE MATRICULA</h1>
@@ -58,12 +76,11 @@
     @endforeach 
 
 
-
-
-
-
-
-
+    @else
+        <div class="card-body">
+            <h4>No se tiene registro en la BASE DATOS...</h4>
+        </div>
+    @endif
 
 
 
