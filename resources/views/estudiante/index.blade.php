@@ -40,9 +40,9 @@
                                 <td>Paterno</td>
                                 <td>Materno</td>
                                 <td>Genero</td>
-                                <td>Celular</td>
-                                <td>Email</td>
-                                <td colspan="2">Acciones</td>
+                                {{-- <td>Celular</td> --}}
+                                {{-- <td>Email</td> --}}
+                                <td colspan="3">Acciones</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -54,10 +54,11 @@
                                 <td>{{ $estudiante->apellido_paterno }}</td>
                                 <td>{{ $estudiante->apellido_materno }}</td>
                                 <td>{{ $estudiante->genero }}</td>
-                                <td>{{ $estudiante->celular }}</td>
-                                <td>{{ $estudiante->email }}</td>
+                                {{-- <td>{{ $estudiante->celular }}</td> --}}
+                                {{-- <td>{{ $estudiante->email }}</td> --}}
                                 <td>
                                     <a class="btn btn-info" href="{{ url('/estudiante/'.$estudiante->idestudiante.'/edit') }}">Editar</a>
+                                    {{-- <a class="btn btn-info" href="{{ route('estudiante.edit', compact('estudiante')) }}">Editar</a> --}}
                                 </td>
                                 <td>
                                     <form action="{{ url('/estudiante/'.$estudiante->idestudiante) }}" method="POST">
@@ -66,6 +67,14 @@
                                         <input class="btn btn-danger" type="submit" onclick="return confirm('quieres borrar?')" value="Borrar">
                                     </form>
                     
+                                </td>
+                                <td>
+                                    @isset ($estudiante->file)
+                                        {{-- <iframe id="pdf" src="{{Storage::url($estudiante->file->url)}}" frameborder="0"></iframe> --}}
+                                        <a class="btn btn-info" href="{{Storage::url($estudiante->file->url)}}" target="_blank">Copia DNI</a>
+                                    {{-- @else --}}
+                                        {{-- <iframe id="pdf" src="/storage/files/archivo.pdf" frameborder="0"></iframe>                 --}}
+                                    @endisset
                                 </td>
                             </tr>
                             @endforeach

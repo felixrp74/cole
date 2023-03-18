@@ -8,6 +8,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Estudiante
@@ -24,6 +25,7 @@ use Illuminate\Database\Eloquent\Model;
 class Estudiante extends Model
 {
 	protected $table = 'estudiantes';
+	protected $primaryKey = 'idestudiante';
 	public $timestamps = false;
 
 	protected $casts = [
@@ -31,7 +33,18 @@ class Estudiante extends Model
 	];
 
 	protected $fillable = [
-		'nombre'
+		'dni',
+		'nombre',
+		'apellido_paterno',
+		'apellido_materno',
+		'fecha_nacimiento',
+		'lugar_nacimiento',
+		'genero',
+		'direccion_actual',
+		'celular',
+		'email',
+		'password',
+		'documento'
 	];
 
 	public function apoderado()

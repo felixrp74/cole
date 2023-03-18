@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\Estudiante;
 use App\Models\Apoderado;
-use Illuminate\Http\Request;
+
+use Prophecy\Doubler\Generator\Node\ReturnTypeNode;
+
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class EstudianteController
@@ -29,14 +34,6 @@ class EstudianteController extends Controller
     {        
         $datosEstudianteApoderado = request()->except('_token');
 
-        // if( $request->hasFile('Foto') ){
-        //     $datosEstudiante['Foto'] = $request->file('Foto')->store('uploads','public');
-        // }
-        // echo gettype($datosEstudiante), "\n";
-        
-        // array('Taylor', 'Dayle');
-        // dump($array);
-
         $datosEstudiante = array(
             "dni" => $datosEstudianteApoderado["dni"],
             "nombre" => $datosEstudianteApoderado["nombre"],
@@ -51,34 +48,19 @@ class EstudianteController extends Controller
             "password" => $datosEstudianteApoderado["password"]
         );
  
+        $estudiante = Estudiante::create(request()->all());
 
-        // dump($datosEstudiante);
-        Estudiante::insert($datosEstudiante);
+        if($request->file('documento')){
 
-        $estudiante = Estudiante::orderBy('idestudiante', 'desc')->first();
-        // echo ($estudiante["dni"]);
+            $url = Storage::put('files', $request->file('documento'));
+            $estudiante->file()->create([
+                'url' => $url
+            ]);
+             
+        } 
 
-        $datosApoderado = array(
-            "genero_apoderado" => $datosEstudianteApoderado["genero_apoderado"],
-            "dni_apoderado" => $datosEstudianteApoderado["dni_apoderado"],
-            "nombre_apoderado" => $datosEstudianteApoderado["nombre_apoderado"],
-            "apellido_paterno_apoderado" => $datosEstudianteApoderado["apellido_paterno_apoderado"],
-            "apellido_materno_apoderado" => $datosEstudianteApoderado["apellido_materno_apoderado"],
-            "fecha_nacimiento_apoderado" => $datosEstudianteApoderado["fecha_nacimiento_apoderado"],
-            "lugar_nacimiento_apoderado" => $datosEstudianteApoderado["lugar_nacimiento_apoderado"],
-            "vive_apoderado" => $datosEstudianteApoderado["vive_apoderado"],
-            "direccion_actual_apoderado" => $datosEstudianteApoderado["direccion_actual_apoderado"],
-            "email_apoderado" => $datosEstudianteApoderado["email_apoderado"],
-            "grado_instruccion_apoderado" => $datosEstudianteApoderado["grado_instruccion_apoderado"],
-            "ocupacion_apoderado" => $datosEstudianteApoderado["ocupacion_apoderado"],
-            "estado_civil_apoderado" => $datosEstudianteApoderado["estado_civil_apoderado"],
-            "celular_apoderado" => $datosEstudianteApoderado["celular_apoderado"],
-            "estudiantes_idestudiante" => $estudiante["idestudiante"]
-        );
-        // dd($datosApoderado);
-        Apoderado::insert($datosApoderado);
+        return $this->index();
 
-        return redirect('/estudiante')->with('mensaje', 'Empleado agregado con exito');
     }
  
     public function show($id)
@@ -94,97 +76,66 @@ class EstudianteController extends Controller
  
     public function edit($idestudiante)
     {
-        //
-        // $estudiante = Estudiante::find($idestudiante);
         $estudiante = DB::table('estudiantes')
         ->select('estudiantes.*')
         ->where('idestudiante',$idestudiante)
         ->first();
 
-        $apoderado = DB::table('apoderados')
-        ->select('apoderados.*')
-        ->where('estudiantes_idestudiante',$idestudiante)
-        ->first();
-
-        return view('estudiante.edit', compact('estudiante', 'apoderado'));
-        // return view('estudiante.edit');
+        return view('estudiante.edit', compact('estudiante'));
     }
 
     public function update(Request $request, $idestudiante)
     {
         // estamos recibiendo todos los datos a exception de ...
-        $datosEstudianteApoderado = request()->except('_token', '_method');
-
-        /*if( $request->hasFile('Foto') ){
-            $empleado = Empleado::findOrFail($id);
-            Storage::delete('public/'.$empleado->Foto);
-            $datosEstudiante['Foto'] = $request->file('Foto')->store('uploads','public');
-        }*/
-
+        $datosEstudiante = request()->except('_token', '_method');
+ 
         $datosEstudiante = array(
-            "dni" => $datosEstudianteApoderado["dni"],
-            "nombre" => $datosEstudianteApoderado["nombre"],
-            "apellido_paterno" => $datosEstudianteApoderado["apellido_paterno"],
-            "apellido_materno" => $datosEstudianteApoderado["apellido_materno"],
-            "fecha_nacimiento" => $datosEstudianteApoderado["fecha_nacimiento"],
-            "lugar_nacimiento" => $datosEstudianteApoderado["lugar_nacimiento"],
-            "genero" => $datosEstudianteApoderado["genero"],
-            "direccion_actual" => $datosEstudianteApoderado["direccion_actual"],
-            "celular" => $datosEstudianteApoderado["celular"],
-            "email" => $datosEstudianteApoderado["email"],
-            "password" => $datosEstudianteApoderado["password"]
+            "dni" => $datosEstudiante["dni"],
+            "nombre" => $datosEstudiante["nombre"],
+            "apellido_paterno" => $datosEstudiante["apellido_paterno"],
+            "apellido_materno" => $datosEstudiante["apellido_materno"],
+            "fecha_nacimiento" => $datosEstudiante["fecha_nacimiento"],
+            "lugar_nacimiento" => $datosEstudiante["lugar_nacimiento"],
+            "genero" => $datosEstudiante["genero"],
+            "direccion_actual" => $datosEstudiante["direccion_actual"],
+            "celular" => $datosEstudiante["celular"],
+            "email" => $datosEstudiante["email"],
+            "password" => $datosEstudiante["password"],
+            "documento" => $datosEstudiante["documento"]
         );        
-        Estudiante::where('idestudiante','=',$idestudiante)->update($datosEstudiante);
+ 
+        // $estudiante = Estudiante::where('idestudiante', $idestudiante);
+        $estudiante = Estudiante::find( $idestudiante );
+        $estudiante->update($request->all());
 
+        
+        if($request->file('documento')){
+        
+            $url = Storage::put('files', $request->file('documento'));
+            
+            if($estudiante->file){
+                Storage::delete($estudiante->file->url);
+                
+                $estudiante->file->update([
+                    'url' => $url
+                ]);
 
+            }else{
+                $estudiante->file()->create([
+                    'url' => $url
+                ]);
+            }
+        }
 
-        $datosApoderado = array(
-            "genero_apoderado" => $datosEstudianteApoderado["genero_apoderado"],
-            "dni_apoderado" => $datosEstudianteApoderado["dni_apoderado"],
-            "nombre_apoderado" => $datosEstudianteApoderado["nombre_apoderado"],
-            "apellido_paterno_apoderado" => $datosEstudianteApoderado["apellido_paterno_apoderado"],
-            "apellido_materno_apoderado" => $datosEstudianteApoderado["apellido_materno_apoderado"],
-            "fecha_nacimiento_apoderado" => $datosEstudianteApoderado["fecha_nacimiento_apoderado"],
-            "lugar_nacimiento_apoderado" => $datosEstudianteApoderado["lugar_nacimiento_apoderado"],
-            "vive_apoderado" => $datosEstudianteApoderado["vive_apoderado"],
-            "direccion_actual_apoderado" => $datosEstudianteApoderado["direccion_actual_apoderado"],
-            "email_apoderado" => $datosEstudianteApoderado["email_apoderado"],
-            "grado_instruccion_apoderado" => $datosEstudianteApoderado["grado_instruccion_apoderado"],
-            "ocupacion_apoderado" => $datosEstudianteApoderado["ocupacion_apoderado"],
-            "estado_civil_apoderado" => $datosEstudianteApoderado["estado_civil_apoderado"],
-            "celular_apoderado" => $datosEstudianteApoderado["celular_apoderado"],
-            "estudiantes_idestudiante" => $idestudiante
-        );
-        Apoderado::where('estudiantes_idestudiante','=',$idestudiante)->update($datosApoderado);
-
-        //$estudiante = Estudiante::findOrFail($id);
-
-        $estudiante = DB::table('estudiantes')
-        ->select('estudiantes.*')
-        ->where('idestudiante',$idestudiante)
-        ->first();
-
-        $apoderado = DB::table('apoderados')
-        ->select('apoderados.*')
-        ->where('estudiantes_idestudiante',$idestudiante)
-        ->first();
-
-        return view('estudiante.edit', compact('estudiante', 'apoderado'));
+        // return $this->index();
+        return view('estudiante.edit', compact('estudiante'));
     }
 
     public function destroy($id)
     {
-        //
-        // $estudiante = Estudiante::findOrFail($id);
-        // $estudiante::destroy($id);
         DB::table('estudiantes')->where('idestudiante', $id)->delete();
-        /*if(Storage::delete('public/'.$estudiante->Foto)){
-            estudiante::destroy($id);
-        }*/
-
-        return redirect('/estudiante')->with('mensaje', 'estudiante borrado');
-        //return redirect('/estudiante');
-
+       
+        return redirect('/estudiante')->with('mensaje', 'estudiante borrado'); 
     }
 
 }
