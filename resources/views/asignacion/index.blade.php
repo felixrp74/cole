@@ -31,26 +31,24 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <td style="border: solid 1px;"># Id Asignacion</td>
-                            <td style="border: solid 1px;"># Id Docente</td>
-                            <td style="border: solid 1px;">Nombre </td>
-                            <td style="border: solid 1px;">Profesion </td> 
-                            <td colspan="2" style="border: solid 1px;">Acciones </td>
-                            <td style="border: solid 1px;">Ver mas </td>
+                            <td>#</td> 
+                            <td>Nombre </td>
+                            <td>Profesion </td> 
+                            <td colspan="2">Acciones </td>
+                            <td>Ver mas </td>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach( $asignacioness as $asignacion )
                         <tr>
-                            <td style="border: solid 1px;">{{ $asignacion->idasignacion }}</td>
-                            <td style="border: solid 1px;">{{ $asignacion->iddocente }}</td>
-                            <td style="border: solid 1px;">{{ $asignacion->nombre }}</td>
-                            <td style="border: solid 1px;">{{ $asignacion->profesion }}</td> 
-                            <td style="border: solid 1px;">
+                            <td>{{ $i++ }}</td>
+                            <td>{{ $asignacion->nombre }}</td>
+                            <td>{{ $asignacion->profesion }}</td> 
+                            <td>
                                 <a class="btn btn-info" href="{{ url('/asignacion/'.$asignacion->idasignacion.'/edit') }}">Editar</a>
                                 
                             </td>
-                            <td style="border: solid 1px;">
+                            <td>
                                 <form action="{{ url('/asignacion/'.$asignacion->idasignacion) }}" method="POST">
                                     @csrf
                                     {{ method_field('DELETE') }}
@@ -58,7 +56,7 @@
                                 </form>
 
                             </td>
-                            <td style="border: solid 1px;">
+                            <td>
                                 <a href="{{ url('/asignacion/'.$asignacion->idasignacion) }}">Ver mas </a>
                             </td>
                         </tr>

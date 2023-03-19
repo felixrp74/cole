@@ -7,9 +7,7 @@
 @stop
 
 @section('content')
-
-<div>
-
+ 
     @if (session('info'))
         <div class="alert alert-success">
             <strong>{{session('info')}}</strong>
@@ -30,22 +28,22 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <td style="border: solid 1px;">#</td>
-                            <td style="border: solid 1px;">Nombre</td>
-                            <td style="border: solid 1px;">Docente</td>
-                            <td style="border: solid 1px;" colspan="2">Acciones</td>
+                            <td>#</td>
+                            <td>Nombre</td>
+                            <td>Profesión</td>
+                            <td colspan="2">Acciones</td>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach( $docentes as $docente )
                         <tr>
-                            <td style="border: solid 1px;">{{ $docente->iddocente }}</td>
-                            <td style="border: solid 1px;">{{ $docente->nombre }}</td>
-                            <td style="border: solid 1px;">{{ $docente->profesion }}</td>
-                            <td style="border: solid 1px;">
+                            <td>{{ $docente->iddocente }}</td>
+                            <td>{{ $docente->nombre }}</td>
+                            <td>{{ $docente->profesion }}</td>
+                            <td>
                                 <a class="btn btn-info" href="{{ url('/docente/'.$docente->iddocente.'/edit') }}">Editar</a>
                             </td>
-                            <td style="border: solid 1px;">
+                            <td>
                                 <form action="{{ url('/docente/'.$docente->iddocente) }}" method="POST">
                                     @csrf
                                     {{ method_field('DELETE') }}
@@ -70,8 +68,7 @@
             </div>
         @endif
     </div>
-</div>
-
+ 
     
 @stop
 

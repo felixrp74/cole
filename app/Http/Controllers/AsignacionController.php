@@ -82,11 +82,11 @@ class AsignacionController extends Controller
         ->join('matriculas', 'matriculas.idmatricula', '=', 'detalle_matriculas.matriculas_idmatricula')
         ->join('estudiantes', 'estudiantes.idestudiante', '=', 'matriculas.estudiante_idestudiante')
             ->where('iddocente', $id)
-            ->select('asignaciones.idasignacion', 'docentes.nombre AS nombreDocente', 'estudiantes.*',
+            ->select('asignaciones.idasignacion', 'docentes.nombre AS nombreDocente', 'docentes.apellido_paterno AS paternoDocente'
+            , 'docentes.apellido_materno AS maternoDocente', 'docentes.profesion AS profesionDocente', 'estudiantes.*',
             'cursos.*', 'niveles.*', 'detalle_matriculas.*', 'matriculas.*')
             ->get();
- 
-            
+  
         return view('asignacion.vercursos', $datos);
     }
  

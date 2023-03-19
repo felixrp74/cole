@@ -8,12 +8,17 @@
 
 @section('content')
 
+<div class="card">
+    <div class="card-body">
 
-<form action="{{ url('/docente/'.$docente->iddocente) }}" method="POST" enctype="multipart/form-data">
-    @csrf
-    {{ method_field('PATCH') }}
-    @include('docente.form')
-</form>
+        <form action="{{ url('/docente/'.$docente->iddocente) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            {{ method_field('PATCH') }}
+            @include('docente.form')
+        </form>
+        
+    </div>
+</div>
 
  
 @stop

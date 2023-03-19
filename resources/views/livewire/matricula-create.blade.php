@@ -91,8 +91,15 @@
         </div>
     </div>
 
+    
+    <div class="form-group row">
+        <label for="" class="col-sm-2 col-form-label">Enviar</label>
+        <div class="col-sm-10">
+            <input class="btn btn-info" type="submit" value="Guardar datos">
+        </div>
+    </div>
 
-    <input class="btn btn-info" type="submit" value="Guardar datos">
+
 
 </form>
 

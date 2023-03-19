@@ -1,49 +1,84 @@
-<h1>Ver cursos de docentes</h1>
-<table style="border: solid 1px;">
-    <thead>
-        <tr>
-            <td style="border: solid 1px;"># Id Asignacion</td>
-            <td style="border: solid 1px;">Nombre Docente</td>
-            <td style="border: solid 1px;">id matricula</td>
-            <td style="border: solid 1px;">id estudiante</td>
-            <td style="border: solid 1px;">Nombre estudiante</td>
-            <td style="border: solid 1px;">Id Curso </td>
-            <td style="border: solid 1px;">Curso </td>
-            <td style="border: solid 1px;">Especialidad </td>
-            <td style="border: solid 1px;">Id Grado </td>
-            <td style="border: solid 1px;">Grado </td>
-            <td style="border: solid 1px;">Seccion </td>
-            <td style="border: solid 1px;">Id cursos_idcursos </td>
-            <td style="border: solid 1px;">Nota1 </td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td colspan="13">
-                @if(!empty($asignacioness))
-                    <h1>Aun no se tiene ningun estudiante matriculado.</h1>
-                @endif
-            </td>
-        </tr>
-        
+@extends('adminlte::page')
 
-        @foreach( $asignacioness as $asignacion )
-        <tr>
-            <td style="border: solid 1px;">{{ $asignacion->idasignacion }}</td>
-            <td style="border: solid 1px;">{{ $asignacion->nombreDocente }}</td>
-            <td style="border: solid 1px;">{{ $asignacion->idmatricula }}</td>
-            <td style="border: solid 1px;">{{ $asignacion->idestudiante }}</td>
-            <td style="border: solid 1px;">{{ $asignacion->nombre }}</td>
-            <td style="border: solid 1px;">{{ $asignacion->idcurso }}</td>
-            <td style="border: solid 1px;">{{ $asignacion->descripcion }}</td>
-            <td style="border: solid 1px;">{{ $asignacion->especialidad }}</td>
-            <td style="border: solid 1px;">{{ $asignacion->idnivel }}</td>
-            <td style="border: solid 1px;">{{ $asignacion->grado }}</td>
-            <td style="border: solid 1px;">{{ $asignacion->seccion }}</td>
-            <td style="border: solid 1px;">{{ $asignacion->cursos_idcurso }}</td>
-            <td style="border: solid 1px;">{{ $asignacion->nota1 }}</td>
-        </tr>
-        @endforeach
-    </tbody>
+@section('title', 'Dashboard')
+
+@section('content_header')
+    <h1>VER CURSOS ASIGNADOS</h1>
+@stop
+
+@section('content')
+
+
+<div class="card">
     
-</table>
+
+ 
+    @if(isset($asignacioness))
+
+    <div class="card-header">
+        
+    <div class="form-group row">
+        <label for="" class="col-sm-2 col-form-label">Docente</label>
+            <div class="col-sm-10">
+                <input type="text" readonly class="form-control" 
+                value="{{ isset($asignacioness[0]->nombreDocente)?$asignacioness[0]->nombreDocente:'' }}, {{ isset($asignacioness[0]->paternoDocente)?$asignacioness[0]->paternoDocente:'' }} {{ isset($asignacioness[0]->maternoDocente)?$asignacioness[0]->maternoDocente:'' }}" id="">
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label for="" class="col-sm-2 col-form-label">Profesión</label>
+            <div class="col-sm-10">
+                <input type="text" readonly class="form-control" value="{{ isset($asignacioness[0]->profesionDocente)?$asignacioness[0]->profesionDocente:'' }}" id="">
+            </div>
+        </div> 
+    </div>
+
+
+    <input type="hidden" value="{{ $i = 1 }}">
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr> 
+                    <td>#</td> 
+                    <td>Nombre estudiante</td> 
+                    <td>Curso </td>
+                    {{-- <td>Especialidad </td> --}}
+                    {{-- <td>Id Grado </td> --}}
+                    <td>Grado </td>
+                    <td>Seccion </td>  
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach( $asignacioness as $asignacion )
+                <tr>
+                    <td>{{ $i++ }}</td> 
+                    <td>{{ $asignacion->nombre }}</td> 
+                    <td>{{ $asignacion->descripcion }}</td>
+                    {{-- <td>{{ $asignacion->especialidad }}</td> --}}
+                    {{-- <td>{{ $asignacion->idnivel }}</td> --}}
+                    <td>{{ $asignacion->grado }}</td>
+                    <td>{{ $asignacion->seccion }}</td>  
+                </tr>
+                @endforeach
+            </tbody>
+            
+        </table>
+    
+    @else 
+        <h1>Aun no se tiene ningun estudiante matriculado.</h1>
+    @endif
+        
+    </div>
+</div>
+
+
+@stop
+
+@section('css')
+<link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+<script> console.log('Hi!'); </script>
+@stop
