@@ -20,7 +20,7 @@
 <form action="{{ url('/matricula/'.$reportematricula[0]->idmatricula) }}" method="POST" enctype="multipart/form-data">
     @csrf
     {{ method_field('PATCH') }}
-    @include('matricula.form')
+    @include('matricula.form') 
 </form>
 
 

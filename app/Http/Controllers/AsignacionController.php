@@ -44,8 +44,8 @@ class AsignacionController extends Controller
         // dump($datosForm);
 
         // HECHO. Consular la tabla 'niveles' where grado = 1 y seccion = C para extraer el valor de 'idniveles' "3".
-        $nivel = Nivele::where('grado', $datosForm['Grado'])
-            ->where('seccion', $datosForm['Seccion'])->first();
+        $nivel = Nivele::where('grado', $datosForm['grado'])
+            ->where('seccion', $datosForm['seccion'])->first();
         // dump($nivel->idnivel);
 
         $cursos = Curso::where('niveles_idniveles', '=', $nivel->idnivel)->where('descripcion', '=', $datosForm['Curso'])->first();
@@ -71,40 +71,111 @@ class AsignacionController extends Controller
     }
  
     public function show($id)
-    {
-        //
+    { 
         $datos['asignacioness']  = DB::table('docentes')
-        ->join('asignaciones', 'asignaciones.docentes_iddocente', '=', 'docentes.iddocente')
-        ->join('detalle_asignaciones', 'detalle_asignaciones.asignaciones_idasignacion', '=', 'asignaciones.docentes_iddocente')
-        ->join('cursos', 'cursos.idcurso', '=', 'detalle_asignaciones.cursos_idcurso')
-        ->join('niveles', 'niveles.idnivel', '=', 'cursos.niveles_idniveles')
-        ->join('detalle_matriculas', 'detalle_matriculas.cursos_idcurso', '=', 'cursos.idcurso')
-        ->join('matriculas', 'matriculas.idmatricula', '=', 'detalle_matriculas.matriculas_idmatricula')
-        ->join('estudiantes', 'estudiantes.idestudiante', '=', 'matriculas.estudiante_idestudiante')
-            ->where('iddocente', $id)
-            ->select('asignaciones.idasignacion', 'docentes.nombre AS nombreDocente', 'docentes.apellido_paterno AS paternoDocente'
-            , 'docentes.apellido_materno AS maternoDocente', 'docentes.profesion AS profesionDocente', 'estudiantes.*',
-            'cursos.*', 'niveles.*', 'detalle_matriculas.*', 'matriculas.*')
+            ->join('asignaciones', 'asignaciones.docentes_iddocente', '=', 'docentes.iddocente') 
+            ->join('detalle_asignaciones', 'detalle_asignaciones.asignaciones_idasignacion', '=', 'asignaciones.idasignacion')
+            ->join('cursos', 'cursos.idcurso', '=', 'detalle_asignaciones.cursos_idcurso')
+            ->join('niveles', 'niveles.idnivel', '=', 'cursos.niveles_idniveles')
+            ->join('detalle_matriculas', 'detalle_matriculas.cursos_idcurso', '=', 'cursos.idcurso')
+            ->join('matriculas', 'matriculas.idmatricula', '=', 'detalle_matriculas.matriculas_idmatricula')
+            ->join('estudiantes', 'estudiantes.idestudiante', '=', 'matriculas.estudiante_idestudiante')
+            ->where('asignaciones.idasignacion', '=', 17)
+            ->select(
+            'docentes.nombre AS nombreDocente', 
+            'docentes.apellido_paterno AS paternoDocente',
+            'docentes.apellido_materno AS maternoDocente', 
+            'docentes.profesion AS profesionDocente', 
+            'cursos.*', 
+            'niveles.*',
+            'estudiantes.*',
+            'detalle_matriculas.*', 
+            'matriculas.*'
+            )
             ->get();
+            
+        if(isset($datos['asignacioness']))
+        { 
+            // echo 'si entro';
+            $datos['asignacioness']  = DB::table('docentes')
+            ->join('asignaciones', 'asignaciones.docentes_iddocente', '=', 'docentes.iddocente') 
+            ->join('detalle_asignaciones', 'detalle_asignaciones.asignaciones_idasignacion', '=', 'asignaciones.idasignacion')
+            ->join('cursos', 'cursos.idcurso', '=', 'detalle_asignaciones.cursos_idcurso')
+            ->join('niveles', 'niveles.idnivel', '=', 'cursos.niveles_idniveles') 
+            ->where('asignaciones.idasignacion', '=', $id)
+            ->select(
+            'docentes.nombre AS nombreDocente', 
+            'docentes.apellido_paterno AS paternoDocente',
+            'docentes.apellido_materno AS maternoDocente', 
+            'docentes.profesion AS profesionDocente', 
+            'cursos.*', 
+            'niveles.*'
+            )
+            ->get();
+             
+
+
+        }    else{
+            echo 'no entro';
+        }      
+
+        // dd($datos['asignacioness']);
   
         return view('asignacion.vercursos', $datos);
     }
  
     public function edit($id)
-    {
+    { 
         //
-        
+        $datos['reporteasignacion']  = DB::table('docentes')
+        ->join('asignaciones', 'asignaciones.docentes_iddocente', '=', 'docentes.iddocente')
+        ->join('detalle_asignaciones', 'detalle_asignaciones.asignaciones_idasignacion', '=', 'asignaciones.idasignacion')
+        ->join('cursos', 'cursos.idcurso', '=', 'detalle_asignaciones.cursos_idcurso')
+        ->join('niveles', 'niveles.idnivel', '=', 'cursos.niveles_idniveles')
+            ->select('docentes.*','asignaciones.*','detalle_asignaciones.*','cursos.*', 'niveles.*')
+            ->where('detalle_asignaciones.asignaciones_idasignacion', '=', $id)
+            ->get();
+
+        // dump($datos);
+        return view('asignacion.edit', $datos);
         
     }
 
     public function update(Request $request, $id)
     {
+        $datosForm = request()->except('_token', '_method');
+        // dump($datosForm);
+
+        // HECHO. Consular la tabla 'niveles' where grado = 1 y seccion = C para extraer el valor de 'idniveles' "3".
+        $nivel = Nivele::where('grado', $datosForm['grado'])
+            ->where('seccion', $datosForm['seccion'])->first();
         
+
+        $curso = Curso::where('niveles_idniveles', '=', $nivel->idnivel)->where('descripcion', '=', $datosForm['Curso'])->first();
+
+        // dump($curso);
+        
+        // // //buscar por id 
+        // $estudiante = Estudiante::where('iddocente', '=', $datosForm['iddocente']);
+ 
+
+        DB::delete('delete from detalle_asignaciones where asignaciones_idasignacion = ?',[$datosForm['idasignacion']]);
+
+        DB::table('detalle_asignaciones')->insert(
+            [
+                'asignaciones_idasignacion' => $datosForm['idasignacion'], 
+                'cursos_idcurso' => $curso->idcurso
+            ]
+        );
+        
+        return $this->index();
     }
 
     public function destroy($id)
     {
-        
+        DB::delete('delete from detalle_asignaciones where asignaciones_idasignacion = ?', [$id]);
+        DB::delete('delete from asignaciones where idasignacion = ?', [$id]);
+        return $this->index();
 
     }
 
