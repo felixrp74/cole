@@ -14,7 +14,13 @@
         </div>
     @endif
     
-    @livewire('estudiante.estudiante-create') 
+    <div class="card">
+        <div class="card-body">
+            @livewire('estudiante.estudiante-create') 
+
+        </div>
+    </div>
+
     
 @stop
 

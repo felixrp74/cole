@@ -85,24 +85,7 @@ class EstudianteController extends Controller
     }
 
     public function update(Request $request, $idestudiante)
-    {
-        // estamos recibiendo todos los datos a exception de ...
-        $datosEstudiante = request()->except('_token', '_method');
- 
-        $datosEstudiante = array(
-            "dni" => $datosEstudiante["dni"],
-            "nombre" => $datosEstudiante["nombre"],
-            "apellido_paterno" => $datosEstudiante["apellido_paterno"],
-            "apellido_materno" => $datosEstudiante["apellido_materno"],
-            "fecha_nacimiento" => $datosEstudiante["fecha_nacimiento"],
-            "lugar_nacimiento" => $datosEstudiante["lugar_nacimiento"],
-            "genero" => $datosEstudiante["genero"],
-            "direccion_actual" => $datosEstudiante["direccion_actual"],
-            "celular" => $datosEstudiante["celular"],
-            "email" => $datosEstudiante["email"],
-            "password" => $datosEstudiante["password"],
-            "documento" => $datosEstudiante["documento"]
-        );        
+    { 
  
         // $estudiante = Estudiante::where('idestudiante', $idestudiante);
         $estudiante = Estudiante::find( $idestudiante );

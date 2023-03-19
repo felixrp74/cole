@@ -1,67 +1,83 @@
-<div class="card">
+<form action="{{ url('/matricula') }}" method="POST" enctype="multipart/form-data" >
+    @csrf
 
-    <div class="card-body">
+    <div class="form-group row">
+        <label for="dni" class="col-sm-2 col-form-label">DNI</label>
+        <div class="col-sm-10">
+            <input wire:model="search" class="form-control" value="10293847"  placeholder="buscar por DNI" type="text">
+        </div>
+    </div>
 
 
-        <form action="{{ url('/matricula') }}" method="POST" enctype="multipart/form-data" >
-            @csrf
+    @if ($estudiante) 
+        <input type="hidden" name="idestudiante" id="idestudiante" value="{{$estudiante->idestudiante}}">
 
-            <label for="dni">DNI</label>
-            <input wire:model = "search" value="10293847"  placeholder="buscar por DNI" type="text">
-            <br>
+        <div class="form-group row">
+            <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+            <div class="col-sm-10">
+                <input type="text" name="nombre" class="form-control" value="{{ isset($estudiante->nombre)?$estudiante->nombre:'' }}" id="nombre">
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label for="apellido_paterno" class="col-sm-2 col-form-label">Apellido paterno</label>
+            <div class="col-sm-10">
+                <input type="text" name="apellido_paterno" class="form-control" value="{{ isset($estudiante->apellido_paterno)?$estudiante->apellido_paterno:'' }}" id="apellido_paterno">
+            </div>
+        </div>
 
-            @if ($estudiante)
-                <input type="hidden" name="idestudiante" id="idestudiante" value="{{$estudiante->idestudiante}}">
-                
-                <label for="nombre">Nombre</label>
-                <input type="text" name="nombre" id="nombre" value="{{$estudiante->nombre}}">
-                <br>
-                <label for="apellido_paterno">Paterno</label>
-                <input type="text" name="apellido_paterno" id="apellido_paterno" value="{{$estudiante->apellido_paterno}}">
-                <br>
-                <label for="apellido_materno">Materno</label>
-                <input type="text" name="apellido_materno" id="apellido_materno" value="{{$estudiante->apellido_materno}}">
-                <br>
-            @else 
-                    <h4>No se tiene registro del estudiante en la BASE DATOS...</h4>
-            @endif
+        <div class="form-group row">
+            <label for="apellido_materno" class="col-sm-2 col-form-label">Apellido materno</label>
+            <div class="col-sm-10">
+                <input type="text" name="apellido_materno" class="form-control" value="{{ isset($estudiante->apellido_materno)?$estudiante->apellido_materno:'' }}" id="apellido_materno">
+            </div>
+        </div>
+    @else 
+            <h4>No se tiene registro del estudiante en la BASE DATOS...</h4>
+    @endif
 
-            <label for="seccion">Seccion</label>
-            {{-- <input type="text" name="seccion" id="seccion" value="C"> --}}
-            <select name="seccion" id="seccion">
+
+    <div class="form-group row">
+        <label for="seccion" class="col-sm-2 col-form-label">Seccion</label>
+        <div class="col-sm-10">
+            <select name="seccion" class="form-control" id="seccion">
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
                 <option value="D">D</option>
                 <option value="E">E</option>
             </select>
-            <br>
+        </div>
+    </div>
 
-            <label for="grado">Grado</label>
-            {{-- <input type="text" name="grado" id="grado" value="1"> --}}
-            <select name="grado" id="grado">
+    <div class="form-group row">
+        <label for="grado" class="col-sm-2 col-form-label">Grado</label>
+        <div class="col-sm-10">
+            <select name="grado" class="form-control" id="grado">
                 <option value="1">PRIMERO</option>
                 <option value="2">SEGUNDO</option>
                 <option value="3">TERCERO</option>
                 <option value="4">TERCERO</option>
                 <option value="5">TERCERO</option>
             </select>
-            <br>
+        </div>
+    </div>
 
-            <label for="anio_academico">Año académico</label>
-            {{-- <input type="text" name="anio_academico" id="anio_academico" value="1"> --}}
-            <select name="anio_academico" id="anio_academico">
-                <option value="2020">2020</option>
-                <option value="2021">2021</option>
+    <div class="form-group row">
+        <label for="anio_academico" class="col-sm-2 col-form-label">Año académico</label>
+        <div class="col-sm-10">
+            <select name="anio_academico" class="form-control" id="anio_academico">
                 <option value="2022">2022</option>
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>
             </select>
-            <br>
+        </div>
+    </div>
 
-            <label for="especialidad">Especialidad</label>
-            {{-- <input type="text" name="especialidad" id="especialidad" value="AUTOMOTRIZ"> --}}
-            <select name="especialidad" id="especialidad">
+    <div class="form-group row">
+        <label for="especialidad" class="col-sm-2 col-form-label">Especialidad</label>
+        <div class="col-sm-10">
+            <select name="especialidad" class="form-control" id="especialidad">
                 <option value="AIP - ROBÓTICA">AIP - ROBÓTICA</option>
                 <option value="COMPUTACIÓN">COMPUTACIÓN</option>
                 <option value="CONSTRUCCIÓN CIVIL">CONSTRUCCIÓN CIVIL</option>
@@ -72,12 +88,13 @@
                 <option value="INDUSTRIA TEXTIL">INDUSTRIA TEXTIL</option>
                 <option value="INDUSTRIA DEL VESTIDO">INDUSTRIA DEL VESTIDO</option>
             </select>
-            <br>
-
-            <input class="btn btn-info" type="submit" value="Guardar datos">
-
-        </form>
-
-
+        </div>
     </div>
-</div>
+
+
+    <input class="btn btn-info" type="submit" value="Guardar datos">
+
+</form>
+
+
+ 

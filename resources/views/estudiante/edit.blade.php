@@ -14,8 +14,12 @@
         </div>
     @endif
 
-    @include('estudiante.form')
+    <div class="card">
+        <div class="card-body">
+            @include('estudiante.form')
 
+        </div>
+    </div>
 
 @stop
 

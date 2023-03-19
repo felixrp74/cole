@@ -8,7 +8,14 @@
 
 @section('content')
 
-@livewire('matricula-create')
+<div class="card">
+
+    <div class="card-body">
+
+    @livewire('matricula-create')
+
+    </div>
+</div>
 
 @stop
 
