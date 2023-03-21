@@ -15,16 +15,16 @@ class CategorySeeder extends Seeder
     public function run()
     {
         Category::create([
-            'name'=> 'Ingenieria-Mecanica',
-            'slug'=> 'ingenieria-mecanica',
+            'name'=> 'Colegio32',
+            'slug'=> 'Colegio32',
         ]);
         Category::create([
-            'name'=> 'Ingenieria-Electronica',
-            'slug'=> 'ingenieria-electronica',
+            'name'=> 'Colegio32',
+            'slug'=> 'Colegio32',
         ]);
         Category::create([
-            'name'=> 'Ingenieria-Sistemas',
-            'slug'=> 'ingenieria-sistemas',
+            'name'=> 'Colegio32',
+            'slug'=> 'Colegio32',
         ]);
         Category::create([
             'name'=> 'General',

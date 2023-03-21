@@ -18,7 +18,7 @@ class ColocacionNotasController extends Controller
         ->join('detalle_matriculas', 'detalle_matriculas.cursos_idcurso', '=', 'cursos.idcurso')
         ->join('matriculas', 'matriculas.idmatricula', '=', 'detalle_matriculas.matriculas_idmatricula')
         ->join('estudiantes', 'estudiantes.idestudiante', '=', 'matriculas.estudiante_idestudiante')
-            ->where('iddocente', 1)
+            ->where('iddocente', 2)
             ->select('asignaciones.idasignacion','docentes.nombre AS nombreDocente', 'docentes.iddocente', 'cursos.*','detalle_matriculas.*', 
             'estudiantes.*', 'niveles.*', 'matriculas.*')
             ->get();

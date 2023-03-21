@@ -62,6 +62,10 @@
                                     <td>{{ $colocacionnotass[0]->apellido_paterno }}</td> 
                                 </tr>
                                 <tr>  
+                                    <td>Enviar: </td>
+                                    <td><input class="btn btn-info" type="submit" value="Guardar datos"></td> 
+                                </tr>
+                                <tr>  
                                 </tr> 
                             </tbody>
                         </table>
@@ -113,7 +117,7 @@
             </form>
                 
                 <div class="card-footer">
-                    
+
                 </div> 
                 
             @else

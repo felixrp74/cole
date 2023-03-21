@@ -379,6 +379,7 @@ return [
             'route'  => 'docente.index',
             'icon' => 'fab fa-fw fa fa-users',
             // 'can' => 'admin.categories.index',
+            'can' => 'admin.docente.index',
         ], 
         // [
         //     'text' => 'Usuario',
