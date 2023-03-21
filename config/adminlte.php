@@ -367,12 +367,14 @@ return [
             'icon' => 'fab fa-fw fa fa-users',
             // 'can' => 'admin.categories.index',
         ],
-        ['header' => 'ADMINISTRADOR DOCENTE'],
+        ['header' => 'ADMINISTRADOR DOCENTE',
+        'can' => 'admin.docente.edit'],
         [
             'text' => 'Registrar docentes',
             'route'  => 'docente.create',
             'icon' => 'fab fa-fw fa fa-user-plus',
             // 'can' => 'admin.categories.index',
+            'can' => 'admin.docente.edit',
         ],  
         [
             'text' => 'Registro de docentes',
