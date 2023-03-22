@@ -57,8 +57,8 @@
                 <option value="1">PRIMERO</option>
                 <option value="2">SEGUNDO</option>
                 <option value="3">TERCERO</option>
-                <option value="4">TERCERO</option>
-                <option value="5">TERCERO</option>
+                <option value="4">CUARTO</option>
+                <option value="5">QUINTO</option>
             </select>
         </div>
     </div>

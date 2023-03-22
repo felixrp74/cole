@@ -19,10 +19,8 @@
     <table class="table table-striped" >
         <thead>
             <tr>   
-                <td >Dato </td>
-                <td >Valor </td> 
-                <td >Dato </td>
-                <td >Valor </td> 
+                <td >Campo </td>
+                <td >Valor </td>  
             </tr>
         </thead>
         <tbody>
@@ -32,20 +30,15 @@
 
              
             <tr>  
-                <td >Id estudiante: </td>
-                <td >{{ $reportenotas[0]->idestudiante}}</td>
                 <td >DNI: </td>
                 <td >{{ $reportenotas[0]->dni }}</td>
             </tr>
             <tr>  
-                <td >Nombre: </td>
-                <td >{{ $reportenotas[0]->nombre }}</td>
-                <td >Paterno: </td>
-                <td >{{ $reportenotas[0]->apellido_paterno }}</td>
+                <td >Nombres y apellidos: </td>
+                <td >{{ $reportenotas[0]->nombre }} {{ $reportenotas[0]->apellido_paterno }} {{ $reportenotas[0]->apellido_materno}}</td> 
+              
             </tr>
             <tr>  
-                <td >Materno: </td>
-                <td >{{ $reportenotas[0]->apellido_materno}}</td>
                 <td >Celular: </td>
                 <td >{{ $reportenotas[0]->celular}}</td>
             </tr>

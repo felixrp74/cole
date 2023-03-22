@@ -41,25 +41,14 @@
                 <div class="card">
                     {{-- cabecera tabla --}}
                     @if ($colocacionnotass->count())
-                    <div class="card-header">
-                        {{-- <p><label for="Idestudiante">Id asignacion: </label> {{ $colocacionnotass[0]->idasignacion }}</p> --}}
-                        {{-- <p><label for="Iddocente">Nombre de docente: </label> {{ $colocacionnotass[0]->nombreDocente }}</p> 
-                        <input class="btn btn-info" type="submit" value="Guardar datos">     --}}
+                    <div class="card-header"> 
 
                         <table class="table table-striped"> 
                             <tbody> 
                                 <input type="hidden" value="{{ $i = 1 }}"> 
                                 <tr>  
-                                    <td>Nombre de docente: </td>
-                                    <td>{{ $colocacionnotass[0]->nombreDocente }}</td> 
-                                </tr>
-                                <tr>  
-                                    <td>Materno: </td>
-                                    <td>{{ $colocacionnotass[0]->apellido_materno}}</td> 
-                                </tr>
-                                <tr>  
-                                    <td>Paterno: </td>
-                                    <td>{{ $colocacionnotass[0]->apellido_paterno }}</td> 
+                                    <td>Nombres y apellidos: </td>
+                                    <td>{{ $colocacionnotass[0]->nombreDocente }} {{ $colocacionnotass[0]->apellido_materno}}  {{ $colocacionnotass[0]->apellido_paterno }}</td> 
                                 </tr>
                                 <tr>  
                                     <td>Enviar: </td>
@@ -77,7 +66,6 @@
                             <thead>
                                 <tr>   
                                     <td># </td>
-                                    <td>NombreDocente </td>
                                     <td>Nombre </td>
                                     <td>Grado </td>
                                     <td>Seccion </td>
@@ -90,9 +78,8 @@
                             </thead>
                             <tbody>
                                 @foreach( $colocacionnotass as $colocacionnota )
-                                <tr>  
+                                <tr >  
                                     <td>{{ $i }}</td>
-                                    <td>{{ $colocacionnota->nombreDocente }}</td>
                                     <td>{{ $colocacionnota->nombre }}</td>
                                     <td>{{ $colocacionnota->grado }}</td>
                                     <td>{{ $colocacionnota->seccion }}</td>

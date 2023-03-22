@@ -71,7 +71,7 @@
                                 <td>
                                     @isset ($estudiante->file)
                                         {{-- <iframe id="pdf" src="{{Storage::url($estudiante->file->url)}}" frameborder="0"></iframe> --}}
-                                        <a class="btn btn-info" href="{{Storage::url($estudiante->file->url)}}" target="_blank">Copia DNI</a>
+                                        <a class="btn btn-info" href="{{Storage::url($estudiante->file->url)}}" target="_blank">Ver archivo</a>
                                     {{-- @else --}}
                                         {{-- <iframe id="pdf" src="/storage/files/archivo.pdf" frameborder="0"></iframe>                 --}}
                                     @endisset
