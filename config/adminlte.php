@@ -293,117 +293,89 @@ return [
         ['header' => 'ESTUDIANTE'],
         [
             'text' => 'Reporte de notas',
-            // 'route'  => 'admin.categories.index',
             'route'  => 'reportenotas.index',
             'icon' => 'fab fa-fw fa fa-sticky-note',
-            // 'can' => 'admin.categories.index',
+            // 'can' => 'admin.categories.index',   
+        ],        
+        [
+            'header' => 'ADMINISTRADOR',
+            'can' => 'admin.matricula.create'
         ],
-        // ['header' => 'PUBLICACION'],
-        // [
-        //     'text'      => 'Lista de post',
-        //     'icon'      => 'fas fa-fw fa-clipboard',
-        //     'route'     => 'admin.posts.index',
-        //     'can'       => 'admin.posts.index',
-        // ],
-        // [
-        //     'text'      => 'Crear post',
-        //     'icon'      => 'fas fa-fw fa-file',
-        //     'route'     => 'admin.posts.create',
-        //     'can'       => 'admin.posts.create',
-        // ],
-        // [
-        //     'text'       => 'information',
-        //     'icon_color' => 'cyan',
-        //     'url'        => '#',
-        // ],
-        ['header' => 'ADMINISTRADOR'],
-        // [
-        //     'text' => 'Escuela',
-        //     'route'  => 'admin.categories.index',
-        //     'icon' => 'fab fa-fw fa-buffer',
-        //     //'can' => 'admin.categories.index',
-        // ],
-        ['header' => 'ADMINISTRADOR MATRICULAR'],
+        [
+            'header' => 'ADMINISTRADOR MATRICULAR',
+            'can' => 'admin.matricula.create'
+        ],
         [
             'text' => 'Matricular estudiantes',
-            // 'route'  => 'admin.categories.index',
             'route'  => 'matricula.create',
             'icon' => 'fab fa-fw fa fa-user',
-            // 'can' => 'admin.categories.index',
+            'can' => 'admin.matricula.create'
         ],
         [
             'text' => 'Matricula de estudiantes',
-            // 'route'  => 'admin.categories.index',
             'route'  => 'matricula.index',
             'icon' => 'fab fa-fw fa fa-users',
-            // 'can' => 'admin.categories.index',
+            'can' => 'admin.matricula.index',
         ],
-        ['header' => 'ADMINISTRADOR ASIGNAR'],
+        [
+            'header' => 'ADMINISTRADOR ASIGNAR',
+            'can' => 'admin.asignacion.create',
+        ],
         [
             'text' => 'Asignar docente',
-            // 'route'  => 'admin.categories.index',
             'route'  => 'asignacion.create',
             'icon' => 'fab fa-fw fa fa-user',
-            // 'can' => 'admin.categories.index',
+            'can' => 'admin.asignacion.create',
         ],
         [
             'text' => 'Asignacion de docentes',
-            // 'route'  => 'admin.categories.index',
             'route'  => 'asignacion.index',
             'icon' => 'fab fa-fw fa fa-users',
-            // 'can' => 'admin.categories.index',
+            'can' => 'admin.asignacion.index',
         ],
-        ['header' => 'ADMINISTRADOR ESTUDIANTE'],
+        [
+            'header' => 'ADMINISTRADOR ESTUDIANTE',
+            'can' => 'admin.estudiante.create'
+        ],
         [
             'text' => 'Registrar estudiantes',
             'route'  => 'estudiante.create',
             'icon' => 'fab fa-fw fa fa-user-plus',
-            // 'can' => 'admin.categories.index',
+            'can' => 'admin.estudiante.create',
         ],
         [
             'text' => 'Registro de estudiantes',
-            // 'route'  => 'admin.categories.index',
             'route'  => 'estudiante.index',
             'icon' => 'fab fa-fw fa fa-users',
-            // 'can' => 'admin.categories.index',
+            'can' => 'admin.estudiante.index',
         ],
-        ['header' => 'ADMINISTRADOR DOCENTE',
-        'can' => 'admin.docente.edit'],
+        [
+            'header' => 'ADMINISTRADOR DOCENTE',
+            'can' => 'admin.docente.edit'
+        ],
         [
             'text' => 'Registrar docentes',
             'route'  => 'docente.create',
             'icon' => 'fab fa-fw fa fa-user-plus',
-            // 'can' => 'admin.categories.index',
-            'can' => 'admin.docente.edit',
+            'can' => 'admin.docente.edit'
         ],  
         [
             'text' => 'Registro de docentes',
             'route'  => 'docente.index',
             'icon' => 'fab fa-fw fa fa-users',
-            // 'can' => 'admin.categories.index',
             'can' => 'admin.docente.index',
         ], 
-        // [
-        //     'text' => 'Usuario',
-        //     'route'  => 'admin.users.index',
-        //     // 'icon' => 'fab fa-fw fa-buffer',
-        //     'icon' => 'fas fa-user-check',
-            
-        // ],
         [
             'text' => 'Usuarios',
             'route'  => 'admin.users.index',
-            // 'icon' => 'fab fa-fw fa-buffer',
             'icon' => 'fab fa-fw fas fa-users fa-fw',
             'can' => 'admin.users.index',
-            
         ],
-        // [
-        //     'text' => 'Mi Perfil',
-        //     // 'url'  => 'admin/settings',
-        //     'route'  => 'profile.show',
-        //     'icon' => 'fas fa-fw fa-lock',
-        // ],
+        [
+            'text' => 'Mi Perfil',
+            'route'  => 'profile.show',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
     ],
  
     /*
