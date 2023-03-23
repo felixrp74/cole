@@ -357,17 +357,14 @@ return [
             'route'  => 'reportenotas.index',
             'icon' => 'fab fa-fw fa fa-sticky-note',
             'can' => 'admin.reportenotas.index',   
-        ], 
-        
+        ],         
         
         // [
         //     'text' => 'Asignacion de docentes',
         //     'route'  => 'asignacion.index',
         //     'icon' => 'fab fa-fw fa fa-users',
         //     'can' => 'admin.asignacion.index',
-        // ],
-        
-       
+        // ],        
         
         [
             'text' => 'Mi Perfil',
