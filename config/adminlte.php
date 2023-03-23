@@ -282,61 +282,37 @@ return [
         //     ],
         // ],
 
-        ['header' => 'OPCIONES DE SISTEMA'],        
+        ['header' => 'OPCIONES DE SISTEMA'], 
+        [
+            'header' => 'USUARIOS',
+            'route'  => 'admin.users.index',
+            'icon' => 'fab fa-fw fas fa-users fa-fw',
+            'can' => 'admin.users.index'
+        ],
+
+
         ['header' => 'DOCENTE'],
         [
-            'text' => 'Colocar notas a los estudiantes',
-            'route'  => 'colocacionnotas.index',
-            'icon' => 'fab fa-fw fa fa-tasks',
-            // 'can' => 'admin.categories.index',
-        ], 
-        ['header' => 'ESTUDIANTE'],
+            'text' => 'Registrar docentes',
+            'route'  => 'docente.create',
+            'icon' => 'fab fa-fw fa fa-user-plus',
+            'can' => 'admin.docente.edit'
+        ],  
         [
-            'text' => 'Reporte de notas',
-            'route'  => 'reportenotas.index',
-            'icon' => 'fab fa-fw fa fa-sticky-note',
-            // 'can' => 'admin.categories.index',   
-        ],        
-        [
-            'header' => 'ADMINISTRADOR',
-            'can' => 'admin.matricula.create'
-        ],
-        [
-            'header' => 'ADMINISTRADOR MATRICULAR',
-            'can' => 'admin.matricula.create'
-        ],
-        [
-            'text' => 'Matricular estudiantes',
-            'route'  => 'matricula.create',
-            'icon' => 'fab fa-fw fa fa-user',
-            'can' => 'admin.matricula.create'
-        ],
-        [
-            'text' => 'Matricula de estudiantes',
-            'route'  => 'matricula.index',
-            'icon' => 'fab fa-fw fa fa-users',
-            'can' => 'admin.matricula.index',
-        ],
-        [
-            'header' => 'ADMINISTRADOR ASIGNAR',
-            'can' => 'admin.asignacion.create',
-        ],
-        [
-            'text' => 'Asignar docente',
+            'text' => 'Asignar docentes',
             'route'  => 'asignacion.create',
             'icon' => 'fab fa-fw fa fa-user',
             'can' => 'admin.asignacion.create',
         ],
         [
-            'text' => 'Asignacion de docentes',
-            'route'  => 'asignacion.index',
+            'text' => 'Registro de docentes',
+            'route'  => 'docente.index',
             'icon' => 'fab fa-fw fa fa-users',
-            'can' => 'admin.asignacion.index',
-        ],
-        [
-            'header' => 'ADMINISTRADOR ESTUDIANTE',
-            'can' => 'admin.estudiante.create'
-        ],
+            'can' => 'admin.docente.index',
+        ], 
+
+
+        ['header' => 'ESTUDIANTE'],
         [
             'text' => 'Registrar estudiantes',
             'route'  => 'estudiante.create',
@@ -348,29 +324,51 @@ return [
             'route'  => 'estudiante.index',
             'icon' => 'fab fa-fw fa fa-users',
             'can' => 'admin.estudiante.index',
+        ],     
+        
+        
+        ['header' => 'MATRICULAR'],
+        [
+            'text' => 'Matricular estudiante',
+            'route'  => 'matricula.create',
+            'icon' => 'fab fa-fw fa fa-user',
+            'can' => 'admin.matricula.create'
         ],
         [
-            'header' => 'ADMINISTRADOR DOCENTE',
-            'can' => 'admin.docente.edit'
-        ],
-        [
-            'text' => 'Registrar docentes',
-            'route'  => 'docente.create',
-            'icon' => 'fab fa-fw fa fa-user-plus',
-            'can' => 'admin.docente.edit'
-        ],  
-        [
-            'text' => 'Registro de docentes',
-            'route'  => 'docente.index',
+            'text' => 'Registro de estudiantes matriculados',
+            'route'  => 'matricula.index',
             'icon' => 'fab fa-fw fa fa-users',
-            'can' => 'admin.docente.index',
+            'can' => 'admin.matricula.index',
         ], 
+
+
+        ['header' => 'INGRESAR NOTAS'],
         [
-            'text' => 'Usuarios',
-            'route'  => 'admin.users.index',
-            'icon' => 'fab fa-fw fas fa-users fa-fw',
-            'can' => 'admin.users.index',
-        ],
+            'text' => 'Ingresar notas',
+            'route'  => 'colocacionnotas.index',
+            'icon' => 'fab fa-fw fa fa-tasks',
+            'can' => 'admin.colocacionnotas.index',
+        ], 
+
+        
+        ['header' => 'REPORTE DE NOTAS'],
+        [
+            'text' => 'Reporte de notas',
+            'route'  => 'reportenotas.index',
+            'icon' => 'fab fa-fw fa fa-sticky-note',
+            'can' => 'admin.reportenotas.index',   
+        ], 
+        
+        
+        // [
+        //     'text' => 'Asignacion de docentes',
+        //     'route'  => 'asignacion.index',
+        //     'icon' => 'fab fa-fw fa fa-users',
+        //     'can' => 'admin.asignacion.index',
+        // ],
+        
+       
+        
         [
             'text' => 'Mi Perfil',
             'route'  => 'profile.show',
