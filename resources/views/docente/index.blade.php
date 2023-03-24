@@ -29,7 +29,8 @@
                     <thead>
                         <tr>
                             <td>#</td>
-                            <td>Nombre</td>
+                            <td>DNI</td>
+                            <td>Nombre y apellido</td>
                             <td>Profesión</td>
                             <td colspan="2">Acciones</td>
                         </tr>
@@ -38,7 +39,8 @@
                         @foreach( $docentes as $docente )
                         <tr>
                             <td>{{ $docente->iddocente }}</td>
-                            <td>{{ $docente->nombre }}</td>
+                            <td>{{ $docente->dni }}</td>
+                            <td>{{ $docente->nombre }} {{ $docente->apellido_paterno }} {{ $docente->apellido_materno }}</td>
                             <td>{{ $docente->profesion }}</td>
                             <td>
                                 <a class="btn btn-info" href="{{ url('/docente/'.$docente->iddocente.'/edit') }}">Editar</a>

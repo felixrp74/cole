@@ -284,7 +284,7 @@ return [
 
         ['header' => 'OPCIONES DE SISTEMA'], 
         [
-            'header' => 'USUARIOS',
+            'text' => 'USUARIOS',
             'route'  => 'admin.users.index',
             'icon' => 'fab fa-fw fas fa-users fa-fw',
             'can' => 'admin.users.index'
