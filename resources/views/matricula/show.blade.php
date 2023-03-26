@@ -34,13 +34,13 @@
 
     
     <div class="row">
-        <div class="col-sm-6"> 
+        <div class="col-sm-6 pl-5"> 
             <h3 style="text-align: start;"><img style="width: auto; height: 95px;" src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/cropped-LOGO-I32-22.png" alt=""></h3>
         </div>
         <div class="col-sm-6"> 
         
             {{-- <h3 style="text-align: end;"><img style="width: auto; height: 95px;" src="https://seeklogo.com/images/M/ministerio_de_educacion_-_peru-logo-72FA497226-seeklogo.com.png" alt=""></h3></div> --}}
-            <h3 style="text-align: end;"><img style="width: auto; height: 95px;" src="https://upload.wikimedia.org/wikipedia/commons/2/21/Logo_del_Ministerio_de_Educaci%C3%B3n_del_Per%C3%BA_-_MINEDU.png" alt=""></h3></div>
+            <h3 style="text-align: end;"><img style="text-align: end; width: auto; height: 95px;" src="https://upload.wikimedia.org/wikipedia/commons/2/21/Logo_del_Ministerio_de_Educaci%C3%B3n_del_Per%C3%BA_-_MINEDU.png" alt=""></h3></div>
         </div>
         
         
@@ -49,19 +49,19 @@
     <br>
     <br>
 
-    <h2 class="centro">INSTITUCION EDUCATIVA SECUNDARIA INDUSTRIAL 32</h2>
+    <h2 class="centro pl-5">INSTITUCION EDUCATIVA SECUNDARIA INDUSTRIAL 32</h2>
     <br>
-    <h1 class="centro">FICHA DE MATRICULA</h1>
+    <h1 class="centro pl-5">FICHA DE MATRICULA</h1>
     <br>
-    <h2 class="centro">{{ $reportematricula[0]->nombre}} {{ $reportematricula[0]->apellido_paterno }} {{ $reportematricula[0]->apellido_materno}}</h2>
+    <h2 class="centro pl-5">{{ $reportematricula[0]->nombre}} {{ $reportematricula[0]->apellido_paterno }} {{ $reportematricula[0]->apellido_materno}}</h2>
     <br>
-    <h3 class="centro"> Año académico {{ $reportematricula[0]->anio_academico }} </h3>
+    <h3 class="centro pl-5"> Año académico {{ $reportematricula[0]->anio_academico }} </h3>
     <br>
 
     <br>
     <br>
     <div class="row">
-        <div class="col-sm-6"><h3 style="text-align: start;"> N° Matricula / Dni: {{ $reportematricula[0]->dni }}</h3></div>
+        <div class="col-sm-6 pl-5"><h3 style="text-align: start;"> N° Matricula / Dni: {{ $reportematricula[0]->dni }}</h3></div>
         <div class="col-sm-6"><h3 style="text-align: end;"> Grado y Seccion: {{ $reportematricula[0]->grado }}° - {{ $reportematricula[0]->seccion }}</h3></div>
         
         
@@ -69,10 +69,10 @@
     
     <br>
     <br>
-    <h2 >Cursos</h2>
+    <h2 class="pl-5">Cursos</h2>
     @foreach( $reportematricula as $reporte )
-        <ul>   
-            <li> <h4> {{ $reporte->descripcion }} </h4> </li>  
+        <ul class="ml-4">   
+            <li class=" pl-5"> <h4 > {{ $reporte->descripcion }} </h4> </li>  
         </ul>
     @endforeach 
 
