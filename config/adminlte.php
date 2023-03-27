@@ -339,6 +339,8 @@ return [
             'route'  => 'matricula.index',
             'icon' => 'fab fa-fw fa fa-users',
             'can' => 'admin.matricula.index',
+            'can' => 'admin.matricula.show'
+            
         ], 
 
 
@@ -347,7 +349,7 @@ return [
             'text' => 'Ingresar notas',
             'route'  => 'colocacionnotas.index',
             'icon' => 'fab fa-fw fa fa-tasks',
-            'can' => 'admin.colocacionnotas.index',
+            'can' => 'admin.colocacionnotas.index'
         ], 
 
         
@@ -357,6 +359,7 @@ return [
             'route'  => 'reportenotas.index',
             'icon' => 'fab fa-fw fa fa-sticky-note',
             'can' => 'admin.reportenotas.index',   
+            'can' => 'admin.reportenotas.show'   
         ],         
         
         // [
