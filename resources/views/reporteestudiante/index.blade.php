@@ -1,61 +1,76 @@
 @extends('adminlte::page')
-
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>REPORTE DE NOTAS ESTUDIANTE</h1>
+
+<style>
+    .printbutton {
+        cursor: pointer;
+    }
+
+    .centro {
+        text-align: center;
+    }
+</style>
+
 @stop
 
-@section('content')
- 
+
+@section('content') 
 
  
 
-<div class="card">
-    {{-- cabecera tabla --}}
+    @if ($reportenotas->count())
+    <div id="imp1" class="d-flex justify-content-center">
+        <div class="card"> 
+            <div class="card-body">
+            <input type="button" class="btn btn-info" value="PRINT" id="printbutton" onclick="javascript:imprim1(imp1);">
+            </div>
+        </div>
+    </div>
+    @endif
 
-@if ($reportenotas->count())
-<div class="card-header">
-    <table class="table table-striped" >
-        <thead>
-            <tr>   
-                <td >Campo </td>
-                <td >Valor </td>  
-            </tr>
-        </thead>
-        <tbody>
-
-            
-            <input type="hidden" value="{{ $i = 1 }}">
-
-             
-            <tr>  
-                <td >DNI: </td>
-                <td >{{ $reportenotas[0]->dni }}</td>
-            </tr>
-            <tr>  
-                <td >Nombres y apellidos: </td>
-                <td >{{ $reportenotas[0]->nombre }} {{ $reportenotas[0]->apellido_paterno }} {{ $reportenotas[0]->apellido_materno}}</td> 
-              
-            </tr>
-            <tr>  
-                <td >Celular: </td>
-                <td >{{ $reportenotas[0]->celular}}</td>
-            </tr>
-            <tr>  
-                <td >Año académico: </td>
-                <td >{{ isset($reportenotas[0]->anio_academico) ? $reportenotas[0]->anio_academico : 'no tiene valor  ' }}</td>
-                
-                {{-- <td >{{ $reportenotas[0]->email}}</td> --}}
-            </tr>
-        </tbody>
-    </table>
+    @if ($reportenotas->count())
 
     
+    <div class="row">
+        <div class="col-sm-6 pl-5"> 
+            <h3 style="text-align: start;"><img style="width: auto; height: 95px;" src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/cropped-LOGO-I32-22.png" alt=""></h3>
+        </div>
+        <div class="col-sm-6"> 
+        
+            {{-- <h3 style="text-align: end;"><img style="width: auto; height: 95px;" src="https://seeklogo.com/images/M/ministerio_de_educacion_-_peru-logo-72FA497226-seeklogo.com.png" alt=""></h3></div> --}}
+            <h3 style="text-align: end;"><img style="text-align: end; width: auto; height: 95px;" src="https://upload.wikimedia.org/wikipedia/commons/2/21/Logo_del_Ministerio_de_Educaci%C3%B3n_del_Per%C3%BA_-_MINEDU.png" alt=""></h3></div>
+        </div>
+        
+        
+    </div>
     
-</div>
+    <br>
+    <br>
 
+    <h2 class="centro pl-5">INSTITUCION EDUCATIVA SECUNDARIA INDUSTRIAL 32</h2>
+    <br>
+    <h1 class="centro pl-5">LIBRETA DE NOTAS</h1>
+    <br>
+    <h2 class="centro pl-5">{{ $reportenotas[0]->nombre}} {{ $reportenotas[0]->apellido_paterno }} {{ $reportenotas[0]->apellido_materno}}</h2>
+    <br>
+    <h3 class="centro pl-5"> Año académico {{ $reportenotas[0]->anio_academico }} </h3>
+    <br>
 
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-sm-6 pl-5"><h3 style="text-align: start;"> N° Matricula / Dni: {{ $reportenotas[0]->dni }}</h3></div>
+        {{-- <div class="col-sm-6"><h3 style="text-align: end;"> Grado y Seccion: {{ $reportenotas[0]->grado }}° - {{ $reportenotas[0]->seccion }}</h3></div> --}}
+        
+        
+    </div>
+    
+    <br>
+    <br>
+    <h2 class="pl-5">Cursos</h2>
+    
 
     {{-- cuerpo tabla --}}
     <div class="card-body">
@@ -102,22 +117,39 @@
         </table>
     </div>
     
-    <div class="card-footer">
-        <input type="button" class="btn btn-info" value="Imprimir">
-    </div> 
-    
-@else
-    <div class="card-body">
-        <h4>No se tiene registro en la BASE DATOS...</h4>
-    </div>
-@endif
-    
+
+
+    @else
+        <div class="card-body">
+            <h4>No se tiene registro en la BASE DATOS...</h4>
+        </div>
+    @endif
+
+
+
+
+
+
+  
 @stop
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
+
 @section('js')
-    <script> console.log('Hi!'); </script>
+<script> 
+    document.querySelectorAll('#printbutton').forEach(function(element) {
+        element.addEventListener('click', function() {
+            // document.getElementById("printbutton");
+            document.getElementById('printbutton').type = 'hidden';
+            print();
+            document.getElementById('printbutton').type = 'button';
+        });
+    });
+
+</script>
 @stop
+    
+ 
