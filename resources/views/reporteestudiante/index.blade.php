@@ -80,9 +80,9 @@
                     <td ># </td>
                     <td >Curso </td>
                     {{-- <td >Especialidad </td> --}}
-                    <td >Trimester I</td>
-                    <td >Trimester II</td>
-                    <td >Trimester III</td>
+                    <td >Trimestre I</td>
+                    <td >Trimestre II</td>
+                    <td >Trimestre III</td>
                     <td >Promedio</td>
                 </tr>
             </thead>

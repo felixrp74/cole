@@ -49,7 +49,7 @@ class EstudianteController extends Controller
         );
  
         $estudiante = Estudiante::create(request()->all());
-
+        
         if($request->file('documento')){
 
             $url = Storage::put('files', $request->file('documento'));

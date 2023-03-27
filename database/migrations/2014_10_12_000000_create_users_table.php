@@ -25,7 +25,10 @@ class CreateUsersTable extends Migration
             // ingenieria-mecanica
             // ingenieria-electronica
             // ingenieria-sistemas
-            $table->string('escuela');
+            $table->string('tipo_usuario')->nullable(); //docente, estudiante, admin
+            $table->integer('identificador')->nullable();
+            $table->integer('identificador_estudiante')->nullable(); // por id 
+            $table->integer('identificador_docente')->nullable(); // por id 
 
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();

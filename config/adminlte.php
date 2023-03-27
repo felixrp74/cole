@@ -342,6 +342,14 @@ return [
             'can' => 'admin.matricula.show'
             
         ], 
+        // [
+        //     'text' => 'Ver ficha de matricula',
+        //     'route'  => '',
+        //     'icon' => 'fab fa-fw fa fa-users', 
+        //     'can' => 'admin.matricula.show'
+            
+        // ], 
+         
 
 
         ['header' => 'INGRESAR NOTAS'],

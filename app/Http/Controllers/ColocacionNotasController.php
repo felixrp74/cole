@@ -10,6 +10,8 @@ class ColocacionNotasController extends Controller
     //
     public function index()
     {
+        $id = auth()->user()->identificador_docente;
+
         $datos['colocacionnotass']  = DB::table('docentes')
         ->join('asignaciones', 'asignaciones.docentes_iddocente', '=', 'docentes.iddocente')
         ->join('detalle_asignaciones', 'detalle_asignaciones.asignaciones_idasignacion', '=', 'asignaciones.docentes_iddocente')
@@ -18,7 +20,7 @@ class ColocacionNotasController extends Controller
         ->join('detalle_matriculas', 'detalle_matriculas.cursos_idcurso', '=', 'cursos.idcurso')
         ->join('matriculas', 'matriculas.idmatricula', '=', 'detalle_matriculas.matriculas_idmatricula')
         ->join('estudiantes', 'estudiantes.idestudiante', '=', 'matriculas.estudiante_idestudiante')
-            ->where('iddocente', 3)
+            ->where('iddocente', 2)
             ->select('asignaciones.idasignacion','docentes.nombre AS nombreDocente', 'docentes.iddocente', 'cursos.*','detalle_matriculas.*', 
             'estudiantes.*', 'niveles.*', 'matriculas.*')
             ->get();

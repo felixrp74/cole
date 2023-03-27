@@ -17,21 +17,22 @@ class UserSeeder extends Seeder
         User::create([
             'name'=> 'Alexander',
             'email'=> 'alexander@alexander.com',
-            'escuela'=> 'colegio32',
             'password'=> bcrypt('alexander@alexander.com'),
         ])->assignRole('Admin'); // 'Admin' de la linea 20 de archivo 'RoleSeeder.php'
 
         User::create([
             'name'=> 'Estudiante',
             'email'=> 'estudiante@gmail.com',
-            'escuela'=> 'colegio32',
+            'tipo_usuario'=> 'estudiante',
+            'identificador_estudiante'=> 1,
             'password'=> bcrypt('estudiante@gmail.com'),
         ])->assignRole('EstudianteUsuario'); // 'EstudianteUsuario' de la linea 20 de archivo 'RoleSeeder.php'
 
         User::create([
             'name'=> 'Docente',
             'email'=> 'docente@gmail.com',
-            'escuela'=> 'colegio32',
+            'tipo_usuario'=> 'docente',
+            'identificador_docente'=> 2,
             'password'=> bcrypt('docente@gmail.com'),
         ])->assignRole('DocenteUsuario'); // 'DocenteUsuario' de la linea 20 de archivo 'RoleSeeder.php'
 
