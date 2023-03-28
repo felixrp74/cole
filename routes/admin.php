@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\DocenteController;
-// use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\FichaMatriculaController;
 
 
 // no es necesarion poner 'admin' como ruta. 
@@ -21,3 +21,4 @@ Route::resource('reportenotas', ReporteEstudianteController::class)->names('admi
 Route::resource('asignacion', AsignacionController::class)->names('admin.asignacion');
 Route::resource('curso', CursoController::class)->names('admin.curso');
 Route::resource('colocacionnotas', ColocacionNotasController::class)->names('admin.colocacionnotas');
+Route::resource('fichamatricula', FichaMatriculaController::class)->names('admin.fichamatricula');

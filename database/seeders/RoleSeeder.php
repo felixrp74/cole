@@ -41,7 +41,7 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.matricula.create'])->syncRoles([$role1]);
         Permission::create(['name' => 'admin.matricula.edit'])->syncRoles([$role1]);
         Permission::create(['name' => 'admin.matricula.destroy'])->syncRoles([$role1]);
-        Permission::create(['name' => 'admin.matricula.show'])->syncRoles([$role1, $role2]); // ver matricula desde el punto de vista del estudiante opcion2
+        Permission::create(['name' => 'admin.matricula.show'])->syncRoles([$role1]); // ver matricula desde el punto de vista del estudiante opcion2
 
         Permission::create(['name' => 'admin.reportenotas.index'])->syncRoles([$role1, $role2]); // ver libreta de notas desde el punot de vista del estudiante opcion1
         Permission::create(['name' => 'admin.reportenotas.create'])->syncRoles([$role1]);
@@ -64,6 +64,11 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.colocacionnotas.create'])->syncRoles([$role1]);
         Permission::create(['name' => 'admin.colocacionnotas.edit'])->syncRoles([$role1]);
         Permission::create(['name' => 'admin.colocacionnotas.destroy'])->syncRoles([$role1]);
+ 
+        Permission::create(['name' => 'admin.fichamatricula.index'])->syncRoles([$role1, $role2]); // colocar notas desde el punto de vista del docente opcion1
+        Permission::create(['name' => 'admin.fichamatricula.create'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.fichamatricula.edit'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.fichamatricula.destroy'])->syncRoles([$role1]);
  
 
     }

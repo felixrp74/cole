@@ -338,17 +338,9 @@ return [
             'text' => 'Registro de estudiantes matriculados',
             'route'  => 'matricula.index',
             'icon' => 'fab fa-fw fa fa-users',
-            'can' => 'admin.matricula.index',
-            'can' => 'admin.matricula.show'
+            'can' => 'admin.matricula.index' 
             
         ], 
-        // [
-        //     'text' => 'Ver ficha de matricula',
-        //     'route'  => '',
-        //     'icon' => 'fab fa-fw fa fa-users', 
-        //     'can' => 'admin.matricula.show'
-            
-        // ], 
          
 
 
@@ -359,7 +351,14 @@ return [
             'icon' => 'fab fa-fw fa fa-tasks',
             'can' => 'admin.colocacionnotas.index'
         ], 
-
+        ['header' => 'FICHA DE MATRICULA'],
+        [
+            'text' => 'Ver ficha de matricula',
+            'route'  => 'fichamatricula.index',
+            'icon' => 'fab fa-fw fa fa-sticky-note',
+            'can' => 'admin.fichamatricula.index'
+            
+        ], 
         
         ['header' => 'REPORTE DE NOTAS'],
         [
