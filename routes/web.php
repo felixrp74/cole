@@ -12,7 +12,7 @@ use App\Http\Controllers\CursoController;
 use App\Http\Controllers\ColocacionNotasController;
 use App\Http\Controllers\VerAsignacionesController;
 use App\Http\Controllers\FichaMatriculaController;
-
+use App\Http\Controllers\ApoderadoController;
 
 Route::resource('estudiante', EstudianteController::class); //INTERFAZ
 Route::resource('docente', DocenteController::class); // INTERFAZ
@@ -22,6 +22,7 @@ Route::resource('asignacion', AsignacionController::class);// INTERFAZ
 Route::resource('curso', CursoController::class);//INTERFAZ
 Route::resource('colocacionnotas', ColocacionNotasController::class);//INTERFAZ
 Route::resource('fichamatricula', FichaMatriculaController::class);
+Route::resource('apoderado', ApoderadoController::class);
 
 
 Route::get('/',  [PostController::class, 'index'])->name('posts.index');

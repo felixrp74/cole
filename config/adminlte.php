@@ -342,8 +342,6 @@ return [
             
         ], 
          
-
-
         ['header' => 'INGRESAR NOTAS'],
         [
             'text' => 'Ingresar notas',
@@ -360,9 +358,9 @@ return [
             
         ], 
         
-        ['header' => 'REPORTE DE NOTAS'],
+        ['header' => 'LIBRETA DE NOTAS'],
         [
-            'text' => 'Reporte de notas',
+            'text' => 'Libreta de notas',
             'route'  => 'reportenotas.index',
             'icon' => 'fab fa-fw fa fa-sticky-note',
             'can' => 'admin.reportenotas.index',   

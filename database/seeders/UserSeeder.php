@@ -48,7 +48,7 @@ class UserSeeder extends Seeder
             'name'=> 'Docente2',
             'email'=> 'docente2@gmail.com',
             'tipo_usuario'=> 'docente',
-            'identificador_docente'=> 2,
+            'identificador_docente'=> 3,
             'password'=> bcrypt('docente2@gmail.com'),
         ])->assignRole('DocenteUsuario'); // 'DocenteUsuario' de la linea 20 de archivo 'RoleSeeder.php'
 

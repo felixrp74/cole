@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\DocenteController;
 use App\Http\Controllers\FichaMatriculaController;
+use App\Http\Controllers\ApoderadoController;
 
 
 // no es necesarion poner 'admin' como ruta. 
@@ -22,3 +23,4 @@ Route::resource('asignacion', AsignacionController::class)->names('admin.asignac
 Route::resource('curso', CursoController::class)->names('admin.curso');
 Route::resource('colocacionnotas', ColocacionNotasController::class)->names('admin.colocacionnotas');
 Route::resource('fichamatricula', FichaMatriculaController::class)->names('admin.fichamatricula');
+Route::resource('apoderado', ApoderadoController::class)->names('admin.apoderado');

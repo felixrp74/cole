@@ -25,10 +25,23 @@ class Apoderado extends Model
 	protected $primaryKey = 'idapoderado';
 	public $timestamps = false;
 
-	protected $fillable = [
-		'nombre'
+	protected $fillable = [ 
+		'genero_apoderado',
+		'dni_apoderado', 
+		'nombre_apoderado',
+		'apellido_paterno_apoderado',
+		'apellido_materno_apoderado',
+		'fecha_nacimiento_apoderado',
+		'lugar_nacimiento_apoderado',
+		'vive_apoderado',
+		'direccion_actual_apoderado',
+		'email_apoderado',
+		'grado_instruccion_apoderado',
+		'ocupacion_apoderado',
+		'estado_civil_apoderado',
+		'celular_apoderado'
 	];
-
+	
 	public function estudiantes()
 	{
 		return $this->hasMany(Estudiante::class, 'apoderados_idapoderado');
