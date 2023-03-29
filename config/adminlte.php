@@ -291,7 +291,7 @@ return [
         ],
 
 
-        ['header' => 'DOCENTE'],
+        ['header' => 'DOCENTE','can' => 'admin.docente.edit'],
         [
             'text' => 'Registrar docentes',
             'route'  => 'docente.create',
@@ -312,7 +312,7 @@ return [
         ], 
 
 
-        ['header' => 'ESTUDIANTE'],
+        ['header' => 'ESTUDIANTE', 'can' => 'admin.docente.edit'],
         [
             'text' => 'Registrar estudiantes',
             'route'  => 'estudiante.create',
@@ -327,7 +327,7 @@ return [
         ],     
         
         
-        ['header' => 'MATRICULAR'],
+        ['header' => 'MATRICULAR', 'can' => 'admin.docente.edit'],
         [
             'text' => 'Matricular estudiante',
             'route'  => 'matricula.create',
@@ -342,14 +342,14 @@ return [
             
         ], 
          
-        ['header' => 'INGRESAR NOTAS'],
+        ['header' => 'INGRESAR NOTAS', 'can' => 'admin.colocacionnotas.index'],
         [
             'text' => 'Ingresar notas',
             'route'  => 'colocacionnotas.index',
             'icon' => 'fab fa-fw fa fa-tasks',
             'can' => 'admin.colocacionnotas.index'
         ], 
-        ['header' => 'FICHA DE MATRICULA'],
+        ['header' => 'FICHA DE MATRICULA', 'can' => 'admin.fichamatricula.index'],
         [
             'text' => 'Ver ficha de matricula',
             'route'  => 'fichamatricula.index',
@@ -358,13 +358,12 @@ return [
             
         ], 
         
-        ['header' => 'LIBRETA DE NOTAS'],
+        ['header' => 'LIBRETA DE NOTAS', 'can' => 'admin.reportenotas.index'],
         [
             'text' => 'Libreta de notas',
             'route'  => 'reportenotas.index',
             'icon' => 'fab fa-fw fa fa-sticky-note',
-            'can' => 'admin.reportenotas.index',   
-            'can' => 'admin.reportenotas.show'   
+            'can' => 'admin.reportenotas.index'   
         ],         
         
         // [

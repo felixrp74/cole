@@ -34,7 +34,7 @@ class AsignacionController extends Controller
     public function create()
     {
         return view('asignacion.create');
-    }
+    } 
 
     public function store(Request $request)
     {     
