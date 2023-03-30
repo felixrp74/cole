@@ -109,8 +109,7 @@ class EstudianteController extends Controller
                 ]);
             }
         }
-
-        // return $this->index();
+ 
         return view('estudiante.edit', compact('estudiante'));
     }
 

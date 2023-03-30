@@ -116,4 +116,11 @@ class ApoderadoController extends Controller
         return view('apoderado.edit', compact('apoderado'));
     }
 
+    public function destroy($id)
+    {
+        DB::table('apoderados')->where('idapoderado', $id)->delete();
+       
+        return redirect('/apoderado')->with('mensaje', 'apoderado borrado'); 
+    }
+
 }
