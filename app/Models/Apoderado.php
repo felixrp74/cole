@@ -39,7 +39,8 @@ class Apoderado extends Model
 		'grado_instruccion_apoderado',
 		'ocupacion_apoderado',
 		'estado_civil_apoderado',
-		'celular_apoderado'
+		'celular_apoderado',
+		'estudiantes_idestudiante'
 	];
 	
 	public function estudiantes()

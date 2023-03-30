@@ -26,9 +26,7 @@
     
             <div class="col-sm-6">
                 
-                @if ($estudiante) 
-                    <input type="hidden" name="estudiantes_idestudiante" id="estudiantes_idestudiante" value="{{$estudiante->idestudiante}}">
-                @endif
+             
     
                 <div class="form-group row">
                     <label for="nombre_estudiante" class="col-sm-4 col-form-label">Nombre_estudiante Estudiante</label>
@@ -128,8 +126,8 @@
                     <label for="vive_apoderado" class="col-sm-4 col-form-label">vive_apoderado</label>
                     <div class="col-sm-10">
                         <select name="vive_apoderado" class="form-control" wire:model="vive" id="vive_apoderado">
-                            <option value="true">Si</option>
-                            <option value="false">No</option>
+                            <option value="SI">Si</option>
+                            <option value="NO">No</option>
                         </select>
                     
                     
@@ -140,7 +138,7 @@
         </div>
 
         
-        @if($vive == 'true') 
+        @if($vive == 'SI') 
         
             <div class="row">
                 <div class="col-sm-6">
@@ -189,6 +187,10 @@
                             <input type="text" name="ocupacion_apoderado" class="form-control" value="{{ isset($apoderado->ocupacion_apoderado)?$apoderado->ocupacion_apoderado:'' }}" id="ocupacion_apoderado">
                         </div>
                     </div>
+
+                    @if ($estudiante) 
+                        <input type="hidden" name="estudiantes_idestudiante" id="estudiantes_idestudiante" value="{{$estudiante->idestudiante}}">
+                    @endif
                     
                     <div class="form-group row">
                         {!! Form::label('documento', 'Copia de DNI', ['class' => 'col-sm-4 col-form-label']) !!}

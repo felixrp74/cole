@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Apoderado;
 
 class ApoderadoController extends Controller
@@ -23,43 +24,55 @@ class ApoderadoController extends Controller
     public function store(Request $request)
     {     
 
-        $datosForm = request()->except('_token');
-        dump($datosForm);
+        $datosEstudianteApoderado = request()->except('_token');
 
-        // // HECHO. Consular la tabla 'niveles' where grado = 1 y seccion = C para extraer el valor de 'idniveles' "3".
-        // $nivel = Nivele::where('grado', $datosForm['grado'])
-        //     ->where('seccion', $datosForm['seccion'])->first();
-        // // dump($nivel->idnivel);
 
-        // // // Consultar la tabla 'cursos' where 'idniveles' "3" para extraer el array de cursos e insertarlo en 'detall_matricula'. 
-        // $cursos = DB::select('select * from cursos where niveles_idniveles = :id', ['id' => $nivel->idnivel]);
-        // // dump($cursos);        
-
-        // $estudiante = Estudiante::where('idestudiante', '=', $datosForm['idestudiante']);
-        
-        // DB::table('matriculas')->insert(
-        //     [
-        //         'estudiante_idestudiante' => $datosForm['idestudiante'],
-        //         'anio_academico' => $datosForm['anio_academico']
-        //     ]
-        // );
-        
-        // $matricula = Matricula::where('estudiante_idestudiante', $datosForm['idestudiante'])->first();
-        // // dump($matricula->idmatricula);
-        // // dump($matricula->estudiante_idestudiante);
-        // // dump($datosForm['idestudiante']);
+        $datosEstudiante = array(
+            "idestudiante" => $datosEstudianteApoderado["estudiantes_idestudiante"],
+            "nombre" => $datosEstudianteApoderado["nombre_estudiante"],
+            "apellido_paterno" => $datosEstudianteApoderado["apellido_paterno_estudiante"],
+            "apellido_materno" => $datosEstudianteApoderado["apellido_materno_estudiante"]
             
-        // foreach($cursos as $curso){
-        //     DB::table('detalle_matriculas')->insert(
-        //         [
-        //             'matriculas_idmatricula' => $matricula->idmatricula, 
-        //             'cursos_idcurso' => $curso->idcurso
-        //         ]
-        //     );
+        );
 
-        // }
+
+        // dd($datosEstudiante);
+ 
+        $datosApoderado = array(
+            "genero_apoderado" => $datosEstudianteApoderado["genero_apoderado"],
+            "dni_apoderado" => $datosEstudianteApoderado["dni_apoderado"],
+            "nombre_apoderado" => $datosEstudianteApoderado["nombre_apoderado"],
+            "apellido_paterno_apoderado" => $datosEstudianteApoderado["apellido_paterno_apoderado"],
+            "apellido_materno_apoderado" => $datosEstudianteApoderado["apellido_materno_apoderado"],
+            "fecha_nacimiento_apoderado" => $datosEstudianteApoderado["fecha_nacimiento_apoderado"],
+            "lugar_nacimiento_apoderado" => $datosEstudianteApoderado["lugar_nacimiento_apoderado"],
+            "vive_apoderado" => $datosEstudianteApoderado["vive_apoderado"],
+            "direccion_actual_apoderado" => $datosEstudianteApoderado["direccion_actual_apoderado"],
+            "email_apoderado" => $datosEstudianteApoderado["email_apoderado"],
+            "grado_instruccion_apoderado" => $datosEstudianteApoderado["grado_instruccion_apoderado"],
+            "ocupacion_apoderado" => $datosEstudianteApoderado["ocupacion_apoderado"],
+            "estado_civil_apoderado" => $datosEstudianteApoderado["estado_civil_apoderado"],
+            "celular_apoderado" => $datosEstudianteApoderado["celular_apoderado"],
+            "estudiantes_idestudiante" => (int) $datosEstudiante["idestudiante"]
+        );
+
+
+        $apoderado = Apoderado::create($datosApoderado);
+
+
+        if($request->file('documento')){
+
+            $url = Storage::put('files', $request->file('documento'));
+            $apoderado->file()->create([
+                'url' => $url
+            ]);
+             
+        } 
+
+
+        return redirect('/apoderado')->with('mensaje', 'Empleado agregado con exito');
         
-        // return redirect('/matricula')->with('mensaje', 'Matricula agregado con exito');
+
 
     }
 

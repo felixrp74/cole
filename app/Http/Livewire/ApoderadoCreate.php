@@ -10,7 +10,7 @@ class ApoderadoCreate extends Component
        
     
     public $search = '';
-    public $vive = 'true';
+    public $vive = 'SI';
 
     public function render()
     {
