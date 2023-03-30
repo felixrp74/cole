@@ -15,10 +15,10 @@
     @endif
     
     <div class="card">
-        <div class="card-body">
+        
             @livewire('apoderado-create') 
 
-        </div>
+        
     </div>
 
     
