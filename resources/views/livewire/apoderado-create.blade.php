@@ -199,12 +199,8 @@
                         </div>
                     </div> 
                     
-                    <h6>Unir los 3 PDF y subir un unico archivo:</h6>
-                    <ul>
-                        <li>copia Dni</li>
-                        <li>copia Partida Nacimiento</li>
-                        <li>copia Certificado de estudios (primaria)</li>
-                    </ul>
+                    <h6>Subir copia de DNI en PDF:</h6>
+                    
 
                     
                     <input class="btn btn-info" type="submit" value="Guardar datos">
