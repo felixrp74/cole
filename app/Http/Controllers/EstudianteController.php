@@ -6,11 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Estudiante;
 use App\Models\Apoderado;
+use App\Models\User;
+// use App\Http\Controllers\Role;
 
 use Prophecy\Doubler\Generator\Node\ReturnTypeNode;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
+use Spatie\Permission\Models\Role;
 
 /**
  * Class EstudianteController
@@ -27,12 +33,17 @@ class EstudianteController extends Controller
 
     public function create()
     {
-        return view('estudiante.create'); 
+        $roles = Role::all();        
+        // dd($roles);
+        return view('estudiante.create', compact('roles'));
+        // return view('estudiante.create'); 
     }
 
     public function store(Request $request)
     {        
         $datosEstudianteApoderado = request()->except('_token');
+        
+        // dd($datosEstudianteApoderado);
 
         $datosEstudiante = array(
             "dni" => $datosEstudianteApoderado["dni"],
@@ -47,6 +58,7 @@ class EstudianteController extends Controller
             "email" => $datosEstudianteApoderado["email"],
             "password" => $datosEstudianteApoderado["password"]
         );
+        
  
         $estudiante = Estudiante::create(request()->all());
         
@@ -58,6 +70,19 @@ class EstudianteController extends Controller
             ]);
              
         } 
+
+        //agregar usuario tipo estudiante
+        $user = new User();
+        $user->name = $datosEstudianteApoderado["nombre"];
+        $user->email = $datosEstudianteApoderado["email"];
+        $user->password = Hash::make( $datosEstudianteApoderado["password"] );
+        // $user->escuela = "colegio32";
+        
+        $rolesEstudiante = array( "0" => "2" ); // 2 estudiante
+         
+        $user->assignRole('EstudianteUsuario');
+ 
+        $user->save();
 
         return $this->index();
 
