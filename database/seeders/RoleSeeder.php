@@ -69,6 +69,11 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.fichamatricula.create'])->syncRoles([$role1]);
         Permission::create(['name' => 'admin.fichamatricula.edit'])->syncRoles([$role1]);
         Permission::create(['name' => 'admin.fichamatricula.destroy'])->syncRoles([$role1]);
+
+        Permission::create(['name' => 'admin.apoderado.index'])->syncRoles([$role1]); // colocar notas desde el punto de vista del docente opcion1
+        Permission::create(['name' => 'admin.apoderado.create'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.apoderado.edit'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.apoderado.destroy'])->syncRoles([$role1]);
  
 
     }

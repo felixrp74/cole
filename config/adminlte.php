@@ -325,6 +325,20 @@ return [
             'icon' => 'fab fa-fw fa fa-users',
             'can' => 'admin.estudiante.index',
         ],     
+
+        ['header' => 'PADRES', 'can' => 'admin.docente.edit'],
+        [
+            'text' => 'Registrar apoderados',
+            'route'  => 'apoderado.create',
+            'icon' => 'fab fa-fw fa fa-user-plus',
+            'can' => 'admin.apoderado.create',
+        ],
+        [
+            'text' => 'Registro de apoderados',
+            'route'  => 'apoderado.index',
+            'icon' => 'fab fa-fw fa fa-users',
+            'can' => 'admin.apoderado.index',
+        ],     
         
         
         ['header' => 'MATRICULAR', 'can' => 'admin.docente.edit'],
