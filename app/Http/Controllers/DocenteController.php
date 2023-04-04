@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Docente;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * Class DocenteController
@@ -18,12 +21,6 @@ class DocenteController extends Controller
      */
     public function index()
     {
-        /*
-        $docentes = Docente::paginate();
-
-        return view('docente.index', compact('docentes'))
-            ->with('i', (request()->input('page', 1) - 1) * $docentes->perPage());
-        */
         $datos['docentes'] = Docente::paginate(100);
         return view('docente.index', $datos);
     }
@@ -46,25 +43,29 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
-        /*
-        request()->validate(Docente::$rules);
-
-        $docente = Docente::create($request->all());
-
-        return redirect()->route('docentes.index')
-            ->with('success', 'Docente created successfully.');
-
-        */
-
-        
+              
         $datosDocente = request()->except('_token');
-        
-        // dump($datosDocente);
-        /*if( $request->hasFile('Foto') ){
-            $datosDocente['Foto'] = $request->file('Foto')->store('uploads','public');
-        }*/
+        // dd($datosDocente);
 
-        Docente::insert($datosDocente);
+        $docente = Docente::create(request()->all());
+        // Docente::insert($datosDocente);
+
+
+        //agregar usuario tipo estudiante
+        $user = new User();
+        $user->name = $datosDocente["nombre"];
+        $user->email = $datosDocente["email"];
+        $user->password = Hash::make( $datosDocente["password"] );
+        $user->identificador_docente = $docente->iddocente;
+       
+        $rolesDocente = array( "2" => "3" ); // 3 docente
+
+        // dump($rolesDocente);
+         
+        $user->assignRole('DocenteUsuario');
+ 
+        $user->save();
+
         return redirect('/docente')->with('mensaje', 'Docente agregado con exito');
     }
 
