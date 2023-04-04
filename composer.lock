@@ -6498,7 +6498,8 @@
                 "handling",
                 "library",
                 "throwable",
-                "whoops"
+                "error"
+                // "whoops"
             ],
             "support": {
                 "issues": "https://github.com/filp/whoops/issues",
