@@ -76,6 +76,9 @@ class EstudianteController extends Controller
         $user->name = $datosEstudianteApoderado["nombre"];
         $user->email = $datosEstudianteApoderado["email"];
         $user->password = Hash::make( $datosEstudianteApoderado["password"] );
+        $user->identificador_estudiante = $estudiante->idestudiante;
+
+        
         // $user->escuela = "colegio32";
         
         $rolesEstudiante = array( "0" => "2" ); // 2 estudiante
@@ -112,7 +115,7 @@ class EstudianteController extends Controller
     public function update(Request $request, $idestudiante)
     { 
  
-        // $estudiante = Estudiante::where('idestudiante', $idestudiante);
+        $estudiante = Estudiante::where('idestudiante', $idestudiante);
         $estudiante = Estudiante::find( $idestudiante );
         $estudiante->update($request->all());
 
@@ -134,6 +137,22 @@ class EstudianteController extends Controller
                 ]);
             }
         }
+
+        $users = User::where('identificador_estudiante', '=', $idestudiante)->get();
+
+        $user = $users[0];
+        //  dump($user);
+        if ($request->password != null) {
+            # code...
+            $user->password = Hash::make( $request->password );
+        } 
+        
+        $user->name = $request->nombre .''. $request->apellido_paterno;
+        $user->email = $request->email;
+        // $user->roles()->sync($request->roles); // linea modo prueba
+         
+        $user->update(); 
+
  
         return view('estudiante.edit', compact('estudiante'));
     }

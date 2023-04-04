@@ -283,13 +283,7 @@ return [
         // ],
 
         ['header' => 'OPCIONES DE SISTEMA'], 
-        [
-            'text' => 'USUARIOS',
-            'route'  => 'admin.users.index',
-            'icon' => 'fab fa-fw fas fa-users fa-fw',
-            'can' => 'admin.users.index'
-        ],
-
+       
 
         ['header' => 'DOCENTE','can' => 'admin.docente.edit'],
         [

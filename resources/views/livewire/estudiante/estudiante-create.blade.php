@@ -103,16 +103,7 @@
                 <li>copia Partida Nacimiento</li>
                 <li>copia Certificado de estudios (primaria)</li>
             </ul>
-
-            @foreach ($roles as $role)
-                <div class="form-group">
-                    <label for="">
-                        {!! Form::checkbox('roles[]',$role->id, null, ['class' => 'mr-1']) !!}
-                        {{$role->name}}
-                    </label>
-                </div>
-            @endforeach
-
+ 
             
             <input class="btn btn-info" type="submit" value="Guardar datos">
 
