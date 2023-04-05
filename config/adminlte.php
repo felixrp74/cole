@@ -343,7 +343,7 @@ return [
             'can' => 'admin.matricula.create'
         ],
         [
-            'text' => 'Registro de estudiantes matriculados',
+            'text' => 'Estudiantes matriculados',
             'route'  => 'matricula.index',
             'icon' => 'fab fa-fw fa fa-users',
             'can' => 'admin.matricula.index' 

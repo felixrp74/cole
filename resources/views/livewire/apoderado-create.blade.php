@@ -203,13 +203,15 @@
                     
 
                     
-                    <input class="btn btn-info" type="submit" value="Guardar datos">
+                    
                 </div>
 
             </div>
             
 
         @endif
+
+        <input class="btn btn-info" type="submit" value="Guardar datos">
             
     </div>
     

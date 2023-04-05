@@ -12,9 +12,13 @@
 
                 <div class="container">
                     <h1>
-                        Bienvenido
+                        Bienvenido al sistema  informático de gestión académica
 
                     </h1>
+                    <h2>
+                        SIGA INDUSTRIAL
+
+                    </h2>
                 </div>
             </div>
         </div>
