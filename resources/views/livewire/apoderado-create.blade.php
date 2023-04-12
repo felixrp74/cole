@@ -127,7 +127,7 @@
                         <input type="date" name="fecha_nacimiento_apoderado" class="form-control" value="{{ isset($apoderado->fecha_nacimiento_apoderado)?$apoderado->fecha_nacimiento_apoderado:'' }}" id="fecha_nacimiento_apoderado">
                     </div>
                 </div>
-                
+                <br>
                 <div class="form-group row">
                     <label for="vive_apoderado" class="col-sm-4 col-form-label">VIve</label>
                     <div class="col-sm-8">

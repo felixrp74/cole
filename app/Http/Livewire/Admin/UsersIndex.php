@@ -29,6 +29,7 @@ class UsersIndex extends Component
         // $users = Post::where('user_id', auth()->user()->id)
         $users = User::where('name', 'LIKE', '%'. $this->search .'%')
                 ->orWhere('email', 'LIKE', '%'. $this->search .'%')
+                // ->orWhere('tipo_usuario', '=', 'admin'. $this->search .'%') 
                 // ->orWhere('escuela', 'LIKE', '%'. $this->search .'%')
                 ->latest('created_at') 
                 ->paginate();
