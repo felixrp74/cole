@@ -22,15 +22,10 @@ class UsersIndex extends Component
  
     public function render()
     {
-        $users = User::paginate();
-        // return view('livewire.admin.users-index');
+        $users = User::paginate(); 
 
-        // filtrar publicaciones por id
-        // $users = Post::where('user_id', auth()->user()->id)
-        $users = User::where('name', 'LIKE', '%'. $this->search .'%')
-                ->orWhere('email', 'LIKE', '%'. $this->search .'%')
-                // ->orWhere('tipo_usuario', '=', 'admin'. $this->search .'%') 
-                // ->orWhere('escuela', 'LIKE', '%'. $this->search .'%')
+        // filtrar publicaciones por tipo de usuario exclusivamente para (admin)
+        $users = User::where('tipo_usuario', '=', 'admin') 
                 ->latest('created_at') 
                 ->paginate();
  

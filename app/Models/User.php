@@ -34,7 +34,11 @@ class User extends Authenticatable
         'tipo_usuario',
         'identificador',
         'identificador_estudiante',
-        'identificador_docente'
+        'identificador_docente',
+        'apellido_paterno',
+        'apellido_materno',
+        'celular',
+        'dni'
     ];
 
     /**

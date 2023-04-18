@@ -27,7 +27,7 @@
                         <tr>
                             <th>Nombre responsable</th>
                             <th>Email</th>
-                            <th>Escuela Profesional</th> 
+                            <th>Tipo de usuario</th> 
                             <th colspan="2">acciones</th>
                         </tr>
                     </thead>
@@ -36,7 +36,7 @@
                             <tr>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
-                                <td>{{$user->escuela}}</td>
+                                <td>{{$user->tipo_usuario}}</td>
                                 <td><a class="btn btn-info" href="{{route('admin.users.edit', $user)}}">Editar</a></td>
                                 <td>
                                     <form action="{{route('admin.users.destroy', $user)}}" method="POST">
