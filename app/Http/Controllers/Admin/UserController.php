@@ -33,7 +33,8 @@ class UserController extends Controller
     public function create()
     {
         
-        $roles = Role::all();        
+        $roles = Role::all();
+        // dd($roles);        
         return view('admin.users.create', compact('roles'));
         // return view('admin.users.create');
     }
@@ -48,12 +49,13 @@ class UserController extends Controller
     {         
 
         $validador = Validator::make($request->all(), [
-            'name' => 'required',
+            'dni' => 'required',
             'email' => 'required|email|unique:users',
-            'escuela' => 'required',
-            'password' => 'required',
-            'roles' => 'required',
+            'password' => 'required', 
         ]);
+
+        // dd($request->all());
+        
         
         if($validador->fails())
         {
@@ -61,19 +63,21 @@ class UserController extends Controller
             // return redirect()->with('info' , 'completa los campos .');
             return redirect()->route('admin.users.create')->with('info' , 'completa los campos');
         }
- 
+
+         //agregar usuario tipo admin
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = Hash::make( $request->password );
-        $user->escuela = $request->escuela;
+        $user->password = Hash::make( $request->password ); 
+        $user->tipo_usuario = $request->tipo_usuario;
+        $user->assignRole('Admin');
 
-        $user->roles($request->roles); // linea modo prueba
- 
         $user->save();
+ 
 
         // return redirect()->route('admin.users.edit', $user)->with('info' , 'Creado exito');
         return $this->index();
+       
         
     }
 
@@ -128,17 +132,16 @@ class UserController extends Controller
         if ($request->password != null) {
             # code...
             $user->password = Hash::make( $request->password );
-        }
-        if ($request->escuela != null){
-            $user->escuela = $request->escuela;
-
-        }
+        } 
         
+        $user->dni = $request->dni;
         $user->name = $request->name;
+        $user->apellido_paterno = $request->apellido_paterno;
+        $user->apellido_materno = $request->apellido_materno;
         $user->email = $request->email;
-        $user->roles()->sync($request->roles); // linea modo prueba
+        $user->celular = $request->celular;
          
-        $user->update(); 
+        $user->update();
 
         // return redirect()->route('admin.users.edit', $user)->with('info' , 'Actualizado exito');
         return $this->index()->with('info' , 'Actualizado exito');

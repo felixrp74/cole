@@ -16,7 +16,7 @@
     
     <div class="card">
 
-        <form action="{{ url('/apoderado') }}" method="POST" enctype="multipart/form-data" >
+        <form action="{{ url('/users') }}" method="POST" enctype="multipart/form-data" >
             @csrf
  
             <div class="card-body">
@@ -31,22 +31,28 @@
         
                     <div class="col-sm-6">
 
-                        <div class="form-group row">
-                            <label for="dni_apoderado" class="col-sm-4 col-form-label">DNI</label>
+                    <div class="form-group row">
+                            <label for="dni" class="col-sm-4 col-form-label">DNI</label>
                             <div class="col-sm-8">
-                                <input type="text" name="dni_apoderado" class="form-control" value="{{ isset($apoderado->dni_apoderado)?$apoderado->dni_apoderado:'' }}" id="dni_apoderado">
+                                <input type="text" name="dni" class="form-control" value="{{ isset($apoderado->dni)?$apoderado->dni:'' }}" id="dni">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="apellido_materno_apoderado" class="col-sm-4 col-form-label">Apellido paterno</label>
+                            <label for="name" class="col-sm-4 col-form-label">Nombre</label>
                             <div class="col-sm-8">
-                                <input type="text" name="apellido_materno_apoderado" class="form-control" value="{{ isset($apoderado->apellido_materno_apoderado)?$apoderado->apellido_materno_apoderado:'' }}" id="apellido_materno_apoderado">
+                                <input type="text" name="name" class="form-control" value="{{ isset($apoderado->name)?$apoderado->name:'' }}" id="name">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="apellido_paterno" class="col-sm-4 col-form-label">Apellido paterno</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="apellido_paterno" class="form-control" value="{{ isset($apoderado->apellido_paterno)?$apoderado->apellido_paterno:'' }}" id="apellido_paterno">
                             </div>
                         </div>                        
                         <div class="form-group row">
-                            <label for="celular_apoderado" class="col-sm-4 col-form-label">Celular</label>
+                            <label for="celular" class="col-sm-4 col-form-label">Celular</label>
                             <div class="col-sm-8">
-                                <input type="text" name="celular_apoderado" class="form-control" value="{{ isset($apoderado->celular_apoderado)?$apoderado->celular_apoderado:'' }}" id="celular_apoderado">
+                                <input type="text" name="celular" class="form-control" value="{{ isset($apoderado->celular)?$apoderado->celular:'' }}" id="celular">
                             </div>
                         </div>  
                         <div class="form-group row">
@@ -72,26 +78,32 @@
                     
                     <div class="col-sm-6"> 
         
+ 
                         <div class="form-group row">
-                            <label for="nombre_apoderado" class="col-sm-4 col-form-label">Nombre</label>
+                            <label for="apellido_materno" class="col-sm-4 col-form-label">Apellido materno</label>
                             <div class="col-sm-8">
-                                {{-- <input type="text" name="dni" class="form-control" value="{{ isset($apoderado->dni)?$apoderado->dni:'' }}" id="dni"> --}}
-                                <input type="text" name="nombre_apoderado" class="form-control" value="{{ isset($apoderado->nombre_apoderado)?$apoderado->nombre_apoderado:'' }}" id="nombre_apoderado">
+                                <input type="text" name="apellido_materno" class="form-control" value="{{ isset($apoderado->apellido_materno)?$apoderado->apellido_materno:'' }}" id="apellido_materno">
                             </div>
                         </div> 
                         <div class="form-group row">
-                            <label for="apellido_paterno_apoderado" class="col-sm-4 col-form-label">Apellido materno</label>
+                            <label for="email" class="col-sm-4 col-form-label">Email</label>
                             <div class="col-sm-8">
-                                <input type="text" name="apellido_paterno_apoderado" class="form-control" value="{{ isset($apoderado->apellido_paterno_apoderado)?$apoderado->apellido_paterno_apoderado:'' }}" id="apellido_paterno_apoderado">
+                                <input type="text" name="email" class="form-control" value="{{ isset($apoderado->email)?$apoderado->email:'' }}" id="email">
                             </div>
-                        </div> 
+                        </div>      
                         <div class="form-group row">
-                            <label for="email_apoderado" class="col-sm-4 col-form-label">Email</label>
+                            <!-- <label for="email" class="col-sm-4 col-form-label">Email</label> -->
                             <div class="col-sm-8">
-                                <input type="text" name="email_apoderado" class="form-control" value="{{ isset($apoderado->email_apoderado)?$apoderado->email_apoderado:'' }}" id="email_apoderado">
+                                <input type="hidden" name="tipo_usuario" class="form-control" value="admin" id="tipo_usuario">
                             </div>
                         </div>         
-                        
+        
+                        <div class="form-group row">
+                            <!-- <label for="email" class="col-sm-4 col-form-label">Email</label> -->
+                            <div class="col-sm-8">
+                                <input type="hidden" name="roles" class="form-control" value="admin" id="tipo_usuario">
+                            </div>
+                        </div>         
                          
         
                     </div>
