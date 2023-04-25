@@ -385,6 +385,17 @@ return [
             'text' => 'Mi Perfil',
             'route'  => 'profile.show',
             'icon' => 'fas fa-fw fa-lock',
+        ],       
+        
+        [
+            'text' => 'Administrador',
+            'route'  => 'admin.users.index',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Registrar Administrador',
+            'route'  => 'admin.users.create',
+            'icon' => 'fab fa-fw fa fa-user-plus',
         ],
     ],
  

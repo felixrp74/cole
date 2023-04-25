@@ -67,6 +67,11 @@ class UserController extends Controller
          //agregar usuario tipo admin
         $user = new User();
         $user->name = $request->name;
+        $user->dni = $request->dni;
+        $user->apellido_paterno = $request->apellido_paterno;
+        $user->apellido_materno = $request->apellido_materno;
+        $user->celular = $request->celular;
+        $user->usuario = $request->usuario;
         $user->email = $request->email;
         $user->password = Hash::make( $request->password ); 
         $user->tipo_usuario = $request->tipo_usuario;
@@ -100,7 +105,10 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $roles = Role::all();        
+        $roles = Role::all();      
+
+        // dd($user);
+
         return view('admin.users.edit', compact('user', 'roles'));
     }
 

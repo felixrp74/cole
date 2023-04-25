@@ -64,16 +64,9 @@
                         <div class="form-group row">
                             <label for="password" class="col-sm-4 col-form-label">Password</label>
                             <div class="col-sm-8">
-                                <input type="text" name="password" class="form-control" value="{{ isset($estudiante->password)?$estudiante->password:'' }}" id="password">
+                                <input type="text" name="password" class="form-control"  id="password" placeholder="La contraseña es confidencial">
                             </div>
-                        </div> 
-                        <div class="form-group row">
-                            <label for="password" class="col-sm-4 col-form-label">Repita su Password</label>
-                            <div class="col-sm-8">
-                                <input type="text" name="password" class="form-control" value="{{ isset($estudiante->password)?$estudiante->password:'' }}" id="password">
-                            </div>
-                        </div> 
-        
+                        </div>  
                     </div> 
                     
                     <div class="col-sm-6"> 
