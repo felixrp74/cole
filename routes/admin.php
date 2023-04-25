@@ -4,9 +4,18 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\DocenteController;
+use App\Http\Controllers\GradoController;
+use App\Http\Controllers\MatriculaController;
+use App\Http\Controllers\ReporteEstudianteController;
+use App\Http\Controllers\AsignacionController;
+use App\Http\Controllers\CursoController;
+use App\Http\Controllers\ColocacionNotasController;
+use App\Http\Controllers\VerAsignacionesController;
 use App\Http\Controllers\FichaMatriculaController;
-use App\Http\Controllers\ApoderadoController;
+use App\Http\Controllers\ApoderadoController; 
 
 
 // no es necesarion poner 'admin' como ruta. 
