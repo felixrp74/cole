@@ -381,12 +381,12 @@ return [
         //     'can' => 'admin.asignacion.index',
         // ],        
         
-        [
-            'text' => 'Mi Perfil',
-            'route'  => 'profile.show',
-            'icon' => 'fas fa-fw fa-lock',
-        ],       
-        
+        // [
+        //     'text' => 'Mi Perfil',
+        //     'route'  => 'profile.show',
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],       
+        ['header' => 'ADMINISTRADOR', 'can' => 'admin.reportenotas.index'],
         [
             'text' => 'Administrador',
             'route'  => 'admin.users.index',

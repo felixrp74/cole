@@ -16,8 +16,10 @@
     
     <div class="card">
 
-        <form action="{{ url('/users') }}" method="POST" enctype="multipart/form-data" >
+        <form action="{{ url('/users/'.$user->id) }}" method="POST" enctype="multipart/form-data" >
+        <!-- url('/users/'.$apoderado->idapoderado) -->
             @csrf
+            {{ method_field('PATCH') }} 
  
             <div class="card-body">
         
