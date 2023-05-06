@@ -48,7 +48,7 @@ class DocenteController extends Controller
         // dd($datosDocente);
 
         $docente = Docente::create(request()->all());
-        // Docente::insert($datosDocente);
+        Docente::insert($datosDocente);
 
 
         //agregar usuario tipo estudiante

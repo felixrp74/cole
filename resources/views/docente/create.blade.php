@@ -23,7 +23,7 @@
         <div class="card-body">
             <form action="{{ url('/docente') }}" method="POST" enctype="multipart/form-data" >
             @csrf
-            <div class="row">
+            <div class="row"> 
 
                 <div class="col-sm-6">
  
