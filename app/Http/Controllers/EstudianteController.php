@@ -115,9 +115,9 @@ class EstudianteController extends Controller
     public function update(Request $request, $idestudiante)
     { 
  
-        $estudiante = Estudiante::where('idestudiante', $idestudiante);
-        $estudiante = Estudiante::find( $idestudiante );
-        $estudiante->update($request->all());
+        // $estudiante = Estudiante::where('idestudiante', $idestudiante);
+        $estudiante = Estudiante::find($idestudiante); 
+        $estudiante->update(request()->except('_token', '_method'));
 
         
         if($request->file('documento')){
@@ -140,18 +140,26 @@ class EstudianteController extends Controller
 
         $users = User::where('identificador_estudiante', '=', $idestudiante)->get();
 
-        $user = $users[0];
-        //  dump($user);
-        if ($request->password != null) {
-            # code...
-            $user->password = Hash::make( $request->password );
-        } 
+        // dump($users);
+        if (isset($users[0])) {
+            // Access the element at index 0
+            $user = $users[0];
+            if ($request->password != null) {
+                # code...
+                $user->password = Hash::make( $request->password );
+            } 
+            
+            $user->name = $request->nombre .''. $request->apellido_paterno;
+            $user->email = $request->email;
+            // $user->roles()->sync($request->roles); // linea modo prueba
+            
+            $user->update(); 
+        } else {
+            // Handle the case when the index doesn't exist
+            // or take appropriate action
+        }
         
-        $user->name = $request->nombre .''. $request->apellido_paterno;
-        $user->email = $request->email;
-        // $user->roles()->sync($request->roles); // linea modo prueba
-         
-        $user->update(); 
+        
 
  
         return view('estudiante.edit', compact('estudiante'));
