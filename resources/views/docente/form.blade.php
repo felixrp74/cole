@@ -21,9 +21,9 @@
 
     
     <div class="form-group row">
-        <label for="apellido_materno" class="col-sm-2 col-form-label">Apellido paterno</label>
+        <label for="apellido_paterno" class="col-sm-2 col-form-label">Apellido paterno</label>
         <div class="col-sm-10">
-            <input type="text" name="apellido_materno" class="form-control" value="{{ isset($docente->apellido_materno)?$docente->apellido_materno:'' }}" id="apellido_materno">
+            <input type="text" name="apellido_paterno" class="form-control" value="{{ isset($docente->apellido_paterno)?$docente->apellido_paterno:'' }}" id="apellido_paterno">
         </div>
     </div>
 
