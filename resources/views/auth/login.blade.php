@@ -3,7 +3,8 @@
         <x-slot name="logo">
             <!-- <x-jet-authentication-card-logo /> -->
 
-            <img src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/cropped-LOGO-I32-22.png" alt="" srcset="">
+            {{-- <img src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/cropped-LOGO-I32-22.png" alt="" srcset=""> --}}
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRANQHM3Jmrcy_4i47dgOn0Yoii5kKpGL3gplML9PTApg&s" alt="" srcset="">
 
         </x-slot>
 

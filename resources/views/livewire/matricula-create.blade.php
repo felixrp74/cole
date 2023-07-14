@@ -9,7 +9,7 @@
                 <label for="dni" class="col-sm-4 col-form-label">DNI</label>
                 <div class="col-sm-8">
                     <input wire:model="search" class="form-control" value="10293847"  placeholder="buscar por DNI" type="text">
-                </div>
+                </div> 
             </div>
 
 
