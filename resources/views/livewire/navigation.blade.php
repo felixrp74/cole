@@ -1,6 +1,8 @@
 <header>
-    <link rel="shortcut icon" type="image/png" href="{{ asset('http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/cropped-LOGO-I32-22.png') }}">
-    <link rel="shortcut icon" sizes="192x192" href="{{ asset('http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/cropped-LOGO-I32-22.png') }}">
+  {{-- <link rel="shortcut icon" type="image/png" href="{{ asset('http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/cropped-LOGO-I32-22.png') }}">
+  <link rel="shortcut icon" sizes="192x192" href="{{ asset('http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/cropped-LOGO-I32-22.png') }}"> --}}
+  <link rel="shortcut icon" type="image/png" href="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRANQHM3Jmrcy_4i47dgOn0Yoii5kKpGL3gplML9PTApg&s') }}">
+  <link rel="shortcut icon" sizes="192x192" href="{{ asset('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRANQHM3Jmrcy_4i47dgOn0Yoii5kKpGL3gplML9PTApg&s') }}">
 </header>
 <nav class="bg-gray-800" x-data="{ open: false }">
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -35,8 +37,10 @@
  
           {{-- logo --}}
           <a href="/" class="flex-shrink-0 flex items-center">
-            <img class="block lg:hidden h-8 w-auto" src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/cropped-LOGO-I32-22.png" alt="Workflow">
-            <img class="hidden lg:block h-8 w-auto" src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/cropped-LOGO-I32-22.png" alt="Workflow">
+            {{-- <img class="block lg:hidden h-8 w-auto" src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/cropped-LOGO-I32-22.png" alt="Workflow">
+            <img class="hidden lg:block h-8 w-auto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRANQHM3Jmrcy_4i47dgOn0Yoii5kKpGL3gplML9PTApg&s" alt="Workflow"> --}}
+            <img class="block lg:hidden h-8 w-auto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRANQHM3Jmrcy_4i47dgOn0Yoii5kKpGL3gplML9PTApg&s" alt="Workflow">
+            <img class="hidden lg:block h-8 w-auto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRANQHM3Jmrcy_4i47dgOn0Yoii5kKpGL3gplML9PTApg&s" alt="Workflow">
           </a>
 
           {{-- menu horizontal --}}

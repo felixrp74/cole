@@ -30,7 +30,10 @@
                 <!-- Article -->
                 <article class="overflow-hidden rounded-lg shadow-2xl bg-white">
                     <a class="flex justify-center" href="#">
-                        <img class="h-60 w-full object-scale-down md:w-58 mx-4 p-4" alt="Placeholder" class="block h-auto w-full" src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/ESPECIALIDAD-COMPUTACION-22-1536x878.png">
+                        {{-- <img class="h-60 w-full object-scale-down md:w-58 mx-4 p-4" alt="Placeholder" class="block h-auto w-full" 
+                        src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/ESPECIALIDAD-COMPUTACION-22-1536x878.png"> --}}
+                        <img class="h-60 w-full object-scale-down md:w-58 mx-4 p-4" alt="Placeholder" class="block h-auto w-full" 
+                        src="https://colegiosanfelipe.edu.pe/wp-content/uploads/2021/11/colegio_san-felipe_img_55.jpg">
                     </a>
 
                     <div class="px-6 py-4">
@@ -74,7 +77,10 @@
                 <!-- Article -->
                 <article class="overflow-hidden rounded-lg shadow-2xl bg-white">
                     <a class="flex justify-center" href="#">
-                        <img class="h-60 w-full object-scale-down md:w-58 mx-4 p-4" alt="Placeholder" class="block h-auto w-full" src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/ESPECIALIDAD-ALIMENTARIA-22-1536x878.png">
+                        {{-- <img class="h-60 w-full object-scale-down md:w-58 mx-4 p-4" alt="Placeholder" class="block h-auto w-full" 
+                        src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/ESPECIALIDAD-ALIMENTARIA-22-1536x878.png"> --}}
+                        <img class="h-60 w-full object-scale-down md:w-58 mx-4 p-4" alt="Placeholder" class="block h-auto w-full" 
+                        src="https://cdn.lamolina.edu.pe/v1/AUTH_90afa410262f41f1af475ed599eeb798/lamolina-admision/website/Actualizaciones_WEB_2020/Carreras/Industrias/Per_Egreso.png">
                     </a>
 
                     <div class="px-6 py-4">
@@ -119,7 +125,10 @@
                 <!-- Article -->
                 <article class="overflow-hidden rounded-lg shadow-2xl bg-white">
                     <a class="flex justify-center" href="#">
-                        <img class="h-60 w-full object-scale-down md:w-58 mx-4 p-4" alt="Placeholder" class="block h-auto w-full" src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/ESPECIALIDAD-ELECTRICIDAD-22-1536x878.png">
+                        {{-- <img class="h-60 w-full object-scale-down md:w-58 mx-4 p-4" alt="Placeholder" class="block h-auto w-full" 
+                        src="http://www.industrial32puno.edu.pe/wp-content/uploads/2022/10/ESPECIALIDAD-ELECTRICIDAD-22-1536x878.png"> --}}
+                        <img class="h-60 w-full object-scale-down md:w-58 mx-4 p-4" alt="Placeholder" class="block h-auto w-full" 
+                        src="https://dnb2eg0emsxdz.cloudfront.net/cdn/13/images/curso-online-electricidad-y-electronica_amp_primaria_1_1560503062.jpg">
                     </a>
 
                     <div class="px-6 py-4">
