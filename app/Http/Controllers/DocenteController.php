@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\Password;
 
 /**
  * Class DocenteController
@@ -43,7 +45,30 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
-              
+        $request->validate( 
+            [
+                'dni' => ['required','numeric', 'min:8'],
+                'nombre' => 'required',
+                'apellido_paterno' => 'required',
+                'apellido_materno' => 'required',
+                'profesion' => 'required',
+                'celular' => 'required',
+                'email' => 'required',
+                'password' => ['required', Password::min(8)],
+            ],
+            [
+                'dni.required' => 'El campo no puede estar vacio',
+                'dni.numeric' => 'DNI debe ser numerico',
+                'nombre.required' => 'El campo no puede estar vacio',
+                'apellido_paterno.required' => 'El campo no puede estar vacio',
+                'apellido_materno.required' => 'El campo no puede estar vacio',
+                'profesion.required' => 'El campo no puede estar vacio',
+                'celular.required' => 'El campo no puede estar vacio',
+                'email.required' => 'El campo no puede estar vacio',
+                'password.required' => 'El campo no puede estar vacio'
+            ]
+        );
+            /*  
         $datosDocente = request()->except('_token');
         // dd($datosDocente);
 
@@ -66,7 +91,11 @@ class DocenteController extends Controller
  
         $user->save();
 
+        
+
         return redirect('/docente')->with('mensaje', 'Docente agregado con exito');
+
+        */
     }
 
     /**
