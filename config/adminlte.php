@@ -283,6 +283,18 @@ return [
         // ],
 
         ['header' => 'OPCIONES DE SISTEMA'], 
+
+        ['header' => 'REPORTES', 'can' => 'admin.reportenotas.index'],
+        [
+            'text' => 'Estudiantes y apoderados',
+            'route'  => 'reporte_estudiante_padre',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Estudiantes matriculados',
+            'route'  => 'reporte_estudiante_matriculado',
+            'icon' => 'fab fa-fw fa fa-user-plus',
+        ],
        
 
         ['header' => 'DOCENTE','can' => 'admin.docente.edit'],
@@ -352,7 +364,7 @@ return [
          
         ['header' => 'INGRESAR NOTAS', 'can' => 'admin.colocacionnotas.index'],
         [
-            'text' => 'Ingresar notas',
+            'text' => 'Ingresar notas', 
             'route'  => 'colocacionnotas.index',
             'icon' => 'fab fa-fw fa fa-tasks',
             'can' => 'admin.colocacionnotas.index'

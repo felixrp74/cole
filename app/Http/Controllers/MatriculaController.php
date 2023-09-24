@@ -14,9 +14,24 @@ use Illuminate\Support\Facades\DB;
 
 class MatriculaController extends Controller
 {
-    // estudiante: nombre y dni
-    // grado: descripcion
-    // seccion: descripcion
+    public function reporte_estudiante_matriculado(){
+        $estudiantes_matriculados = DB::select("SELECT e.dni, e.nombre, e.apellido_paterno, e.apellido_materno,
+        m.anio_academico, c.descripcion, n.grado, n.seccion
+        FROM estudiantes AS e
+        JOIN matriculas AS m
+        ON m.estudiante_idestudiante = e.idestudiante
+        JOIN detalle_matriculas AS dm
+        ON dm.matriculas_idmatricula = m.idmatricula
+        JOIN cursos AS c
+        ON c.idcurso = dm.cursos_idcurso
+        JOIN niveles AS n
+        ON n.idnivel = c.niveles_idniveles
+        ");
+
+        return view('reporte.estudiantes_matriculados', compact('estudiantes_matriculados'));
+
+
+    }
 
     public function index()
     {
