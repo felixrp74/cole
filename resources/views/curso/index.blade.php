@@ -26,7 +26,7 @@
         
         <input type="hidden" value="{{ $i = 1 }}">
     
-        @if ($cursoss->count())
+        @if ($cursoss)
             {{-- cuerpo tabla --}}
             <div class="card-body">
             

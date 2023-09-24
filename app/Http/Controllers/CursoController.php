@@ -12,12 +12,13 @@ class CursoController extends Controller
     //
     public function index()
     {   
-        $datos['cursoss']  = DB::table('cursos')
-            ->join('niveles', 'cursos.niveles_idniveles', '=', 'niveles.idniveles')
-            ->select('cursos.*','niveles.*')
-            ->get();           
+        $cursoss  = DB::select('SELECT *
+        FROM cursos as c
+        JOIN niveles as n
+        ON c.niveles_idniveles = n.idnivel        
+        ');           
             
-        return view('curso.index', $datos);
+        return view('curso.index', compact('cursoss') );
     }
 
     public function create()
@@ -62,16 +63,13 @@ class CursoController extends Controller
     }
 
     public function edit($id)
-    {   
-        //$curso = Curso::findorFail($id);
-        //$curso = DB::select('select * from cursos where idcurso = :id', ['id' => $id]);
+    {    
         $datos  = DB::table('cursos')
-            ->join('niveles', 'cursos.niveles_idniveles', '=', 'niveles.idniveles')
-            ->where('cursos.idcurso', $id)
-            ->select('cursos.*','niveles.*')
-            ->get()->first();
-        // dump($datos);
-        
+        ->join('niveles', 'cursos.niveles_idniveles', '=', 'niveles.idnivel')
+        ->where('cursos.idcurso', $id)
+        ->select('cursos.*','niveles.*')
+        ->get()->first();
+
         return view('curso.edit', compact('datos'));
         
     }
@@ -86,7 +84,7 @@ class CursoController extends Controller
         //dump($curso->niveles_idniveles);
 
 
-        Nivele::where('idniveles', $id)->update(['grado' => $datosCurso['Grado'], 
+        Nivele::where('idnivel', $id)->update(['grado' => $datosCurso['Grado'], 
         'seccion' => $datosCurso['Seccion']]);
 
         Curso::where('idcurso', $id)->update(['descripcion' => $datosCurso['Curso'], 
@@ -94,10 +92,10 @@ class CursoController extends Controller
 
         
         $datos  = DB::table('cursos')
-            ->join('niveles', 'cursos.niveles_idniveles', '=', 'niveles.idniveles')
-            ->where('cursos.idcurso', $id)
-            ->select('cursos.*','niveles.*')
-            ->get()->first();
+        ->join('niveles', 'cursos.niveles_idniveles', '=', 'niveles.idnivel')
+        ->where('cursos.idcurso', $id)
+        ->select('cursos.*','niveles.*')
+        ->get()->first();
         //dump($datos);
         
         return view('curso.edit', compact('datos'));
