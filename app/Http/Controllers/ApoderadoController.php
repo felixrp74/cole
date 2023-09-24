@@ -23,6 +23,29 @@ class ApoderadoController extends Controller
     
     public function store(Request $request)
     {     
+        
+        $request->validate( 
+            [
+                'dni' => ['required', 'size:8'],
+                'nombre_apoderado' => 'required',
+                'apellido_paterno_apoderado' => 'required',
+                'lugar_nacimiento_apoderado' => 'required',
+                'dni_apoderado' => 'required',
+                'apellido_materno_apoderado' => 'required',
+                'fecha_nacimiento_apoderado' => 'required' 
+            ],
+            [
+                'dni.required' => 'El campo no puede estar vacio',
+                'dni.numeric' => 'DNI debe ser numerico',
+                'dni.max' => 'DNI debe ser maximo 8 digitos',
+                'nombre_apoderado.required' => 'El campo no puede estar vacio',
+                'apellido_paterno_apoderado.required' => 'El campo no puede estar vacio',
+                'lugar_nacimiento_apoderado.required' => 'El campo no puede estar vacio',
+                'dni_apoderado.required' => 'El campo no puede estar vacio',
+                'apellido_materno_apoderado.required' => 'El campo no puede estar vacio',
+                'fecha_nacimiento_apoderado.required' => 'El campo no puede estar vacio', 
+            ]
+        );
 
         $datosEstudianteApoderado = request()->except('_token');
 

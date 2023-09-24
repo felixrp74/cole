@@ -82,8 +82,12 @@
                 <div class="form-group row">
                     <label for="nombre_apoderado" class="col-sm-4 col-form-label">Nombre</label>
                     <div class="col-sm-8">
-                        {{-- <input type="text" name="dni" class="form-control" value="{{ isset($apoderado->dni)?$apoderado->dni:'' }}" id="dni"> --}}
-                        <input type="text" name="nombre_apoderado" class="form-control" value="{{ isset($apoderado->nombre_apoderado)?$apoderado->nombre_apoderado:'' }}" id="nombre_apoderado">
+                        <input type="text" name="nombre_apoderado" class="form-control @error('nombre_apoderado') is-invalid @enderror" value="{{  old('nombre_apoderado')  }}" id="nombre_apoderado">
+                        @error('nombre_apoderado')
+                        <small>
+                            <strong>{{$message}}</strong>
+                        </small>
+                        @enderror
                     </div>
                 </div>
 
@@ -91,7 +95,12 @@
                 <div class="form-group row">
                     <label for="apellido_paterno_apoderado" class="col-sm-4 col-form-label">Apellido materno</label>
                     <div class="col-sm-8">
-                        <input type="text" name="apellido_paterno_apoderado" class="form-control" value="{{ isset($apoderado->apellido_paterno_apoderado)?$apoderado->apellido_paterno_apoderado:'' }}" id="apellido_paterno_apoderado">
+                        <input type="text" name="apellido_paterno_apoderado" class="form-control @error('apellido_paterno_apoderado') is-invalid @enderror" value="{{  old('apellido_paterno_apoderado')  }}" id="apellido_paterno_apoderado">
+                        @error('apellido_paterno_apoderado')
+                        <small>
+                            <strong>{{$message}}</strong>
+                        </small>
+                        @enderror
                     </div>
                 </div>
 
@@ -99,7 +108,12 @@
                 <div class="form-group row">
                     <label for="lugar_nacimiento_apoderado" class="col-sm-4 col-form-label">Lugar de nacimiento</label>
                     <div class="col-sm-8">
-                        <input type="text" name="lugar_nacimiento_apoderado" class="form-control" value="{{ isset($apoderado->lugar_nacimiento_apoderado)?$apoderado->lugar_nacimiento_apoderado:'' }}" id="lugar_nacimiento_apoderado">
+                        <input type="text" name="lugar_nacimiento_apoderado" class="form-control @error('lugar_nacimiento_apoderado') is-invalid @enderror" value="{{  old('lugar_nacimiento_apoderado')  }}" id="lugar_nacimiento_apoderado">
+                        @error('apellido_paterno_apoderado')
+                        <small>
+                            <strong>{{$message}}</strong>
+                        </small>
+                        @enderror
                     </div>
                 </div>
 
@@ -110,21 +124,36 @@
                 <div class="form-group row">
                     <label for="dni_apoderado" class="col-sm-4 col-form-label">DNI</label>
                     <div class="col-sm-8">
-                        <input type="text" name="dni_apoderado" class="form-control" value="{{ isset($apoderado->dni_apoderado)?$apoderado->dni_apoderado:'' }}" id="dni_apoderado">
+                        <input type="text" name="dni_apoderado" class="form-control @error('dni_apoderado') is-invalid @enderror" value="{{  old('dni_apoderado') }}" id="dni_apoderado" placeholder="Ej. 67346733">
+                        @error('dni')
+                        <small>
+                            <strong>{{$message}}</strong>
+                        </small>
+                        @enderror
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="apellido_materno_apoderado" class="col-sm-4 col-form-label">Apellido paterno</label>
                     <div class="col-sm-8">
-                        <input type="text" name="apellido_materno_apoderado" class="form-control" value="{{ isset($apoderado->apellido_materno_apoderado)?$apoderado->apellido_materno_apoderado:'' }}" id="apellido_materno_apoderado">
+                        <input type="text" name="apellido_materno_apoderado" class="form-control @error('apellido_materno_apoderado') is-invalid @enderror" id="apellido_materno_apoderado">
+                        @error('apellido_materno_apoderado')
+                        <small>
+                            <strong>{{$message}}</strong>
+                        </small>
+                        @enderror
                     </div>
                 </div>
                 
                 <div class="form-group row">
                     <label for="fecha_nacimiento_apoderado" class="col-sm-4 col-form-label">Fecha de nacimiento</label>
                     <div class="col-sm-8">
-                        <input type="date" name="fecha_nacimiento_apoderado" class="form-control" value="{{ isset($apoderado->fecha_nacimiento_apoderado)?$apoderado->fecha_nacimiento_apoderado:'' }}" id="fecha_nacimiento_apoderado">
+                        <input type="date" name="fecha_nacimiento_apoderado" class="form-control @error('fecha_nacimiento_apoderado') is-invalid @enderror" id="fecha_nacimiento_apoderado">
+                        @error('fecha_nacimiento_apoderado')
+                        <small>
+                            <strong>{{$message}}</strong>
+                        </small>
+                        @enderror
                     </div>
                 </div>
                 <br>

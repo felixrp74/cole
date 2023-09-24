@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 use Spatie\Permission\Models\Role;
+use Illuminate\Validation\Rules\Password;
 
 /**
  * Class EstudianteController
@@ -41,6 +42,35 @@ class EstudianteController extends Controller
 
     public function store(Request $request)
     {        
+        $request->validate( 
+            [
+                'dni' => ['required', 'size:8'],
+                'nombre' => 'required',
+                'apellido_paterno' => 'required',
+                'apellido_materno' => 'required',
+                'fecha_nacimiento' => 'required',
+                'lugar_nacimiento' => 'required',
+                'genero' => 'required',
+                'direccion_actual' => 'required', 
+                'celular' => 'required',
+                'email' => ['required',  'email', 'unique:users,email'],
+                'password' => ['required', Password::min(8)],
+            ],
+            [
+                'dni.required' => 'El campo no puede estar vacio',
+                'dni.numeric' => 'DNI debe ser numerico',
+                'dni.max' => 'DNI debe ser maximo 8 digitos',
+                'nombre.required' => 'El campo no puede estar vacio',
+                'apellido_paterno.required' => 'El campo no puede estar vacio',
+                'apellido_materno.required' => 'El campo no puede estar vacio',
+                'profesion.required' => 'El campo no puede estar vacio',
+                'celular.required' => 'El campo no puede estar vacio',
+                'email.required' => 'El campo no puede estar vacio',
+                'email.email' => 'El campo debe ser correo electrónico',
+                'password.required' => 'El campo no puede estar vacio'
+            ]
+        );
+
         $datosEstudianteApoderado = request()->except('_token');
         
         // dd($datosEstudianteApoderado);

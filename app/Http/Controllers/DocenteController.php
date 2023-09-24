@@ -47,24 +47,26 @@ class DocenteController extends Controller
     {
         $request->validate( 
             [
-                'dni' => ['required','numeric', 'min:8'],
+                'dni' => ['required', 'size:8'],
                 'nombre' => 'required',
                 'apellido_paterno' => 'required',
                 'apellido_materno' => 'required',
                 'profesion' => 'required',
                 'celular' => 'required',
-                'email' => 'required',
+                'email' => ['required',  'email', 'unique:users,email'],
                 'password' => ['required', Password::min(8)],
             ],
             [
                 'dni.required' => 'El campo no puede estar vacio',
                 'dni.numeric' => 'DNI debe ser numerico',
+                'dni.max' => 'DNI debe ser maximo 8 digitos',
                 'nombre.required' => 'El campo no puede estar vacio',
                 'apellido_paterno.required' => 'El campo no puede estar vacio',
                 'apellido_materno.required' => 'El campo no puede estar vacio',
                 'profesion.required' => 'El campo no puede estar vacio',
                 'celular.required' => 'El campo no puede estar vacio',
                 'email.required' => 'El campo no puede estar vacio',
+                'email.email' => 'El campo debe ser correo electrónico',
                 'password.required' => 'El campo no puede estar vacio'
             ]
         );
@@ -132,24 +134,36 @@ class DocenteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        /*
-        request()->validate(Docente::$rules);
+    { 
+        
+        $request->validate( 
+            [
+                'dni' => ['required', 'size:8'],
+                'nombre' => 'required',
+                'apellido_paterno' => 'required',
+                'apellido_materno' => 'required',
+                'profesion' => 'required',
+                'celular' => 'required',
+                'email' => ['required',  'email', 'unique:users,email'],
+                'password' => ['required', Password::min(8)],
+            ],
+            [
+                'dni.required' => 'El campo no puede estar vacio',
+                'dni.numeric' => 'DNI debe ser numerico',
+                'dni.max' => 'DNI debe ser maximo 8 digitos',
+                'nombre.required' => 'El campo no puede estar vacio',
+                'apellido_paterno.required' => 'El campo no puede estar vacio',
+                'apellido_materno.required' => 'El campo no puede estar vacio',
+                'profesion.required' => 'El campo no puede estar vacio',
+                'celular.required' => 'El campo no puede estar vacio',
+                'email.required' => 'El campo no puede estar vacio',
+                'email.email' => 'El campo debe ser correo electrónico',
+                'password.required' => 'El campo no puede estar vacio'
+            ]
+        );
 
-        $docente->update($request->all());
-
-        return redirect()->route('docentes.index')
-            ->with('success', 'Docente updated successfully');
-        */
-
-        // estamos recibiendo todos los datos a exception de ...
+        // recibiendo todos los datos a exception de ...
         $datosDocente = request()->except('_token', '_method');
-
-        /*if( $request->hasFile('Foto') ){
-            $empleado = Empleado::findOrFail($id);
-            Storage::delete('public/'.$empleado->Foto);
-            $datosDocente['Foto'] = $request->file('Foto')->store('uploads','public');
-        }*/
 
         Docente::where('iddocente','=',$id)->update($datosDocente);
 
