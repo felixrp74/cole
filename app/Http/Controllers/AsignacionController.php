@@ -15,6 +15,29 @@ use Illuminate\Support\Facades\DB;
 
 class AsignacionController extends Controller
 {
+    public function reporte_docente_estudiantes(){
+        $docente_estudiantes = DB::select("SELECT d.nombre AS nombre_docente, d.apellido_paterno AS apellido_paterno_docente,
+        c.descripcion, n.grado, n.seccion,
+        e.nombre, e.apellido_paterno
+        FROM docentes AS d
+        JOIN asignaciones AS a
+        ON a.docentes_iddocente = d.iddocente
+        JOIN detalle_asignaciones AS da
+        ON da.asignaciones_idasignacion = a.idasignacion
+        JOIN cursos AS c
+        ON c.idcurso = da.cursos_idcurso
+        JOIN niveles AS n
+        ON n.idnivel = c.niveles_idniveles
+        JOIN detalle_matriculas AS dm
+        ON dm.cursos_idcurso = c.idcurso
+        JOIN matriculas AS m
+        ON dm.matriculas_idmatricula = m.idmatricula
+        JOIN estudiantes AS e
+        ON m.estudiante_idestudiante = e.idestudiante        
+        ");
+
+        return view('reporte.docente_estudiantes', compact('docente_estudiantes'));
+    }
     public function reporte_docente_asignado(){
 
         // var_dump("inteligentasdfsdfe");

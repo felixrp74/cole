@@ -293,12 +293,17 @@ return [
         [
             'text' => 'Estudiantes matriculados',
             'route'  => 'reporte_estudiante_matriculado',
-            'icon' => 'fab fa-fw fa fa-user-plus',
+            'icon' => 'fab fa-fw fa fa-sticky-note',
         ],
         [
-            'text' => 'Docentes asignados sus cursos',
+            'text' => 'Docentes y sus cursos',
             'route'  => 'reporte_docente_asignado',
-            'icon' => 'fab fa-fw fa fa-user-plus',
+            'icon' => 'fab fa-fw fa fa-book',
+        ],
+        [
+            'text' => 'Docentes y sus estudiantes',
+            'route'  => 'reporte_docente_estudiantes',
+            'icon' => 'fab fa-fw fa fa-users',
         ],
        
 

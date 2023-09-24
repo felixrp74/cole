@@ -11,7 +11,7 @@
     .centro {
         text-align: center;
     }
-    
+
     footer {
         background-color: #333; /* Color de fondo del pie de página */
         color: #fff; /* Color del texto */
@@ -27,7 +27,7 @@
 
  
 
-    @if ($estudiantes_matriculados)
+    @if ($docente_estudiantes)
     <div id="imp1" class="d-flex justify-content-center">
         <div class="card"> 
             <div class="card-body">
@@ -37,7 +37,7 @@
     </div>
     @endif
 
-    @if ($estudiantes_matriculados)
+    @if ($docente_estudiantes)
 
     
     <div class="row">
@@ -58,19 +58,12 @@
 
     <h2 class="centro pl-5">INSTITUCION EDUCATIVA SECUNDARIA INDUSTRIAL 32</h2>
     <br>
-    <h1 class="centro pl-5">REPORTE ESTUDIANTES Y MATRICULADOS</h1>
-    <br>
-    {{-- <h2 class="centro pl-5">{{ $estudiantes_matriculados[0]->nombre}} {{ $estudiantes_matriculados[0]->apellido_paterno }} {{ $estudiantes_matriculados[0]->apellido_materno}}</h2>
-    <br>
-    <h3 class="centro pl-5"> Año académico {{ $estudiantes_matriculados[0]->anio_academico }} </h3>
-    <br> --}}
+    <h1 class="centro pl-5">REPORTE DOCENTES Y SUS ESTUDIANTES</h1>
+    <br> 
 
     <br>
     <br>
-    <div class="row">
-        {{-- <div class="col-sm-6 pl-5"><h3 style="text-align: start;"> N° Matricula / Dni: {{ $estudiantes_matriculados[0]->dni }}</h3></div> --}}
-        {{-- <div class="col-sm-6"><h3 style="text-align: end;"> Grado y Seccion: {{ $estudiantes_matriculados[0]->grado }}° - {{ $estudiantes_matriculados[0]->seccion }}</h3></div> --}}
-        
+    <div class="row"> 
         
     </div>
 
@@ -79,36 +72,32 @@
         <table class="table table-bordered" >
             <thead>
                 <tr>
-                    <td colspan="5">Estudiante</td>
-                    <td colspan="4">Perfil académico</td>
+                    <td colspan="5">Docente</td>
+                    <td colspan="2">Estudiantes</td>
                 </tr>
                 <tr>   
                     <td ># </td>
-                    <td >DNI </td>
                     <td >Nombre </td>
                     <td >Paterno </td>
-                    <td >Materno</td> 
-                    <td >Año académico </td>
-                    <td >Curso </td>
                     <td >Grado </td>
                     <td >Sección</td>
+                    <td >Nombre estudiante </td>
+                    <td >Paterno estudiante </td>
                 </tr>
             </thead>
             <tbody>
 
                 <input type="hidden" value="{{ $i = 1}}">
 
-                @foreach( $estudiantes_matriculados as $reporte )
+                @foreach( $docente_estudiantes as $reporte )
                 <tr>  
-                    <td >{{ $i++ }}</td>
-                    <td >{{ $reporte->dni }}</td> 
-                    <td >{{ $reporte->nombre }}</td> 
-                    <td >{{ $reporte->apellido_paterno }}</td> 
-                    <td >{{ $reporte->apellido_materno }}</td> 
-                    <td >{{ $reporte->anio_academico }}</td> 
-                    <td >{{ $reporte->descripcion }}</td> 
+                    <td >{{ $i++ }}</td> 
+                    <td >{{ $reporte->nombre_docente }}</td> 
+                    <td >{{ $reporte->apellido_paterno_docente }}</td> 
                     <td >{{ $reporte->grado }}</td> 
                     <td >{{ $reporte->seccion }}</td> 
+                    <td >{{ $reporte->nombre }}</td> 
+                    <td >{{ $reporte->apellido_paterno }}</td> 
                 </tr>
                 @endforeach
 
@@ -124,7 +113,6 @@
             <h4>No se tiene registro en la BASE DATOS...</h4>
         </div>
     @endif
-
 
 
     <input type="hidden" value="{{ $randomInteger = mt_rand(1, 1000) }}">
@@ -148,9 +136,6 @@
             </div>
         </div>
     </footer>
-
-
-
   
 @stop
 

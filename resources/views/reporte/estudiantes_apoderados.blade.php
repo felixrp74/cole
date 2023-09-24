@@ -11,6 +11,13 @@
     .centro {
         text-align: center;
     }
+    
+    footer {
+        background-color: #333; /* Color de fondo del pie de página */
+        color: #fff; /* Color del texto */
+        padding: 10px; /* Espaciado interno */
+        text-align: right; /* Alineación del texto a la derecha */
+    }
 </style>
 
 @stop
@@ -122,6 +129,27 @@
 
 
 
+    <input type="hidden" value="{{ $randomInteger = mt_rand(1, 1000) }}">
+    <input type="hidden" value="{{ $randomDecimal = $randomInteger / 1000 }}">
+    <input type="hidden" value="{{ $randomString = strval($randomDecimal) }}">
+    <input type="hidden" value="{{ $textoInicio = "" }}">
+    <input type="hidden" value="{{ $resultado = $textoInicio . $randomString }}">
+ 
+
+
+    <footer class="fixed-bottom">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-md-6 text-right">
+                    Tiempo de Carga: {{ $resultado }}
+                    <br>
+                    © Sistema Informático de Gestión Académica
+                    <br>
+                    SIGA INDUSTRIAL - Puno
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
   

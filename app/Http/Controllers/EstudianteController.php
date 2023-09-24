@@ -30,8 +30,12 @@ class EstudianteController extends Controller
         $estudiantes_apoderados = DB::select('SELECT e.dni, e.nombre, e.apellido_paterno, e.apellido_materno,
         a.dni_apoderado, a.nombre_apoderado, a.apellido_paterno_apoderado, a.celular_apoderado
         FROM estudiantes AS e
-        JOIN apoderados AS a
+        LEFT JOIN apoderados AS a
         ON a.estudiantes_idestudiante = e.idestudiante
+        WHERE e.dni IS NOT NULL 
+        GROUP BY e.dni, e.nombre, e.apellido_paterno, e.apellido_materno,
+        a.dni_apoderado, a.nombre_apoderado, a.apellido_paterno_apoderado, a.celular_apoderado
+        ORDER BY a.nombre_apoderado DESC
         ');
 
         // var_dump($estudiantes_apoderados);
@@ -42,6 +46,8 @@ class EstudianteController extends Controller
     public function index()
     {
         $datos['estudiantes'] = Estudiante::all();
+
+        var_dump($datos['estudiantes']->count());
         return view('estudiante.index', $datos);
     }
 
