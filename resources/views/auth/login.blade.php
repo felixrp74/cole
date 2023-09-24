@@ -1,17 +1,27 @@
 <x-guest-layout>
-    <div style="background-image: url('/images/fondo-login.jpg'); background-size: cover; background-position: center; min-height: 100vh; display: flex; justify-content: center; align-items: center;">
-        
-        <div style="background-color: white;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        width: 300px; /* Ancho de la tarjeta */">
-         
-         
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRANQHM3Jmrcy_4i47dgOn0Yoii5kKpGL3gplML9PTApg&s" alt="" srcset="">
+    <div style="background-image: url('/images/fondo-login.jpg'); 
+            background-size: 100% 100%;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;">
 
-            <!-- <x-jet-validation-errors class="mb-4" /> -->
+        <div style="background-color: white;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    padding: 20px;
+                    width: 300px;
+                    text-align: center;">
+
+            <div style="background-color: black; display: flex; justify-content: center; align-items: center; border-radius: 50%; width: 150px; height: 150px; margin: 0 auto;">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRANQHM3Jmrcy_4i47dgOn0Yoii5kKpGL3gplML9PTApg&s" alt="" style="max-width: 100%; max-height: 100%; border-radius: 50%;" />
+                
+            </div>
+
+            <x-jet-validation-errors class="mb-4" />
 
             @if (session('status'))
                 <div class="mb-4 font-medium text-sm text-green-600">
@@ -51,7 +61,7 @@
                     </x-jet-button>
                 </div>
             </form>
-                
+
         </div>
 
     </div>
