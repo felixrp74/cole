@@ -47,7 +47,7 @@ class EstudianteController extends Controller
     {
         $datos['estudiantes'] = Estudiante::all();
 
-        var_dump($datos['estudiantes']->count());
+        // var_dump($datos['estudiantes']->count());
         return view('estudiante.index', $datos);
     }
 
