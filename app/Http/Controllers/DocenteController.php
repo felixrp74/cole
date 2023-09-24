@@ -16,6 +16,7 @@ use Illuminate\Validation\Rules\Password;
  */
 class DocenteController extends Controller
 {
+   
     /**
      * Display a listing of the resource.
      *

@@ -295,6 +295,11 @@ return [
             'route'  => 'reporte_estudiante_matriculado',
             'icon' => 'fab fa-fw fa fa-user-plus',
         ],
+        [
+            'text' => 'Docentes asignados sus cursos',
+            'route'  => 'reporte_docente_asignado',
+            'icon' => 'fab fa-fw fa fa-user-plus',
+        ],
        
 
         ['header' => 'DOCENTE','can' => 'admin.docente.edit'],

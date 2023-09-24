@@ -37,3 +37,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('/reporte_estudiante_padre', [EstudianteController::class, 'reporte_estudiante_padre'])->name('reporte_estudiante_padre');
 Route::get('/reporte_estudiante_matriculado', [MatriculaController::class, 'reporte_estudiante_matriculado'])->name('reporte_estudiante_matriculado');
+Route::get('/reporte_docente_asignado', [AsignacionController::class, 'reporte_docente_asignado'])->name('reporte_docente_asignado');
