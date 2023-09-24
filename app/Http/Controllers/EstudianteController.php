@@ -26,6 +26,19 @@ use Illuminate\Validation\Rules\Password;
 
 class EstudianteController extends Controller
 {
+    public function reporte_estudiante_padre(){
+        $estudiantes_apoderados = DB::select('SELECT e.dni, e.nombre, e.apellido_paterno, e.apellido_materno,
+        a.dni_apoderado, a.nombre_apoderado, a.apellido_paterno_apoderado, a.celular_apoderado
+        FROM estudiantes AS e
+        JOIN apoderados AS a
+        ON a.estudiantes_idestudiante = e.idestudiante
+        ');
+
+        // var_dump($estudiantes_apoderados);
+
+        return view('reporte.estudiantes_apoderados', compact('estudiantes_apoderados'));
+
+    }
     public function index()
     {
         $datos['estudiantes'] = Estudiante::all();
