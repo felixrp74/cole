@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div style="background-image: url('/images/fondo-login.jpg'); 
+    <div style="background-image: url('/images/fondo-login-antiguo.jpg'); 
             background-size: 100% 100%;
             background-position: center;
             min-height: 100vh;
@@ -7,13 +7,15 @@
             justify-content: center;
             align-items: center;">
 
-        <div style="background-color: white;
+        <div id="login-tarjeta" style="background-color: white;
                     border: 1px solid #ccc;
                     border-radius: 5px;
                     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                     padding: 20px;
                     width: 300px;
-                    text-align: center;">
+                    text-align: center;
+                    margin-top: -150px;
+                    ">
 
             <div style="background-color: black; display: flex; justify-content: center; align-items: center; border-radius: 50%; width: 150px; height: 150px; margin: 0 auto;">
 
