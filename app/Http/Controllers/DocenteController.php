@@ -24,8 +24,8 @@ class DocenteController extends Controller
      */
     public function index()
     {
-        $datos['docentes'] = Docente::paginate(100);
-        return view('docente.index', $datos);
+        // $datos['docentes'] = Docente::paginate(100);
+        return view('docente.index');
     }
 
     /**

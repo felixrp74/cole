@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Livewire\Estudiante;
+namespace App\Http\Livewire\Docente;
 
-use App\Models\Estudiante;
-use Livewire\Component; 
+use App\Models\Docente;
+use Livewire\Component;
 use Livewire\WithPagination;
 
-class EstudianteIndex extends Component
-{
+class DocenteIndex extends Component
+{ 
     use WithPagination;
     protected $paginationTheme = "bootstrap";
     public $search = '';
@@ -17,17 +17,16 @@ class EstudianteIndex extends Component
     }
 
     public function render()
-    {   
-
-        $estudiantes = Estudiante::paginate(); 
+    {
+        $docentes = Docente::paginate(); 
  
-        $estudiantes = Estudiante::where('nombre', 'LIKE', '%'. $this->search .'%' ) 
+        $docentes = Docente::where('nombre', 'LIKE', '%'. $this->search .'%' ) 
         ->orWhere('apellido_paterno', 'LIKE', '%'. $this->search .'%' ) 
         ->orWhere('apellido_materno', 'LIKE', '%'. $this->search .'%' ) 
         ->orWhere('dni', 'LIKE', '%'. $this->search .'%' ) 
-                ->latest('created_at') 
-                ->paginate();
+        ->latest('created_at') 
+        ->paginate();
  
-        return view('livewire.estudiante.estudiante-index', compact('estudiantes'));
+        return view('livewire..docente.docente-index', compact('docentes'));
     }
 }

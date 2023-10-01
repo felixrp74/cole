@@ -45,10 +45,11 @@ class EstudianteController extends Controller
     }
     public function index()
     {
-        $datos['estudiantes'] = Estudiante::all();
+        // $datos['estudiantes'] = Estudiante::all(); 
+        // var_dump("in");
 
-        // var_dump($datos['estudiantes']->count());
-        return view('estudiante.index', $datos);
+        // return view('estudiante.index', $datos);
+        return view('estudiante.index');
     }
 
     public function create()

@@ -29,18 +29,18 @@ class MatriculaController extends Controller
         ");
 
         return view('reporte.estudiantes_matriculados', compact('estudiantes_matriculados'));
-
-
+ 
     }
 
     public function index()
     {
-        $datos['matriculass']  = DB::table('estudiantes')
-            ->join('matriculas', 'estudiantes.idestudiante', '=', 'matriculas.estudiante_idestudiante')
-            ->select('matriculas.idmatricula','estudiantes.*')
-            ->get();
+        // $datos['matriculass']  = DB::table('estudiantes')
+        // ->join('matriculas', 'estudiantes.idestudiante', '=', 'matriculas.estudiante_idestudiante')
+        // ->select('matriculas.idmatricula','estudiantes.*')
+        // ->get();
              
-        return view('matricula.index', $datos);
+        // return view('matricula.index', $datos);
+        return view('matricula.index');
 
     }
 

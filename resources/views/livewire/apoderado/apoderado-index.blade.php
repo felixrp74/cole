@@ -1,8 +1,8 @@
-    <div class="card">
+<div class="card">
     {{-- cabecera tabla --}}
     <div class="card-header">
-        <a class="btn btn-primary" href="{{url('/estudiante/create')}}">Registrar Estudiante</a>
-    </div> 
+        <a class="btn btn-primary" href="{{url('/apoderado/create')}}">Registrar apoderado</a>
+    </div>
     
     <div class="container">
         <input wire:model = "search" class="form-control" placeholder="buscar por nombre" type="text">
@@ -11,7 +11,7 @@
 
     <input type="hidden" value="{{ $i = 1 }}">
 
-    @if ($estudiantes->count())
+    @if ($apoderados->count())
         {{-- cuerpo tabla --}}
         <div class="card-body">
             <table class="table table-striped">
@@ -19,9 +19,7 @@
                     <tr>
                         <td>#</td>
                         <td>Dni</td>
-                        <td>Nombre</td>
-                        <td>Paterno</td>
-                        <td>Materno</td>
+                        <td>Nombre y apellidos</td> 
                         <td>Genero</td>
                         {{-- <td>Celular</td> --}}
                         {{-- <td>Email</td> --}}
@@ -29,22 +27,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach( $estudiantes as $estudiante )
+                    @foreach( $apoderados as $apoderado )
                     <tr>
                         <td>{{ $i++ }}</td>
-                        <td>{{ $estudiante->dni }}</td>
-                        <td>{{ $estudiante->nombre }}</td>
-                        <td>{{ $estudiante->apellido_paterno }}</td>
-                        <td>{{ $estudiante->apellido_materno }}</td>
-                        <td>{{ $estudiante->genero }}</td>
-                        {{-- <td>{{ $estudiante->celular }}</td> --}}
-                        {{-- <td>{{ $estudiante->email }}</td> --}}
+                        <td>{{ $apoderado->dni_apoderado }}</td>
+                        <td>{{ $apoderado->nombre_apoderado }} {{ $apoderado->apellido_paterno_apoderado }} {{ $apoderado->apellido_materno_apoderado }}</td>
+                        <td>{{ $apoderado->genero_apoderado }}</td>
+                        {{-- <td>{{ $apoderado->celular }}</td> --}}
+                        {{-- <td>{{ $apoderado->email }}</td> --}}
                         <td>
-                            <a class="btn btn-info" href="{{ url('/estudiante/'.$estudiante->idestudiante.'/edit') }}">Editar</a>
-                            {{-- <a class="btn btn-info" href="{{ route('estudiante.edit', compact('estudiante')) }}">Editar</a> --}}
+                            <a class="btn btn-info" href="{{ url('/apoderado/'.$apoderado->idapoderado.'/edit') }}">Editar</a>
+                            {{-- <a class="btn btn-info" href="{{ route('apoderado.edit', compact('apoderado')) }}">Editar</a> --}}
                         </td>
                         <td>
-                            <form action="{{ url('/estudiante/'.$estudiante->idestudiante) }}" method="POST">
+                            <form action="{{ url('/apoderado/'.$apoderado->idapoderado) }}" method="POST">
                                 @csrf
                                 {{ method_field('DELETE') }}
                                 <input class="btn btn-danger" type="submit" onclick="return confirm('quieres borrar?')" value="Borrar">
@@ -52,9 +48,9 @@
             
                         </td>
                         <td>
-                            @isset ($estudiante->file)
-                                {{-- <iframe id="pdf" src="{{Storage::url($estudiante->file->url)}}" frameborder="0"></iframe> --}}
-                                <a class="btn btn-info" href="{{Storage::url($estudiante->file->url)}}" target="_blank">Ver archivo</a>
+                            @isset ($apoderado->file)
+                                {{-- <iframe id="pdf" src="{{Storage::url($apoderado->file->url)}}" frameborder="0"></iframe> --}}
+                                <a class="btn btn-info" href="{{Storage::url($apoderado->file->url)}}" target="_blank">Ver archivo</a>
                             {{-- @else --}}
                                 {{-- <iframe id="pdf" src="/storage/files/archivo.pdf" frameborder="0"></iframe>                 --}}
                             @endisset
@@ -75,4 +71,5 @@
         </div>
     @endif
 </div>
+
 
