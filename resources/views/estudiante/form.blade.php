@@ -34,7 +34,7 @@
     <div class="form-group row">
         <label for="fecha_nacimiento" class="col-sm-2 col-form-label">Fecha de nacimiento</label>
         <div class="col-sm-10">
-            <input type="text" name="fecha_nacimiento" class="form-control" value="{{ isset($estudiante->fecha_nacimiento)?$estudiante->fecha_nacimiento:'' }}" id="fecha_nacimiento">
+            <input type="date" name="fecha_nacimiento" class="form-control" value="{{ isset($estudiante->fecha_nacimiento)?$estudiante->fecha_nacimiento:'' }}" id="fecha_nacimiento">
         </div>
     </div>
 

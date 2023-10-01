@@ -20,7 +20,7 @@
             <div class="form-group row">
                 <label for="nombre" class="col-sm-4 col-form-label">Nombre</label>
                 <div class="col-sm-8">
-                    <input type="text" name="nombre" class="form-control @error('nombre') is-invalid @enderror" value="{{  old('dni')  }}" id="nombre">
+                    <input type="text" name="nombre" class="form-control @error('nombre') is-invalid @enderror" value="{{  old('nombre')  }}" id="nombre">
                     @error('nombre')
                     <small>
                         <strong>{{$message}}</strong>
@@ -32,7 +32,7 @@
             <div class="form-group row">
                 <label for="apellido_paterno" class="col-sm-4 col-form-label">Apellido paterno</label>
                 <div class="col-sm-8">
-                    <input type="text" name="apellido_paterno" class="form-control @error('apellido_paterno') is-invalid @enderror" value="{{  old('dni')  }}" id="apellido_paterno">
+                    <input type="text" name="apellido_paterno" class="form-control @error('apellido_paterno') is-invalid @enderror" value="{{  old('apellido_paterno')  }}" id="apellido_paterno">
                     @error('apellido_paterno')
                     <small>
                         <strong>{{$message}}</strong>
@@ -44,7 +44,7 @@
             <div class="form-group row">
                 <label for="apellido_materno" class="col-sm-4 col-form-label">Apellido materno</label>
                 <div class="col-sm-8">
-                    <input type="text" name="apellido_materno" class="form-control @error('apellido_materno') is-invalid @enderror" value="{{  old('dni')  }}" id="apellido_materno">
+                    <input type="text" name="apellido_materno" class="form-control @error('apellido_materno') is-invalid @enderror" value="{{  old('apellido_materno')  }}" id="apellido_materno">
                     @error('apellido_materno')
                     <small>
                         <strong>{{$message}}</strong>
@@ -56,7 +56,7 @@
             <div class="form-group row">
                 <label for="fecha_nacimiento" class="col-sm-4 col-form-label">Fecha de nacimiento</label>
                 <div class="col-sm-8">
-                    <input type="date" name="fecha_nacimiento" class="form-control @error('fecha_nacimiento') is-invalid @enderror" value="{{  old('dni')  }}" id="fecha_nacimiento">
+                    <input type="date" name="fecha_nacimiento" class="form-control @error('fecha_nacimiento') is-invalid @enderror" value="{{  old('fecha_nacimiento')  }}" id="fecha_nacimiento">
                     @error('fecha_nacimiento')
                     <small>
                         <strong>{{$message}}</strong>
@@ -68,7 +68,7 @@
             <div class="form-group row">
                 <label for="lugar_nacimiento" class="col-sm-4 col-form-label">Lugar de nacimiento</label>
                 <div class="col-sm-8">
-                    <input type="text" name="lugar_nacimiento" class="form-control @error('lugar_nacimiento') is-invalid @enderror" value="{{  old('dni')  }}" id="lugar_nacimiento">
+                    <input type="text" name="lugar_nacimiento" class="form-control @error('lugar_nacimiento') is-invalid @enderror" value="{{  old('lugar_nacimiento')  }}" id="lugar_nacimiento">
                     @error('lugar_nacimiento')
                     <small>
                         <strong>{{$message}}</strong>
@@ -84,7 +84,7 @@
             <div class="form-group row">
                 <label for="genero" class="col-sm-4 col-form-label">Genero</label>
                 <div class="col-sm-8">
-                    <select type="text" name="genero" class="form-control" value="{{  old('dni')   }}" id="genero">
+                    <select type="text" name="genero" class="form-control" value="{{  old('genero')   }}" id="genero">
                         <option value="M">Masculino</option>
                         <option value="F">Femenino</option>
                     </select>
@@ -94,7 +94,7 @@
             <div class="form-group row">
                 <label for="direccion_actual" class="col-sm-4 col-form-label">Direccion</label>
                 <div class="col-sm-8">
-                    <input type="text" name="direccion_actual" class="form-control @error('direccion_actual') is-invalid @enderror" value="{{  old('dni')  }}" id="direccion_actual">
+                    <input type="text" name="direccion_actual" class="form-control @error('direccion_actual') is-invalid @enderror" value="{{  old('direccion_actual')  }}" id="direccion_actual">
                     @error('direccion_actual')
                     <small>
                         <strong>{{$message}}</strong>
@@ -106,7 +106,7 @@
             <div class="form-group row">
                 <label for="celular" class="col-sm-4 col-form-label">Celular</label>
                 <div class="col-sm-8">
-                    <input type="text" name="celular" class="form-control @error('celular') is-invalid @enderror" value="{{  old('dni') }}" id="celular">
+                    <input type="text" name="celular" class="form-control @error('celular') is-invalid @enderror" value="{{  old('celular') }}" id="celular">
                     @error('celular')
                     <small>
                         <strong>{{$message}}</strong>
@@ -118,7 +118,7 @@
             <div class="form-group row">
                 <label for="email" class="col-sm-4 col-form-label">Email</label>
                 <div class="col-sm-8">
-                    <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" value="{{  old('dni') }}" id="email">
+                    <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" id="email">
                     @error('email')
                     <small>
                         <strong>{{$message}}</strong>
@@ -130,7 +130,7 @@
             <div class="form-group row">
                 <label for="password" class="col-sm-4 col-form-label">Password</label>
                 <div class="col-sm-8">
-                    <input type="text" name="password" class="form-control @error('password') is-invalid @enderror" value="{{  old('dni')  }}" id="password">
+                    <input type="text" name="password" class="form-control @error('password') is-invalid @enderror" value="{{  old('password')  }}" id="password">
                     @error('password')
                     <small>
                         <strong>{{$message}}</strong>

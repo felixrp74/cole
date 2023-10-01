@@ -71,7 +71,7 @@ class DocenteController extends Controller
                 'password.required' => 'El campo no puede estar vacio'
             ]
         );
-            /*  
+            
         $datosDocente = request()->except('_token');
         // dd($datosDocente);
 
@@ -92,13 +92,10 @@ class DocenteController extends Controller
          
         $user->assignRole('DocenteUsuario');
  
-        $user->save();
-
-        
+        $user->save(); 
 
         return redirect('/docente')->with('mensaje', 'Docente agregado con exito');
 
-        */
     }
 
     /**

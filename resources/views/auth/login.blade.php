@@ -10,14 +10,14 @@
         <div id="login-tarjeta" style="background-color: white;
                     border: 1px solid #ccc;
                     border-radius: 5px;
-                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    box-shadow: 0 2px 4px rgb(255, 255, 255);
                     padding: 20px;
                     width: 300px;
                     text-align: center;
                     margin-top: -150px;
                     ">
 
-            <div style="background-color: black; display: flex; justify-content: center; align-items: center; border-radius: 50%; width: 150px; height: 150px; margin: 0 auto;">
+            <div style="background-color: rgb(255, 255, 255); display: flex; justify-content: center; align-items: center; border-radius: 50%; width: 150px; height: 150px; margin: 0 auto;">
 
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRANQHM3Jmrcy_4i47dgOn0Yoii5kKpGL3gplML9PTApg&s" alt="" style="max-width: 100%; max-height: 100%; border-radius: 50%;" />
                 
