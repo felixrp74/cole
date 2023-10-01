@@ -11,6 +11,8 @@ class EstudianteIndex extends Component
     {
         $estudiantes = DB::table('estudiantes')
             ->select('estudiantes.*')
+            ->where('name', 'LIKE', '%'. $this->search .'%' ) 
+            ->paginate()
             ->get();
 
         return view('livewire.estudiante.estudiante-index', compact('estudiantes'));

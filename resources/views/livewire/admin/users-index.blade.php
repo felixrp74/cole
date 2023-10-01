@@ -9,7 +9,7 @@
 
 
     <div class="card">
-        {{-- cabecera tabla --}}
+        {{-- cabecera tabla --}} 
         <div class="card-header">
             <a class="btn btn-primary" href="{{route('admin.users.create')}}">Agregar Usuario</a>
         </div>

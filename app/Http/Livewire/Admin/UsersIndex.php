@@ -25,7 +25,7 @@ class UsersIndex extends Component
         $users = User::paginate(); 
 
         // filtrar publicaciones por tipo de usuario exclusivamente para (admin)
-        $users = User::where('tipo_usuario', '=', 'admin') 
+        $users = User::where('name', 'LIKE', '%'. $this->search .'%' ) 
                 ->latest('created_at') 
                 ->paginate();
  

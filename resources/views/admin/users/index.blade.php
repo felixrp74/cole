@@ -4,6 +4,8 @@
 
 @section('content_header')
     <h1>LISTA USUARIO</h1>
+
+    @livewireStyles
 @stop
 
 @section('content')
@@ -15,6 +17,8 @@
     @endif
     
     @livewire('admin.users-index')
+
+    @livewireScripts
     
 @stop
 
