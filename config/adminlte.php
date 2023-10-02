@@ -313,7 +313,16 @@ return [
             'route'  => 'docente.create',
             'icon' => 'fab fa-fw fa fa-user-plus',
             'can' => 'admin.docente.edit'
-        ],  
+        ],   
+        [
+            'text' => 'Registro de docentes',
+            'route'  => 'docente.index',
+            'icon' => 'fab fa-fw fa fa-users',
+            'can' => 'admin.docente.index',
+        ], 
+
+
+        ['header' => 'ASIGNACIONES','can' => 'admin.asignacion.edit'], 
         [
             'text' => 'Asignar docentes',
             'route'  => 'asignacion.create',
@@ -321,10 +330,10 @@ return [
             'can' => 'admin.asignacion.create',
         ],
         [
-            'text' => 'Registro de docentes',
-            'route'  => 'docente.index',
+            'text' => 'Registro de asignaciones',
+            'route'  => 'asignacion.index',
             'icon' => 'fab fa-fw fa fa-users',
-            'can' => 'admin.docente.index',
+            'can' => 'admin.asignacion.index',
         ], 
 
 

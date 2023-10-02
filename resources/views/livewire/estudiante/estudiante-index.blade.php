@@ -6,7 +6,6 @@
     
     <div class="container">
         <input wire:model = "search" class="form-control" placeholder="buscar por nombre" type="text">
-
     </div>
 
     <input type="hidden" value="{{ $i = 1 }}">
