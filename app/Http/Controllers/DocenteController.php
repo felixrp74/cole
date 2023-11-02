@@ -71,10 +71,16 @@ class DocenteController extends Controller
                 'password.required' => 'El campo no puede estar vacio'
             ]
         );
-            
-        $datosDocente = request()->except('_token');
-        $docente = Docente::create(request()->all());
-        Docente::insert($datosDocente);
+
+        // $datosDocente = request()->except('_token');
+        $datosDocente = request()->except('_token', '_method');
+        $docente = Docente::create($datosDocente);
+        // $docente = Docente::insert($datosDocente);
+
+        // var_dump($datosDocente["nombre"]);
+        // var_dump($datosDocente["email"]);
+        // var_dump($docente->iddocente);
+        // var_dump($datosDocente["dni"]);
 
         //agregar usuario tipo estudiante
         $user = new User();
@@ -133,7 +139,7 @@ class DocenteController extends Controller
                 'apellido_materno' => 'required',
                 'profesion' => 'required',
                 'celular' => 'required',
-                'email' => ['required',  'email', 'unique:users,email'],
+                // 'email' => ['required',  'email', 'unique:users,email'],
                 'password' => ['required', Password::min(8)],
             ],
             [
@@ -156,7 +162,14 @@ class DocenteController extends Controller
 
         Docente::where('iddocente','=',$id)->update($datosDocente);
 
+        $user = User::where('identificador_docente', '=',$id)->first();
+        $user->name = $datosDocente["nombre"];
+        $user->email = $datosDocente["email"];
+        $user->password = Hash::make( $datosDocente["password"] );
+        $user->update(); 
+        
         $docente = Docente::findOrFail($id);
+
         return view('docente.edit', compact('docente'));
     }
 

@@ -27,8 +27,15 @@ class Docente extends Model
 	public $timestamps = false;
 
 	protected $fillable = [
+		'dni',
 		'nombre',
-		'profesion'
+		'profesion',
+		'apellido_paterno',
+		'apellido_materno',
+		'celular',
+		'email',
+		'password',
+		'profile_photo_path'
 	];
 
 	public function asignaciones()
