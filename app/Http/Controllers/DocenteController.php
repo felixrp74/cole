@@ -73,25 +73,16 @@ class DocenteController extends Controller
         );
             
         $datosDocente = request()->except('_token');
-        // dd($datosDocente);
-
         $docente = Docente::create(request()->all());
         Docente::insert($datosDocente);
-
 
         //agregar usuario tipo estudiante
         $user = new User();
         $user->name = $datosDocente["nombre"];
         $user->email = $datosDocente["email"];
         $user->password = Hash::make( $datosDocente["password"] );
-        $user->identificador_docente = $docente->iddocente;
-       
-        $rolesDocente = array( "2" => "3" ); // 3 docente
-
-        // dump($rolesDocente);
-         
-        $user->assignRole('DocenteUsuario');
- 
+        $user->identificador_docente = $docente->iddocente;        
+        $user->assignRole('DocenteUsuario'); 
         $user->save(); 
 
         return redirect('/docente')->with('mensaje', 'Docente agregado con exito');

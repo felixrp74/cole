@@ -33,15 +33,9 @@ class ColocacionNotasController extends Controller
 
     function update(Request $request, $id)
     {
-
-
-
         $datosColocacion = request()->except('_token', '_method');
         
         $tamano = sizeof($datosColocacion)/9 ; // 9 elementos que se envian
-
-        // dump($tamano);
-        // dump($datosColocacion);
 
         for ($i=1; $i <= $tamano  ; $i++) { 
             # code...
@@ -61,9 +55,7 @@ class ColocacionNotasController extends Controller
                 ]);
         }
         
-         
         return $this->index();
-
         
     }
 }

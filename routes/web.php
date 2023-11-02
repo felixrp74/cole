@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\DocenteController;
-use App\Http\Controllers\GradoController;
 use App\Http\Controllers\MatriculaController;
 use App\Http\Controllers\ReporteEstudianteController;
 use App\Http\Controllers\AsignacionController;

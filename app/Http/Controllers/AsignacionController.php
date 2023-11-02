@@ -79,28 +79,20 @@ class AsignacionController extends Controller
 
     public function store(Request $request)
     {     
-
-        //  DATA QUE VIENE DESDE 'asignacion.index' 
+        //  DATOS DESDE 'asignacion.index' 
         $datosForm = request()->except('_token');
-        // dump($datosForm);
 
         // HECHO. Consular la tabla 'niveles' where grado = 1 y seccion = C para extraer el valor de 'idniveles' "3".
         $nivel = Nivele::where('grado', $datosForm['grado'])
             ->where('seccion', $datosForm['seccion'])->first();
-        // dump($nivel->idnivel);
 
         $cursos = Curso::where('niveles_idniveles', '=', $nivel->idnivel)->where('descripcion', '=', $datosForm['Curso'])->first();
-        // dump($datosForm['Curso']);
-        
         
         DB::table('asignaciones')->insert(
             ['docentes_iddocente' => $datosForm['IdDocente']]
         );
-        
                 
         $asignacion = Asignacione::where('docentes_iddocente', $datosForm['IdDocente'])->first();
-        // dump($asignacion->idasignacion);
-        // dump($asignacion->docentes_iddocente);
 
         DB::table('detalle_asignaciones')->insert(
             [

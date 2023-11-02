@@ -4,26 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Estudiante;
-use App\Models\Apoderado;
-use App\Models\User;
-// use App\Http\Controllers\Role;
-
-use Prophecy\Doubler\Generator\Node\ReturnTypeNode;
+use App\Models\Estudiante; 
+use App\Models\User; 
 
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage; 
 use Illuminate\Support\Facades\Hash;
 
 use Spatie\Permission\Models\Role;
 use Illuminate\Validation\Rules\Password;
 
-/**
- * Class EstudianteController
- * @package App\Http\Controllers
- */
-
+  
 class EstudianteController extends Controller
 {
     public function reporte_estudiante_padre(){
@@ -36,28 +27,20 @@ class EstudianteController extends Controller
         GROUP BY e.dni, e.nombre, e.apellido_paterno, e.apellido_materno,
         a.dni_apoderado, a.nombre_apoderado, a.apellido_paterno_apoderado, a.celular_apoderado
         ORDER BY a.nombre_apoderado DESC
-        ');
-
-        // var_dump($estudiantes_apoderados);
+        '); 
 
         return view('reporte.estudiantes_apoderados', compact('estudiantes_apoderados'));
 
     }
     public function index()
-    {
-        // $datos['estudiantes'] = Estudiante::all(); 
-        // var_dump("in");
-
-        // return view('estudiante.index', $datos);
+    { 
         return view('estudiante.index');
     }
 
     public function create()
     {
-        $roles = Role::all();        
-        // dd($roles);
-        return view('estudiante.create', compact('roles'));
-        // return view('estudiante.create'); 
+        $roles = Role::all();         
+        return view('estudiante.create', compact('roles')); 
     }
 
     public function store(Request $request)
@@ -92,24 +75,6 @@ class EstudianteController extends Controller
         );
 
         $datosEstudianteApoderado = request()->except('_token');
-        
-        // dd($datosEstudianteApoderado);
-
-        $datosEstudiante = array(
-            "dni" => $datosEstudianteApoderado["dni"],
-            "nombre" => $datosEstudianteApoderado["nombre"],
-            "apellido_paterno" => $datosEstudianteApoderado["apellido_paterno"],
-            "apellido_materno" => $datosEstudianteApoderado["apellido_materno"],
-            "fecha_nacimiento" => $datosEstudianteApoderado["fecha_nacimiento"],
-            "lugar_nacimiento" => $datosEstudianteApoderado["lugar_nacimiento"],
-            "genero" => $datosEstudianteApoderado["genero"],
-            "direccion_actual" => $datosEstudianteApoderado["direccion_actual"],
-            "celular" => $datosEstudianteApoderado["celular"],
-            "email" => $datosEstudianteApoderado["email"],
-            "password" => $datosEstudianteApoderado["password"]
-        );
-        
- 
         $estudiante = Estudiante::create(request()->all());
         
         if($request->file('documento')){
@@ -126,19 +91,11 @@ class EstudianteController extends Controller
         $user->name = $datosEstudianteApoderado["nombre"];
         $user->email = $datosEstudianteApoderado["email"];
         $user->password = Hash::make( $datosEstudianteApoderado["password"] );
-        $user->identificador_estudiante = $estudiante->idestudiante;
-
-        
-        // $user->escuela = "colegio32";
-        
-        $rolesEstudiante = array( "0" => "2" ); // 2 estudiante
-         
-        $user->assignRole('EstudianteUsuario');
- 
+        $user->identificador_estudiante = $estudiante->idestudiante; 
+        $user->assignRole('EstudianteUsuario'); 
         $user->save();
 
         return $this->index();
-
     }
  
     public function show($id)
