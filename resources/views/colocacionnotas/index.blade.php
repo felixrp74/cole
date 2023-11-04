@@ -6,42 +6,20 @@
     <h1>COLOCACION DE NOTAS</h1>
 @stop
 
-@section('content')
-
-    @if (session('info'))
-        <div class="alert alert-success">
-            <strong>{{session('info')}}</strong>
-        </div>
-    @endif
-    
- 
-    @if (!empty($colocacionnotass))
-        <div class="alert alert-success">
-            <strong>{{session('info')}}</strong>
-            <!-- <input type="text" value="{{  $idasignacion = (empty($colocacionnotass)) ? $colocacionnotass[0]->idasignacion : 1 }}">  -->
-        </div>
-    @endif
-
-        <!-- (condicion) ? : -->
-            
-        {{-- <div class="container">
-            <input wire:model = "search" class="form-control" placeholder="buscar por nombre" type="text">
-
-        </div> --}}
-            
+@section('content') 
 
         <input type="hidden" value="{{ $i = 1 }}">
 
         
         {{-- cuerpo tabla --}}
             
-        <form action="{{ url('/colocacionnotas/'.$idasignacion) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('/colocacionnotas/'.$colocacionnotass[0]->idasignacion) }}" method="POST" enctype="multipart/form-data">
             @csrf
             {{ method_field('PATCH') }}
             
             <div class="card">
                 {{-- cabecera tabla --}}
-                @if ($colocacionnotass->count())
+                @if ($colocacionnotass)
                 <div class="card-header"> 
 
                     <table class="table table-striped"> 
