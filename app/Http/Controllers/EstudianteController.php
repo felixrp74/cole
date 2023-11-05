@@ -149,7 +149,6 @@ class EstudianteController extends Controller
 
         // dump($users);
         if (isset($users[0])) {
-            // Access the element at index 0
             $user = $users[0];
             if ($request->password != null) {
                 # code...
@@ -158,16 +157,19 @@ class EstudianteController extends Controller
             
             $user->name = $request->nombre .''. $request->apellido_paterno;
             $user->email = $request->email;
-            // $user->roles()->sync($request->roles); // linea modo prueba
             
             $user->update(); 
-        } else {
-            // Handle the case when the index doesn't exist
-            // or take appropriate action
-        }
-        
-        
 
+        } else {
+            $estudiantil = $estudiantil[0];
+            $user = new User();
+            $user->name = $estudiantil->nombre;
+            $user->email = $estudiantil->email;
+            $user->password = Hash::make( $estudiantil->password );
+            $user->identificador_docente = $idestudiante;        
+            $user->assignRole('EstudianteUsuario'); 
+            $user->save(); 
+        } 
  
         return view('estudiante.edit', compact('estudiante'));
     }

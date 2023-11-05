@@ -182,12 +182,7 @@ class DocenteController extends Controller
             $user->assignRole('DocenteUsuario'); 
             $user->save(); 
 
-        }
-
-
-        // dd($id);
-        // dd($user);
-       
+        } 
         
         $docente = Docente::findOrFail($id);
 

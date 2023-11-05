@@ -135,6 +135,8 @@ class ApoderadoController extends Controller
             }
         }
 
+        
+
         // return $this->index();
         return view('apoderado.edit', compact('apoderado'));
     }
