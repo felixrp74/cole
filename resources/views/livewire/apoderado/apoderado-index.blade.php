@@ -62,7 +62,7 @@
         </div>
 
         <div class="card-footer">
-            
+            {{$apoderados->links()}}
         </div> 
         
     @else

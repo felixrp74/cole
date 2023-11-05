@@ -12,6 +12,9 @@ class ColocacionNotasController extends Controller
     {
         $id = auth()->user()->identificador_docente;
 
+        if(is_null($id))
+            $id = 99999;
+
         $data = DB::select("SELECT 
                 asignaciones.idasignacion,
                 docentes.nombre AS nombreDocente,

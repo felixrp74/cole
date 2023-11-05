@@ -289,21 +289,25 @@ return [
             'text' => 'Estudiantes y apoderados',
             'route'  => 'reporte_estudiante_padre',
             'icon' => 'fas fa-fw fa-user',
+            'can' => 'admin.matricula.index' 
         ],
         [
             'text' => 'Estudiantes matriculados',
             'route'  => 'reporte_estudiante_matriculado',
             'icon' => 'fab fa-fw fa fa-sticky-note',
+            'can' => 'admin.matricula.index' 
         ],
         [
             'text' => 'Docentes y sus cursos',
             'route'  => 'reporte_docente_asignado',
             'icon' => 'fab fa-fw fa fa-book',
+            'can' => 'admin.matricula.index' 
         ],
         [
             'text' => 'Docentes y sus estudiantes',
             'route'  => 'reporte_docente_estudiantes',
             'icon' => 'fab fa-fw fa fa-users',
+            'can' => 'admin.matricula.index' 
         ],
        
 

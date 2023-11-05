@@ -50,7 +50,7 @@
         </div>
 
         <div class="card-footer">
-            
+            {{$docentes->links()}}
         </div> 
         
     @else

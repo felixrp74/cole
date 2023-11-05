@@ -57,7 +57,6 @@
                         <option value="C">C</option>
                         <option value="D">D</option>
                         <option value="E">E</option>
-                        <option value="F">F</option>
                     </select>
                 </div> 
             </div>

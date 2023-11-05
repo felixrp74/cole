@@ -25,6 +25,22 @@
         <input type="text" name="apellido_materno" readonly class="form-control" value="{{ isset($reporteasignacion[0]->apellido_materno)?$reporteasignacion[0]->apellido_materno:'' }}" id="apellido_materno">
     </div>
 </div>
+
+<div class="form-group row">
+    <label for="grado" class="col-sm-2 col-form-label">Grado</label>
+    <div class="col-sm-10">
+        <select name="grado" class="form-control" id="grado">
+            @if(isset($reporteasignacion[0]->grado))
+                <option value="{{$reporteasignacion[0]->grado}}">{{$reporteasignacion[0]->grado}}</option>
+            @endif
+            <option value="1">PRIMERO</option>
+            <option value="2">SEGUNDO</option>
+            <option value="3">TERCERO</option>
+            <option value="4">CUARTO</option>
+            <option value="5">QUINTO</option>
+        </select>
+    </div>
+</div>
  
 <div class="form-group row">
     <label for="seccion" class="col-sm-2 col-form-label">Seccion</label>
@@ -39,19 +55,6 @@
             <option value="C">C</option>
             <option value="D">D</option>
             <option value="E">E</option>
-        </select>
-    </div>
-</div>
-
-<div class="form-group row">
-    <label for="grado" class="col-sm-2 col-form-label">Grado</label>
-    <div class="col-sm-10">
-        <select name="grado" class="form-control" id="grado">
-            <option value="1">PRIMERO</option>
-            <option value="2">SEGUNDO</option>
-            <option value="3">TERCERO</option>
-            <option value="4">CUARTO</option>
-            <option value="5">QUINTO</option>
         </select>
     </div>
 </div>

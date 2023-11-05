@@ -18,7 +18,7 @@
     <div class="card-header">
 
         <div class="form-group row">
-            <label for="Enviar" class="col-sm-2 col-form-label">Enviar</label>
+            <label for="Enviar" class="col-sm-2 col-form-label">Regresar</label>
             <div class="col-sm-10"> 
                 <a class="btn btn-danger" href="{{ url('/asignacion') }}">Regresar</a>
             </div>

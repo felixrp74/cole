@@ -26,9 +26,24 @@
  
 
 <div class="form-group row">
+    <label for="grado" class="col-sm-2 col-form-label">Grado</label>
+    <div class="col-sm-10">
+        <select name="grado" class="form-control" id="grado">
+            <option value="{{ isset($reportematricula[0]->grado)?$reportematricula[0]->grado:'' }}" > {{ isset($reportematricula[0]->grado)?$reportematricula[0]->grado:'' }}</option>
+            <option value="1">PRIMERO</option>
+            <option value="2">SEGUNDO</option>
+            <option value="3">TERCERO</option>
+            <option value="4">CUARTO</option>
+            <option value="5">QUINTO</option>
+        </select>
+    </div>
+</div>
+
+<div class="form-group row">
     <label for="seccion" class="col-sm-2 col-form-label">Seccion</label>
     <div class="col-sm-10">
         <select name="seccion" class="form-control" id="seccion">
+            <option value="{{ isset($reportematricula[0]->seccion)?$reportematricula[0]->seccion:'' }}" > {{ isset($reportematricula[0]->seccion)?$reportematricula[0]->seccion:'' }}</option>
             <option value="A">A</option>
             <option value="B">B</option>
             <option value="C">C</option>
@@ -38,18 +53,6 @@
     </div>
 </div>
 
-<div class="form-group row">
-    <label for="grado" class="col-sm-2 col-form-label">Grado</label>
-    <div class="col-sm-10">
-        <select name="grado" class="form-control" id="grado">
-            <option value="1">PRIMERO</option>
-            <option value="2">SEGUNDO</option>
-            <option value="3">TERCERO</option>
-            <option value="4">CUARTO</option>
-            <option value="5">QUINTO</option>
-        </select>
-    </div>
-</div>
 
 <div class="form-group row">
     <label for="anio_academico" class="col-sm-2 col-form-label">Año académico</label>

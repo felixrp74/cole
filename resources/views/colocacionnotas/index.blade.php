@@ -12,14 +12,14 @@
 
         
         {{-- cuerpo tabla --}}
-            
+        @if ($colocacionnotass)
         <form action="{{ url('/colocacionnotas/'.$colocacionnotass[0]->idasignacion) }}" method="POST" enctype="multipart/form-data">
             @csrf
             {{ method_field('PATCH') }}
             
             <div class="card">
                 {{-- cabecera tabla --}}
-                @if ($colocacionnotass)
+               
                 <div class="card-header"> 
 
                     <table class="table table-striped"> 

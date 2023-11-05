@@ -1,4 +1,3 @@
-
 <div class="card">
     {{-- cabecera tabla --}}
     <div class="card-header">
@@ -40,6 +39,7 @@
                                 {{ method_field('DELETE') }}
                                 <input class="btn btn-danger" type="submit" onclick="return confirm('quieres borrar?')" value="Borrar">
                             </form>
+                            
 
                         </td>
                         <td>
