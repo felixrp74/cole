@@ -27,7 +27,7 @@
                 <tbody>
                     @foreach( $docentes as $docente )
                     <tr>
-                        <td>{{ $docente->iddocente }}</td>
+                        <td>{{ $i++ }}</td>
                         <td>{{ $docente->dni }}</td>
                         <td>{{ $docente->nombre }} {{ $docente->apellido_paterno }} {{ $docente->apellido_materno }}</td>
                         <td>{{ $docente->profesion }}</td>
@@ -52,7 +52,7 @@
         <div class="card-footer">
             {{$docentes->links()}}
         </div> 
-        
+
     @else
         <div class="card-body">
             <h4>No se tiene registro en la BASE DATOS...</h4>

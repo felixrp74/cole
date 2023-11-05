@@ -367,8 +367,7 @@ return [
             'route'  => 'apoderado.index',
             'icon' => 'fab fa-fw fa fa-users',
             'can' => 'admin.apoderado.index',
-        ],     
-        
+        ],
         
         ['header' => 'MATRICULAR', 'can' => 'admin.docente.edit'],
         [
@@ -426,11 +425,13 @@ return [
             'text' => 'Administrador',
             'route'  => 'admin.users.index',
             'icon' => 'fas fa-fw fa-user',
+            'can' => 'admin.matricula.index' 
         ],
         [
             'text' => 'Registrar Administrador',
             'route'  => 'admin.users.create',
             'icon' => 'fab fa-fw fa fa-user-plus',
+            'can' => 'admin.matricula.index' 
         ],
     ],
  

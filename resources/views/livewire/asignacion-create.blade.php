@@ -78,8 +78,8 @@
                         <label for="anio_academico" class="col-sm-4 col-form-label">Año académico</label>
                         <div class="col-sm-8">
                             <select name="anio_academico" class="form-control" id="anio_academico">
-                                <option value="2022">2022</option>
                                 <option value="2023">2023</option>
+                                <option value="2022">2022</option>
                                 <option value="2024">2024</option>
                             </select>
                         </div>
