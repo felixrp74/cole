@@ -71,16 +71,10 @@ class DocenteController extends Controller
                 'password.required' => 'El campo no puede estar vacio'
             ]
         );
-
-        // $datosDocente = request()->except('_token');
+        // dd("gemi");
+ 
         $datosDocente = request()->except('_token', '_method');
-        $docente = Docente::create($datosDocente);
-        // $docente = Docente::insert($datosDocente);
-
-        // var_dump($datosDocente["nombre"]);
-        // var_dump($datosDocente["email"]);
-        // var_dump($docente->iddocente);
-        // var_dump($datosDocente["dni"]);
+        $docente = Docente::create($datosDocente); 
 
         //agregar usuario tipo estudiante
         $user = new User();
@@ -88,6 +82,7 @@ class DocenteController extends Controller
         $user->email = $datosDocente["email"];
         $user->password = Hash::make( $datosDocente["password"] );
         $user->identificador_docente = $docente->iddocente;        
+        $user->tipo_usuario = "docente";
         $user->assignRole('DocenteUsuario'); 
         $user->save(); 
 

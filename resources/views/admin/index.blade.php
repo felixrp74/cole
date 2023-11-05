@@ -20,7 +20,7 @@
 
                     </h1>
                     <h2 class="m-0 text-center">
-                        "SIGA INDUSTRIAL"
+                        "SIGA INDUSTRIAL as"
 
                     </h2>
                 </div>
@@ -49,8 +49,11 @@
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="{{ route('estudiante.index') }}" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
-                        
+                        @if( (auth()->user()->tipo_usuario) == "admin" )
+                            
+                            <a href="{{ route('estudiante.index') }}" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+                       
+                        @endif
                     </div>
                 </div>
 
@@ -64,7 +67,11 @@
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
                         </div>
-                        <a href="{{ route('docente.index') }}" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+                        @if( (auth()->user()->tipo_usuario) == "admin" )
+                            
+                            <a href="{{ route('docente.index') }}" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+                       
+                        @endif
                     </div>
                 </div>
 
@@ -78,7 +85,11 @@
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>
                         </div>
-                        <a href="{{ route('apoderado.index') }}" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+                        @if( (auth()->user()->tipo_usuario) == "admin" )
+                            
+                            <a href="{{ route('apoderado.index') }}" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+                       
+                        @endif
                     </div>
                 </div>
 
@@ -92,7 +103,11 @@
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="{{ route('curso.index') }}" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+                        @if( (auth()->user()->tipo_usuario) == "admin" )
+                            
+                            <a href="{{ route('curso.index') }}" class="small-box-footer">Más info <i class="fas fa-arrow-circle-right"></i></a>
+                       
+                        @endif
                     </div>
                 </div>
 

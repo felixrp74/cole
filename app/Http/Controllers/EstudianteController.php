@@ -92,6 +92,7 @@ class EstudianteController extends Controller
         $user->email = $datosEstudianteApoderado["email"];
         $user->password = Hash::make( $datosEstudianteApoderado["password"] );
         $user->identificador_estudiante = $estudiante->idestudiante; 
+        $user->tipo_usuario = "estudiante";
         $user->assignRole('EstudianteUsuario'); 
         $user->save();
 
@@ -161,7 +162,7 @@ class EstudianteController extends Controller
             $user->update(); 
 
         } else {
-            $estudiantil = $estudiantil[0];
+            $estudiantil = $users[0];
             $user = new User();
             $user->name = $estudiantil->nombre;
             $user->email = $estudiantil->email;
