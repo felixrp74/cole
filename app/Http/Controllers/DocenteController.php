@@ -162,11 +162,32 @@ class DocenteController extends Controller
 
         Docente::where('iddocente','=',$id)->update($datosDocente);
 
+        // dd($datosDocente["nombre"]);
+
         $user = User::where('identificador_docente', '=',$id)->first();
-        $user->name = $datosDocente["nombre"];
-        $user->email = $datosDocente["email"];
-        $user->password = Hash::make( $datosDocente["password"] );
-        $user->update(); 
+
+        if($user) {
+            $user->name = $datosDocente["nombre"];
+            $user->email = $datosDocente["email"];
+            $user->password = Hash::make( $datosDocente["password"] );
+            $user->update(); 
+
+        }else{
+            //agregar usuario tipo estudiante
+            $user = new User();
+            $user->name = $datosDocente["nombre"];
+            $user->email = $datosDocente["email"];
+            $user->password = Hash::make( $datosDocente["password"] );
+            $user->identificador_docente = $id;        
+            $user->assignRole('DocenteUsuario'); 
+            $user->save(); 
+
+        }
+
+
+        // dd($id);
+        // dd($user);
+       
         
         $docente = Docente::findOrFail($id);
 
