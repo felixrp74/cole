@@ -10,7 +10,7 @@
 
     .centro {
         text-align: center;
-    }
+    }    
     
     footer {
         background-color: #333; /* Color de fondo del pie de página */
@@ -27,7 +27,7 @@
 
  
 
-    @if ($estudiantes_apoderados)
+    @if ($docentes)
     <div id="imp1" class="d-flex justify-content-center">
         <div class="card"> 
             <div class="card-body">
@@ -37,7 +37,7 @@
     </div>
     @endif
 
-    @if ($estudiantes_apoderados)
+    @if ($docentes)
 
     
     <div class="row">
@@ -58,19 +58,12 @@
 
     <h2 class="centro pl-5">INSTITUCION EDUCATIVA SECUNDARIA INDUSTRIAL 32</h2>
     <br>
-    <h1 class="centro pl-5">REPORTE ESTUDIANTES Y APODERADOS</h1>
-    <br>
-    {{-- <h2 class="centro pl-5">{{ $estudiantes_apoderados[0]->nombre}} {{ $estudiantes_apoderados[0]->apellido_paterno }} {{ $estudiantes_apoderados[0]->apellido_materno}}</h2>
-    <br>
-    <h3 class="centro pl-5"> Año académico {{ $estudiantes_apoderados[0]->anio_academico }} </h3>
-    <br> --}}
+    <h1 class="centro pl-5">REPORTE DOCENTES</h1>
+    <br> 
 
     <br>
     <br>
-    <div class="row">
-        {{-- <div class="col-sm-6 pl-5"><h3 style="text-align: start;"> N° Matricula / Dni: {{ $estudiantes_apoderados[0]->dni }}</h3></div> --}}
-        {{-- <div class="col-sm-6"><h3 style="text-align: end;"> Grado y Seccion: {{ $estudiantes_apoderados[0]->grado }}° - {{ $estudiantes_apoderados[0]->seccion }}</h3></div> --}}
-        
+    <div class="row"> 
         
     </div>
 
@@ -79,37 +72,29 @@
         <table class="table table-bordered" >
             <thead>
                 <tr>
-                    <td colspan="5">Estudiante</td>
-                    <td colspan="4">Apoderado</td>
+                    <td colspan="6">Relación de docentes</td>
                 </tr>
                 <tr>   
                     <td ># </td>
                     <td >DNI </td>
                     <td >Nombre </td>
                     <td >Paterno </td>
-                    <td >Materno</td>
-                    
-                    <td >DNI </td>
-                    <td >Nombre </td>
-                    <td >Paterno </td>
-                    <td >Materno</td>
+                    <td >Materno </td>
+                    <td >Email </td>
                 </tr>
             </thead>
             <tbody>
 
                 <input type="hidden" value="{{ $i = 1}}">
 
-                @foreach( $estudiantes_apoderados as $reporte )
+                @foreach( $docentes as $reporte )
                 <tr>  
-                    <td >{{ $i++ }}</td>
+                    <td >{{ $i++ }}</td> 
                     <td >{{ $reporte->dni }}</td> 
                     <td >{{ $reporte->nombre }}</td> 
                     <td >{{ $reporte->apellido_paterno }}</td> 
                     <td >{{ $reporte->apellido_materno }}</td> 
-                    <td >{{ $reporte->dni_apoderado }}</td> 
-                    <td >{{ $reporte->nombre_apoderado }}</td> 
-                    <td >{{ $reporte->apellido_paterno_apoderado }}</td> 
-                    <td >{{ $reporte->celular_apoderado }}</td> 
+                    <td >{{ $reporte->email }}</td> 
                 </tr>
                 @endforeach
 
@@ -128,14 +113,12 @@
 
 
 
-
     <input type="hidden" value="{{ $randomInteger = mt_rand(1, 1000) }}">
     <input type="hidden" value="{{ $randomDecimal = $randomInteger / 1000 }}">
     <input type="hidden" value="{{ $randomString = strval($randomDecimal) }}">
     <input type="hidden" value="{{ $textoInicio = "" }}">
     <input type="hidden" value="{{ $resultado = $textoInicio . $randomString }}">
  
-
 
     <div class="container">
         <div class="row justify-content-end">
@@ -148,6 +131,7 @@
             </div>
         </div>
     </div> 
+
 
 
   

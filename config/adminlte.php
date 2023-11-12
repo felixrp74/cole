@@ -309,6 +309,24 @@ return [
             'icon' => 'fab fa-fw fa fa-users',
             'can' => 'admin.matricula.index' 
         ],
+        [
+            'text' => 'Docentes imprimir',
+            'route'  => 'imprimir_docentes',
+            'icon' => 'fab fa-fw fa fa-book',
+            'can' => 'admin.matricula.index' 
+        ],
+        [
+            'text' => 'Estudiantes imprimir',
+            'route'  => 'imprimir_estudiantes',
+            'icon' => 'fab fa-fw fa fa-book',
+            'can' => 'admin.matricula.index' 
+        ],
+        [
+            'text' => 'Apoderados imprimir',
+            'route'  => 'imprimir_apoderados',
+            'icon' => 'fab fa-fw fa fa-book',
+            'can' => 'admin.matricula.index' 
+        ],
        
 
         ['header' => 'DOCENTE','can' => 'admin.docente.edit'],

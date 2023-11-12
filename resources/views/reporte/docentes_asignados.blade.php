@@ -122,21 +122,17 @@
     <input type="hidden" value="{{ $textoInicio = "" }}">
     <input type="hidden" value="{{ $resultado = $textoInicio . $randomString }}">
  
-
-
-    <footer class="fixed-bottom">
-        <div class="container">
-            <div class="row justify-content-end">
-                <div class="col-md-6 text-right">
-                    Tiempo de Carga: {{ $resultado }}
-                    <br>
-                    © Sistema Informático de Gestión Académica
-                    <br>
-                    SIGA INDUSTRIAL - Puno
-                </div>
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-md-6 text-right">
+                Tiempo de Carga: {{ $resultado }}
+                <br>
+                © Sistema Informático de Gestión Académica
+                <br>
+                SIGA INDUSTRIAL - Puno
             </div>
         </div>
-    </footer>
+    </div> 
 
 
 

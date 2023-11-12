@@ -17,6 +17,20 @@ use Illuminate\Validation\Rules\Password;
   
 class EstudianteController extends Controller
 {
+    
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function imprimir_estudiantes()
+    {
+        $estudiantes = Estudiante::all();
+
+        return view('reporte.estudiantes_imprimir', compact('estudiantes'));
+        // return view('docente.index');
+    }
+
     public function reporte_estudiante_padre(){
         $estudiantes_apoderados = DB::select('SELECT e.dni, e.nombre, e.apellido_paterno, e.apellido_materno,
         a.dni_apoderado, a.nombre_apoderado, a.apellido_paterno_apoderado, a.celular_apoderado

@@ -9,6 +9,21 @@ use App\Models\Apoderado;
 
 class ApoderadoController extends Controller
 {
+      
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function imprimir_apoderados()
+    {
+        $apoderados = Apoderado::all();
+ 
+
+        return view('reporte.apoderados_imprimir', compact('apoderados'));
+        // return view('docente.index');
+    }
+
     //
     public function index()
     {

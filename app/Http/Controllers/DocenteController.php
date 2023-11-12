@@ -16,7 +16,20 @@ use Illuminate\Validation\Rules\Password;
  */
 class DocenteController extends Controller
 {
-   
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function imprimir_docentes()
+    {
+        $docentes = Docente::all();
+
+        return view('reporte.docentes_imprimir', compact('docentes'));
+        // return view('docente.index');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -46,7 +59,7 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate( 
+        $request->validate(
             [
                 'dni' => ['required', 'size:8'],
                 'nombre' => 'required',
@@ -54,7 +67,7 @@ class DocenteController extends Controller
                 'apellido_materno' => 'required',
                 'profesion' => 'required',
                 'celular' => 'required',
-                'email' => ['required',  'email', 'unique:users,email'],
+                'email' => ['required', 'email', 'unique:users,email'],
                 'password' => ['required', Password::min(8)],
             ],
             [
@@ -72,19 +85,19 @@ class DocenteController extends Controller
             ]
         );
         // dd("gemi");
- 
+
         $datosDocente = request()->except('_token', '_method');
-        $docente = Docente::create($datosDocente); 
+        $docente = Docente::create($datosDocente);
 
         //agregar usuario tipo estudiante
         $user = new User();
         $user->name = $datosDocente["nombre"];
         $user->email = $datosDocente["email"];
-        $user->password = Hash::make( $datosDocente["password"] );
-        $user->identificador_docente = $docente->iddocente;        
+        $user->password = Hash::make($datosDocente["password"]);
+        $user->identificador_docente = $docente->iddocente;
         $user->tipo_usuario = "docente";
-        $user->assignRole('DocenteUsuario'); 
-        $user->save(); 
+        $user->assignRole('DocenteUsuario');
+        $user->save();
 
         return redirect('/docente')->with('mensaje', 'Docente agregado con exito');
 
@@ -124,9 +137,9 @@ class DocenteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    { 
-        
-        $request->validate( 
+    {
+
+        $request->validate(
             [
                 'dni' => ['required', 'size:8'],
                 'nombre' => 'required',
@@ -155,30 +168,30 @@ class DocenteController extends Controller
         // recibiendo todos los datos a exception de ...
         $datosDocente = request()->except('_token', '_method');
 
-        Docente::where('iddocente','=',$id)->update($datosDocente);
+        Docente::where('iddocente', '=', $id)->update($datosDocente);
 
         // dd($datosDocente["nombre"]);
 
-        $user = User::where('identificador_docente', '=',$id)->first();
+        $user = User::where('identificador_docente', '=', $id)->first();
 
-        if($user) {
+        if ($user) {
             $user->name = $datosDocente["nombre"];
             $user->email = $datosDocente["email"];
-            $user->password = Hash::make( $datosDocente["password"] );
-            $user->update(); 
+            $user->password = Hash::make($datosDocente["password"]);
+            $user->update();
 
-        }else{
+        } else {
             //agregar usuario tipo estudiante
             $user = new User();
             $user->name = $datosDocente["nombre"];
             $user->email = $datosDocente["email"];
-            $user->password = Hash::make( $datosDocente["password"] );
-            $user->identificador_docente = $id;        
-            $user->assignRole('DocenteUsuario'); 
-            $user->save(); 
+            $user->password = Hash::make($datosDocente["password"]);
+            $user->identificador_docente = $id;
+            $user->assignRole('DocenteUsuario');
+            $user->save();
 
-        } 
-        
+        }
+
         $docente = Docente::findOrFail($id);
 
         return view('docente.edit', compact('docente'));

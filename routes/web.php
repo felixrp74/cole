@@ -38,3 +38,7 @@ Route::get('/reporte_estudiante_padre', [EstudianteController::class, 'reporte_e
 Route::get('/reporte_estudiante_matriculado', [MatriculaController::class, 'reporte_estudiante_matriculado'])->name('reporte_estudiante_matriculado');
 Route::get('/reporte_docente_asignado', [AsignacionController::class, 'reporte_docente_asignado'])->name('reporte_docente_asignado');
 Route::get('/reporte_docente_estudiantes', [AsignacionController::class, 'reporte_docente_estudiantes'])->name('reporte_docente_estudiantes');
+
+Route::get('/imprimir_docentes', [DocenteController::class, 'imprimir_docentes'])->name('imprimir_docentes');
+Route::get('/imprimir_estudiantes', [EstudianteController::class, 'imprimir_estudiantes'])->name('imprimir_estudiantes');
+Route::get('/imprimir_apoderados', [ApoderadoController::class, 'imprimir_apoderados'])->name('imprimir_apoderados');
