@@ -93,6 +93,7 @@
                     <td >Nombre </td>
                     <td >Paterno </td>
                     <td >Materno</td>
+                    <td >Celular</td>
                 </tr>
             </thead>
             <tbody>
@@ -106,9 +107,11 @@
                     <td >{{ $reporte->nombre }}</td> 
                     <td >{{ $reporte->apellido_paterno }}</td> 
                     <td >{{ $reporte->apellido_materno }}</td> 
+
                     <td >{{ $reporte->dni_apoderado }}</td> 
                     <td >{{ $reporte->nombre_apoderado }}</td> 
                     <td >{{ $reporte->apellido_paterno_apoderado }}</td> 
+                    <td >{{ $reporte->apellido_materno_apoderado }}</td> 
                     <td >{{ $reporte->celular_apoderado }}</td> 
                 </tr>
                 @endforeach

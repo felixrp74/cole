@@ -33,13 +33,11 @@ class EstudianteController extends Controller
 
     public function reporte_estudiante_padre(){
         $estudiantes_apoderados = DB::select('SELECT e.dni, e.nombre, e.apellido_paterno, e.apellido_materno,
-        a.dni_apoderado, a.nombre_apoderado, a.apellido_paterno_apoderado, a.celular_apoderado
+        a.dni_apoderado, a.nombre_apoderado, a.apellido_paterno_apoderado, a.apellido_materno_apoderado, a.celular_apoderado
         FROM estudiantes AS e
         LEFT JOIN apoderados AS a
         ON a.estudiantes_idestudiante = e.idestudiante
-        WHERE e.dni IS NOT NULL 
-        GROUP BY e.dni, e.nombre, e.apellido_paterno, e.apellido_materno,
-        a.dni_apoderado, a.nombre_apoderado, a.apellido_paterno_apoderado, a.celular_apoderado
+        
         ORDER BY a.nombre_apoderado DESC
         '); 
 
