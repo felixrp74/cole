@@ -16,6 +16,8 @@ class ApoderadoCreate extends Component
     {
         $estudiante = Estudiante::where('dni', '=', $this->search)
                 ->get()->first();
+
+                // var_dump($estudiante);
  
         return view('livewire.apoderado-create', compact('estudiante')); 
     }

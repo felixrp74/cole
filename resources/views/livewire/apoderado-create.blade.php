@@ -25,9 +25,12 @@
             </div> 
     
             <div class="col-sm-6">
-                
-             
-    
+                <div class="form-group row">
+                    {{-- <label for="idestudiante" class="col-sm-10 col-form-label">Nombre estudiante</label> --}}
+                    <div class="col-sm-10">
+                        <input type="text" name="idestudiante" class="form-control" value="{{ isset($estudiante->idestudiante)?$estudiante->idestudiante:'' }}" id="idestudiante">
+                    </div>
+                </div>
                 <div class="form-group row">
                     <label for="nombre_estudiante" class="col-sm-10 col-form-label">Nombre estudiante</label>
                     <div class="col-sm-10">
